@@ -26,7 +26,7 @@ export default function CategoryBanner({ updateSubCategories }) {
       {isLoading ? (
         <LoadingProducts />
       ) : (
-        <div className="grid grid-cols-3 sm:grid-cols-4 items-center gap-2 md:grid-cols-8 lg:grid-col-8 space-x-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 items-center gap-2 md:grid-cols-8 lg:grid-col-8 ">
           {categories.map((item) => {
             const Icon = item.icon;
             const isActive = item.id === activeCategoryId;
@@ -36,8 +36,8 @@ export default function CategoryBanner({ updateSubCategories }) {
                 key={item.id}
                 className={`${
                   isActive
-                    ? "bg-secondary rounded-2xl shadow-md px-3 py-2 flex  gap-4 items-center text-center   text-sm flex-row  md:flex-col sm:text-base "
-                    : " rounded-2xl shadow-md px-3 py-2 flex  gap-4 items-center text-center   text-sm flex-row  md:flex-col sm:text-base"
+                    ? "bg-secondary rounded-2xl shadow-md px-3 py-2 flex  gap-2 items-center text-center   text-sm flex-col sm:text-base "
+                    : " rounded-2xl shadow-md px-3 py-2 flex  gap-2 items-center text-center   text-sm flex-col sm:text-base"
                 }`}
               >
                 <div className="p-2 bg-primary rounded-full">
