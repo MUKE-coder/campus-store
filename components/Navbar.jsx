@@ -1,14 +1,18 @@
 "use client";
+import logo from "../public/logo.png";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BiMenu, BiSolidShoppingBags } from "react-icons/bi";
 import { BsSmartwatch, BsPhone } from "react-icons/bs";
 import { FaTshirt } from "react-icons/fa";
 import { FaComputer } from "react-icons/fa6";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineShoppingCart } from "react-icons/ai";
 import { PiTelevisionFill } from "react-icons/pi";
 import { MdOutlineWatch } from "react-icons/md";
 import { IoBedOutline } from "react-icons/io5";
+import Image from "next/image";
+import FormSearch from "./FormSearch";
+import { FiPhoneCall } from "react-icons/fi";
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const leftNavLinks = [
@@ -83,44 +87,30 @@ export default function Navbar() {
 
   return (
     <div className="">
-      <header className="bg-slate-950 text-slate-50 md:px-24 px-8 ">
-        <div className="container mx-auto flex items-center justify-between h-14">
-          <nav className="hidden sm:flex space-x-6">
-            {leftNavLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.id}
-                  href="/"
-                  className="flex space-x-2 items-center flex-col"
-                >
-                  <Icon />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            })}
-          </nav>
+      <header className="bg-primary text-slate-50 md:px-24 px-2 ">
+        <div className="container mx-auto flex items-center justify-between py-2 ">
           <Link
-            className="text-2xl text-lime-400  sm:text-3xl font-logo"
+            className="text-2xl text-yellow-600  sm:text-3xl font-logo"
             href="/"
           >
-            Campus Store
+            <Image src={logo} priority height={60} />
           </Link>
-          <nav className="hidden sm:flex space-x-6">
-            {rightNavLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.id}
-                  href="/"
-                  className="flex space-x-2 items-center flex-col"
-                >
-                  <Icon />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            })}
-          </nav>
+
+          <FormSearch />
+          <Link className="flex relative space-x-2 items-center" href="/">
+            {/* Cart */}
+
+            <button
+              type="button"
+              class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white  rounded-lg  focus:outline-none "
+            >
+              <AiOutlineShoppingCart className="text-xl sm:text-2xl" />
+
+              <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-orange-500  rounded-full -top-1 -right-1 ">
+                10
+              </div>
+            </button>
+          </Link>
           <button onClick={() => setShowMenu(true)} className="sm:hidden">
             <BiMenu className="text-3xl" />
           </button>
@@ -130,8 +120,8 @@ export default function Navbar() {
       <div
         className={`${
           showMenu
-            ? "sm:hidden flex-col fixed top-6 w-full bg-slate-900 left-0 text-slate-50 right-0 bottom-0"
-            : "hidden sm:hidden flex-col fixed top-6 w-full bg-slate-900 left-0 text-slate-50 right-0 bottom-0"
+            ? "sm:hidden flex-col fixed top-0 w-1/2 bg-slate-900  text-slate-50 right-0 bottom-0 z-50"
+            : "z-50 hidden sm:hidden flex-col fixed top-0 w-1/2 bg-slate-900  text-slate-50 right-0 bottom-0"
         }`}
       >
         <div className="flex items-center justify-between container mx-auto px-8 py-4 border-b border-gray-500">
@@ -144,6 +134,10 @@ export default function Navbar() {
           <button onClick={() => setShowMenu(false)} className="sm:hidden">
             <AiOutlineClose className="text-3xl" />
           </button>
+        </div>
+        <div className="text-slate-50 flex py-4 px-6 rounded-md  items-center space-x-4">
+          <FiPhoneCall className="text-xl" />
+          <span className="text-base">+256 752 815998</span>
         </div>
       </div>
     </div>

@@ -7,6 +7,31 @@
 .font-logo {
   font-family: "Abril Fatface", serif;
   // font-family: 'DM Sans', sans-serif;
-  // font-family: 'Inter', sans-serif;
+
   // font-family: 'Merriweather', serif;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.slider-control-bottomcenter {
+  ul {
+    .paging-item {
+      margin-right: 10px;
+    }
+  }
+}
+
+.slider-block {
+  display: block;
+  width: 800px;
+  height: 384px;
+  // position: relative;
+  background-color: red;
+  // img {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
 }

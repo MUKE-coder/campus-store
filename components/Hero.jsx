@@ -1,5 +1,8 @@
 import React from "react";
-
+import HeroSlider from "./HeroSlider";
+import Image from "next/image";
+// import HeroSidebar from "./HeroSidebar";
+import Link from "next/link";
 export default function Hero() {
   const sidebarLinks = [
     {
@@ -36,10 +39,44 @@ export default function Hero() {
     },
   ];
   return (
-    <div className="grid grid-cols-12">
-      <div className="col-span-12 sm:col-span-3 bg-green-600 h-14"></div>
-      <div className="col-span-12 sm:col-span-6 bg-orange-500 h-14"></div>
-      <div className="hidden sm:col-span-3 sm:flex bg-green-600 h-14"></div>
+    <div className=" my-4 ">
+      <div className="grid grid-cols-12 container gap-4 mx-auto ">
+        <div className="col-span-12 sm:col-span-6 bg-slate-100 rounded-md shadow-md overflow-hidden">
+          <HeroSlider />
+        </div>
+        <div className="hidden sm:col-span-6 bg-slate-100 rounded-md shadow-md grid-cols-12 sm:grid p-4 gap-4 ">
+          <Link
+            href="/"
+            className="rounded-xl col-span-4 h-36 overflow-hidden sm:hidden md:block"
+          >
+            <img
+              src="/advert.gif"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </Link>
+          <Link
+            href="/"
+            className="rounded-xl col-span-8 h-36 overflow-hidden sm:hidden md:block"
+          >
+            <img
+              src="/advert.gif"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </Link>
+          <Link
+            href="/"
+            className="rounded-xl col-span-12 h-36 overflow-hidden"
+          >
+            <img
+              src="/advert.gif"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
