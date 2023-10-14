@@ -19,7 +19,7 @@ export default function CategoryBanner({ updateSubCategories }) {
   // handleCategoryFilter(1);
   // console.log(subCats);
   return (
-    <div className="container mx-auto py-8 overflow-hidden bg-slate-100 shadow-md rounded-md px-4 md:px-8 my-8">
+    <div className="container mx-auto py-8 overflow-hidden bg-slate-100 shadow-md rounded-md px-4 md:px-8 my-4 md:my-8">
       <h2 className="text-center font-bold mb-6 text-orange-700 text-base md:text-3xl">
         Shop By Category
       </h2>
@@ -36,12 +36,12 @@ export default function CategoryBanner({ updateSubCategories }) {
                 key={item.id}
                 className={`${
                   isActive
-                    ? "bg-secondary rounded-2xl shadow-md p-1 flex space-y-2 items-center text-center text-sm flex-col sm:text-base"
-                    : " rounded-2xl shadow-md p-1 flex space-y-2 items-center text-center text-sm flex-col sm:text-base"
+                    ? "bg-secondary rounded-2xl shadow-md px-3 py-2 flex  gap-4 items-center text-center   text-sm flex-row  md:flex-col sm:text-base "
+                    : " rounded-2xl shadow-md px-3 py-2 flex  gap-4 items-center text-center   text-sm flex-row  md:flex-col sm:text-base"
                 }`}
               >
                 <div className="p-2 bg-primary rounded-full">
-                  <Icon className="shrink-0 text-slate-100 h-8 w-8" />
+                  <Icon className="shrink-0 text-slate-100 md:h-8 md:w-8 w-3 h-3" />
                 </div>
                 <span className="line-clamp-1">{item.name}</span>
               </button>
