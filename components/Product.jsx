@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Product({ product }) {
@@ -6,12 +7,14 @@ export default function Product({ product }) {
       <small className="absolute left-2 top-2 font-semibold bg-yellow-100 py-1 px-2 rounded-md text-xs">
         {product.subCatName}
       </small>
-      <div className="flex items-center justify-center">
-        <img src={product.image} alt="" className="w-full" />
-      </div>
+      <Link href="#" className="flex items-center justify-center">
+        <img src={product.image} alt="" className="w-full " />
+      </Link>
       <div className="py-3 px-4">
         <small className="text-orange-600">Free delivery</small>
-        <p className="text-sm line-clamp-2">{product.title}</p>
+        <Link href="#" className="text-md text-xl line-clamp-2">
+          {product.title}
+        </Link>
         <p className="my-1 font-bold">UGX {product.currentPrice}</p>
         <div className="flex justify-between gap-4 items-center">
           <s className="text-sm">UGX {product.originalPrice}</s>
