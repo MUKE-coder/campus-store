@@ -44,8 +44,6 @@ export default function ProductList({ subCats, cat }) {
     const filtered = products.filter((item) => item.subCatId == id);
     setSubCatProducts(filtered);
   }
-  // console.log(subCatProducts);
-
   return (
     <div className="container mx-auto py-2 md:py-8  px-4 md:px-8 bg-white shadow-md rounded-md">
       {isLoading ? (
