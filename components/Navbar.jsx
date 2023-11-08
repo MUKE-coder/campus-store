@@ -13,7 +13,9 @@ import { IoBedOutline } from "react-icons/io5";
 import Image from "next/image";
 import FormSearch from "./FormSearch";
 import { FiPhoneCall } from "react-icons/fi";
+import { useCart } from "./CartContext";
 export default function Navbar() {
+  const { cart } = useCart();
   const [showMenu, setShowMenu] = useState(false);
   const leftNavLinks = [
     {
@@ -100,16 +102,17 @@ export default function Navbar() {
           <Link className="flex relative space-x-2 items-center" href="/">
             {/* Cart */}
 
-            <button
+            <Link
+              href="/cart"
               type="button"
               class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white  rounded-lg  focus:outline-none "
             >
               <AiOutlineShoppingCart className="text-xl sm:text-2xl" />
 
               <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-orange-500  rounded-full -top-1 -right-1 ">
-                10
+                {cart.length}
               </div>
-            </button>
+            </Link>
           </Link>
           <button onClick={() => setShowMenu(true)} className="sm:hidden">
             <BiMenu className="text-3xl" />

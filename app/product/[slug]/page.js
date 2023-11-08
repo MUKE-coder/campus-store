@@ -1,5 +1,6 @@
 "use client";
 import BreadCrumb from "@/components/BreadCrumb";
+import { useCart } from "@/components/CartContext";
 import DetailedPrdt from "@/components/DetailedPrdt";
 import ProductSlider from "@/components/ProductSlider";
 import { products } from "@/data";
@@ -11,6 +12,8 @@ import { GrDeliver } from "react-icons/gr";
 import { MdStars } from "react-icons/md";
 
 export default function page({ params: { slug } }) {
+  const { addToCart } = useCart();
+
   const product = products?.find((product) => product.slug == slug);
   const images = product.images;
   const productId = product.id;
@@ -101,7 +104,10 @@ export default function page({ params: { slug } }) {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button className="flex w-[100%] py-[1rem] bg-[#f68b1e] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md">
+                    <button
+                      onClick={() => addToCart(product)}
+                      className="flex w-[100%] py-[1rem] bg-[#f68b1e] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+                    >
                       <GiShoppingCart className="text-[24px] absolute left-10 md:block lg:block hidden" />{" "}
                       ADD TO CART
                     </button>
