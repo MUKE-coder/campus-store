@@ -77,7 +77,7 @@ export default function ProductList({ subCats, cat }) {
               })}
             </div>
           </div>
-          <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+          <div className="grid gap-6 lg:gap-8 w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
             {subCatProducts.length > 0 ? (
               subCatProducts.map((item, i) => {
                 return <Product product={item} key={i} />;
