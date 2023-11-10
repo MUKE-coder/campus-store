@@ -1,11 +1,21 @@
+"use client";
 import Link from "next/link";
+import { useCart } from "./CartContext";
+import { useEffect } from "react";
 
 export default function Product({ product }) {
+  const { addRecentlyViewedProduct } = useCart();
+  const { setProductDetails } = useCart();
+  useEffect(() => {
+    setProductDetails(product);
+    addRecentlyViewedProduct(product);
+  });
   const discount =
     ((product.originalPrice - product.currentPrice) / product.originalPrice) *
     100;
   return (
     <Link
+      onClick={() => console.log("clicked")}
       href={`/product/${product.slug}`}
       className="relative flex items-center flex-col justify-center border shadow rounded-sm w-[90%]"
     >

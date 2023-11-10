@@ -1,4 +1,4 @@
-"use client";
+import AddToCart from "@/components/AddToCart";
 import BreadCrumb from "@/components/BreadCrumb";
 import { useCart } from "@/components/CartContext";
 import DetailedPrdt from "@/components/DetailedPrdt";
@@ -7,23 +7,25 @@ import WhatsAppChatLink from "@/components/WhatsAppChatLink";
 import { products } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 import { AiOutlineHeart, AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { GiShoppingCart } from "react-icons/gi";
 import { GrDeliver } from "react-icons/gr";
 import { MdStars } from "react-icons/md";
 
-export default function page({ params: { slug } }) {
-  const { addRecentlyViewedProduct } = useCart();
-  const { addToCart } = useCart();
-  const { setProductDetails } = useCart();
+export async function generateMetadata({ params: { slug } }) {
   const product = products?.find((product) => product.slug == slug);
+  return {
+    title: product.title,
+    description: product.description,
+    alternates: {
+      canonical: `/product/${product.slug}`,
+    },
+  };
+}
 
-  useEffect(() => {
-    setProductDetails(product);
-    addRecentlyViewedProduct(product);
-  }, [slug]);
+export default function page({ params: { slug } }) {
+  const product = products?.find((product) => product.slug == slug);
 
   const images = product.images;
   const productId = product.id;
@@ -114,13 +116,7 @@ export default function page({ params: { slug } }) {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => addToCart(product)}
-                      className="flex w-[100%] py-[1rem] bg-[#f68b1e] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
-                    >
-                      <GiShoppingCart className="text-[24px] absolute left-10 md:block lg:block hidden" />{" "}
-                      ADD TO CART
-                    </button>
+                    <AddToCart product={product} />
                     <Link
                       href="/booking"
                       className="flex w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
