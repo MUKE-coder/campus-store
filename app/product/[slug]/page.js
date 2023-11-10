@@ -143,7 +143,7 @@ export default function page({ params: { slug } }) {
                   <p className="flex gap-1 items-center">
                     <MdStars className="text-orange-400 text-[19px]" />
                     Get up to 40% off During the time of festive seasons while
-                    using compus store
+                    using campus store
                   </p>
                   <p className="flex gap-1 items-center">
                     <MdStars className="text-orange-400 text-[19px]" />
