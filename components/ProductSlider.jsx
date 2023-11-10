@@ -11,7 +11,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 
 export default function ProductSlider({ data }) {
-  console.log(data);
+  // console.log(data);
   if (!data) {
     return null;
   }
