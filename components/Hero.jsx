@@ -59,21 +59,13 @@ export default function Hero() {
             href="/"
             className="rounded-xl col-span-8 h-36 overflow-hidden sm:hidden md:block"
           >
-            <img
-              src="/advert.gif"
-              alt=""
-              className="w-full h-full object-cover"
-            />
+            <img src="/2.png" alt="" className="w-full h-full object-cover" />
           </Link>
           <Link
             href="/"
             className="rounded-xl col-span-12 h-36 overflow-hidden"
           >
-            <img
-              src="/advert.gif"
-              alt=""
-              className="w-full h-full object-cover"
-            />
+            <img src="/2.png" alt="" className="w-full h-full object-cover" />
           </Link>
         </div>
       </div>

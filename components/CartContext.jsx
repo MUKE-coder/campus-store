@@ -13,7 +13,7 @@ export function CartProvider({ children }) {
   const [productDetails, setProductDetails] = useState("");
   const [cart, setCart] = useState(cartItems);
   const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
-  console.log(recentlyViewedProducts);
+
   const addRecentlyViewedProduct = (product) => {
     if (!recentlyViewedProducts.some((item) => item.id === product.id)) {
       const updatedRecentlyViewed = [product, ...recentlyViewedProducts].slice(

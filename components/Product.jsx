@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
 import { useCart } from "./CartContext";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 export default function Product({ product }) {
-  const { addRecentlyViewedProduct } = useCart();
+  // const { addRecentlyViewedProduct } = useCart();
   const { setProductDetails } = useCart();
-  useEffect(() => {
-    setProductDetails(product);
-    addRecentlyViewedProduct(product);
-  });
+
+  setProductDetails(product);
+  // addRecentlyViewedProduct(product);
+
   const discount =
     ((product.originalPrice - product.currentPrice) / product.originalPrice) *
     100;
