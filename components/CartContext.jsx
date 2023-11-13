@@ -1,7 +1,5 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-// import toast from "react-hot-toast";
-import { products } from "@/data";
 import { toast } from "react-toastify";
 
 export const CartContext = createContext();
@@ -12,21 +10,32 @@ export function CartProvider({ children }) {
   if (typeof window !== "undefined") {
     cartItems = JSON.parse(localStorage.getItem("cartItem")) || [];
   }
-
-  const [productsData, setProductsData] = useState();
+  const [productDetails, setProductDetails] = useState("");
   const [cart, setCart] = useState(cartItems);
-  useEffect(() => {
-    try {
-      setProductsData(products);
-    } catch (error) {
-      console.log(error);
+  const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
+  console.log(recentlyViewedProducts);
+  const addRecentlyViewedProduct = (product) => {
+    if (!recentlyViewedProducts.some((item) => item.id === product.id)) {
+      const updatedRecentlyViewed = [product, ...recentlyViewedProducts].slice(
+        0,
+        3
+      );
+      setRecentlyViewedProducts(updatedRecentlyViewed);
+      localStorage.setItem(
+        "recentlyViewedProducts",
+        JSON.stringify(updatedRecentlyViewed)
+      );
     }
-  }, []);
+  };
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
-    toast("This product has been added to cart", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    if (cart.some((item) => item.id === product.id)) {
+      toast.error("This product is already in the cart");
+    } else {
+      setCart((prevCart) => [...prevCart, product]);
+      toast("This product has been added to the cart", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
 
   const removeFromCart = (productId) => {
@@ -42,15 +51,24 @@ export function CartProvider({ children }) {
     if (storedCart) {
       setCart(storedCart);
     }
+    const storedRecentlyViewed = JSON.parse(
+      localStorage.getItem("recentlyViewedProducts")
+    );
+    if (storedRecentlyViewed) {
+      setRecentlyViewedProducts(storedRecentlyViewed);
+    }
   }, []);
 
   return (
     <CartContext.Provider
       value={{
-        productsData,
         addToCart,
         cart,
         removeFromCart,
+        setProductDetails,
+        productDetails,
+        recentlyViewedProducts,
+        addRecentlyViewedProduct,
       }}
     >
       {children}

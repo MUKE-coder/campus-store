@@ -14,6 +14,7 @@ import Image from "next/image";
 import FormSearch from "./FormSearch";
 import { FiPhoneCall } from "react-icons/fi";
 import { useCart } from "./CartContext";
+import NavBarContent from "./NavBarContent";
 export default function Navbar() {
   const { cart } = useCart();
   const [showMenu, setShowMenu] = useState(false);
@@ -123,24 +124,23 @@ export default function Navbar() {
       <div
         className={`${
           showMenu
-            ? "sm:hidden flex-col fixed top-0 w-1/2 bg-slate-900  text-slate-50 right-0 bottom-0 z-50"
+            ? "sm:hidden flex-col fixed top-0 w-full bg-slate-900  text-slate-50 right-0 bottom-0 z-50"
             : "z-50 hidden sm:hidden flex-col fixed top-0 w-1/2 bg-slate-900  text-slate-50 right-0 bottom-0"
         }`}
       >
         <div className="flex items-center justify-between container mx-auto px-8 py-4 border-b border-gray-500">
           <Link
-            className="text-2xl text-lime-400  sm:text-3xl font-logo"
+            className="text-2xl text-yellow-600  sm:text-3xl font-logo"
             href="/"
           >
-            Campus Store
+            <Image src={logo} priority height={60} />
           </Link>
           <button onClick={() => setShowMenu(false)} className="sm:hidden">
             <AiOutlineClose className="text-3xl" />
           </button>
         </div>
-        <div className="text-slate-50 flex py-4 px-6 rounded-md  items-center space-x-4">
-          <FiPhoneCall className="text-xl" />
-          <span className="text-base">+256 752 815998</span>
+        <div className="">
+          <NavBarContent />
         </div>
       </div>
     </div>

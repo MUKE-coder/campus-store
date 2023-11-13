@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col font-[400] gap-4">
           <div className="flex flex-col gap-2 text-xs text-white">
-            <h3 className="font-[600] text-xs">NEW TO COMPUS STORE?</h3>
+            <h3 className="font-[600] text-xs">NEW TO CAMPUS STORE?</h3>
             <p>
               Subscribe to our newsletter to get updates on our latest offers!
             </p>
@@ -93,7 +93,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="font-bold">ABOUT COMPUS STORE UGANDA</h2>
+          <h2 className="font-bold">ABOUT CAMPUS STORE UGANDA</h2>
           <div className="flex flex-col gap-3 text-xs">
             <Link className="hover:text-orange-600" href="">
               About us
@@ -119,7 +119,7 @@ export default function Footer() {
           <h2 className="font-bold">MAKE MONEY WITH US</h2>
           <div className="flex flex-col gap-3 text-xs">
             <Link className="hover:text-orange-600" href="">
-              Sell on Compus Store
+              Sell on Campus Store
             </Link>
             <Link className="hover:text-orange-600" href="">
               Vendor Hub
@@ -131,12 +131,12 @@ export default function Footer() {
               Become a Logistics Service Partner
             </Link>
             <Link className="hover:text-orange-600" href="">
-              Become a Compus Store Delivery Agent
+              Become a Campus Store Delivery Agent
             </Link>
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="font-bold">COMPUS INTERNATIONAL</h2>
+          <h2 className="font-bold">CAMPUS INTERNATIONAL</h2>
           <div className="flex gap-3">
             <div className="flex flex-col gap-3 text-xs">
               <Link className="hover:text-orange-600" href="">
@@ -263,7 +263,7 @@ export default function Footer() {
       </div>
       <hr />
       <div className="w-[100%] bg-[#535357]  h-[10vh] flex items-center justify-center text-sm text-white">
-        <p>© Compus store - All Rights Reserved</p>
+        <p>© Campus store - All Rights Reserved</p>
       </div>
       <div></div>
     </div>
