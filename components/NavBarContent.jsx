@@ -39,13 +39,6 @@ export default function NavBarContent() {
           })}
         </div>
       </div>
-      <div className="flex flex-col gap-1 items-center">
-        <h2 className="font-bold">Contact Us </h2>
-        <div className="text-slate-50 flex py-4 px-6 rounded-md  items-center space-x-4">
-          <FiPhoneCall className="text-xl" />
-          <span className="text-base">+256 752 815998</span>
-        </div>
-      </div>
     </div>
   );
 }
