@@ -35,7 +35,7 @@ export default function ProductSlider({ data }) {
         {data.map((image) => {
           return (
             <SwiperSlide>
-              <img src={image} />
+              <img src={image}  className="object-cover" />
             </SwiperSlide>
           );
         })}
@@ -53,7 +53,7 @@ export default function ProductSlider({ data }) {
         {data.map((image) => {
           return (
             <SwiperSlide>
-              <img src={image} />
+              <img src={image} className="object-cover" />
             </SwiperSlide>
           );
         })}

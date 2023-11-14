@@ -7,7 +7,7 @@ import ProductList from "@/components/ProductList";
 import { useState } from "react";
 
 export default function Home() {
-  // const { recentlyViewedProducts } = useCart();
+  const { recentlyViewedProducts } = useCart();
 
   const [subCategories, setSubCategories] = useState([]);
   const [category, setCategory] = useState({});
@@ -20,7 +20,11 @@ export default function Home() {
       <Hero />
       <CategoryBanner updateSubCategories={updateSubCategories} />
       <ProductList subCats={subCategories} cat={category} />
-      {/* <DetailedPrdt data={recentlyViewedProducts}/> */}
+      <div className="bg-white mt-[2rem] lg:m-8 p-4 rounded-md flex flex-col gap-8">
+        <h2 className="text-black text-lg font-bold ">Recently viewed</h2>
+      <DetailedPrdt data={recentlyViewedProducts}/>
+      </div>
+      
     </main>
   );
 }

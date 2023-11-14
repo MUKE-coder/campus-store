@@ -12,7 +12,6 @@ import { MdOutlineWatch } from "react-icons/md";
 import { IoBedOutline } from "react-icons/io5";
 import Image from "next/image";
 import FormSearch from "./FormSearch";
-import { FiPhoneCall } from "react-icons/fi";
 import { useCart } from "./CartContext";
 import NavBarContent from "./NavBarContent";
 export default function Navbar() {
