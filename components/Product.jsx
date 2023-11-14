@@ -15,7 +15,7 @@ export default function Product({ product }) {
     100;
   return (
     <Link
-      href={`${baseUrl}product/${product.slug}`}
+      href={`/product/${product.slug}`}
       className="relative flex items-center flex-col justify-center border shadow rounded-sm w-[90%]"
     >
       <small className="absolute left-2 top-2 font-semibold bg-yellow-100 py-1 px-2 rounded-md text-xs">
