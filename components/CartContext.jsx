@@ -5,14 +5,19 @@ import { toast } from "react-toastify";
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  let cartItems = [];
+    let cartItems = [];
+  const [handleSearches , setHandleSearches]=useState([])
+
+  const [productDetails, setProductDetails] = useState("");
+  const [cart, setCart] = useState(cartItems);
+  const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
+  
 
   if (typeof window !== "undefined") {
     cartItems = JSON.parse(localStorage.getItem("cartItem")) || [];
   }
-  const [productDetails, setProductDetails] = useState("");
-  const [cart, setCart] = useState(cartItems);
-  const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
+
+
 
   const addRecentlyViewedProduct = (product) => {
     if (!recentlyViewedProducts.some((item) => item.id === product.id)) {
@@ -69,6 +74,9 @@ export function CartProvider({ children }) {
         productDetails,
         recentlyViewedProducts,
         addRecentlyViewedProduct,
+        handleSearches,
+        setRecentlyViewedProducts,
+        setHandleSearches
       }}
     >
       {children}

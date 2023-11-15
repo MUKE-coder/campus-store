@@ -69,7 +69,7 @@ export default function Hero() {
             href="/"
             className="rounded-xl col-span-12 h-36 overflow-hidden"
           >
-            <img src="/gif22.gif" alt="" className="w-full h-full" />
+            <img src="/gif22.gif" alt="" className="w-full h-full md:object-contain" />
           </Link>
         </div>
       </div>

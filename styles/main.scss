@@ -73,7 +73,7 @@ body {
     color: black;
     padding: 2rem 5rem;
     border-radius: 10px;
-    background-color: white;
+    // background-color: white;
     h1 {
       font-size: 1rem;
       font-weight: 600;
@@ -149,5 +149,11 @@ body {
       margin-top: 1.5rem;
       background-color: orangered;
     }
+  }
+}
+.hide{
+  display: none;
+  @media (max-width: 500px){
+    display: block;
   }
 }
