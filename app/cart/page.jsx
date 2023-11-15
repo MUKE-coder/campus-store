@@ -49,7 +49,7 @@ export default function Cart() {
             );
           })
         ) : (
-          <div className="">
+          <div className="w-[100%] h-[100%] flex flex-col items-center justify-center">
            <img src="/shopping-cart-shopping.gif" alt="" />
           </div>
         )}

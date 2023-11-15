@@ -8,8 +8,10 @@ import { useForm } from "react-hook-form";
 export default function FormSearch() {
   const { handleSubmit, register, reset } = useForm();
   const {setHandleSearches}=useCart()
+  const {setSearchInput}=useCart()
   const router = useRouter(); 
   const [searchQuery, setSearchQuery] = useState("");
+  setSearchInput(searchQuery)
   const handleSearch = (e) => {
     e.preventDefault();
     const filteredData = products.filter((product) =>

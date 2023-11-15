@@ -19,7 +19,7 @@ export default function Product({ product }) {
 
   return (
     <Link href={`/product/${product.slug}`}>
-      <div className="relative flex items-center flex-col justify-center border shadow rounded-sm w-[90%]" onClick={handleClick}>
+      <div className="relative flex items-center flex-col justify-center border shadow rounded-sm w-[100%] lg:w-[90%]" onClick={handleClick}>
         <small className="absolute left-2 top-2 font-semibold bg-yellow-100 py-1 px-2 rounded-md text-xs">
           {product.subCatName}
         </small>
