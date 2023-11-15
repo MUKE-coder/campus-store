@@ -14,8 +14,11 @@ import Image from "next/image";
 import FormSearch from "./FormSearch";
 import { useCart } from "./CartContext";
 import NavBarContent from "./NavBarContent";
+
 export default function Navbar() {
   const { cart } = useCart();
+  const [handleSearch , setHandleSearch ] =useState([])
+ 
   const [showMenu, setShowMenu] = useState(false);
   const leftNavLinks = [
     {
@@ -89,7 +92,7 @@ export default function Navbar() {
 
   return (
     <div className="">
-      <header className="bg-primary text-slate-50 md:px-24 px-2 ">
+      <header className="bg-primary text-slate-50 md:px-24 lg:py-0 md:py-0 py-4 px-2 relative flex flex-col items-center justify-center gap-3">
         <div className="container mx-auto flex items-center justify-between py-2 ">
           <Link
             className="text-2xl text-yellow-600  sm:text-3xl font-logo"
@@ -97,8 +100,10 @@ export default function Navbar() {
           >
             <Image src={logo} priority height={60} />
           </Link>
-
-          <FormSearch />
+<div className="hidden lg:block md:block">
+<FormSearch />
+</div>
+          
           <Link className="flex relative space-x-2 items-center" href="/">
             {/* Cart */}
 
@@ -118,7 +123,11 @@ export default function Navbar() {
             <BiMenu className="text-3xl" />
           </button>
         </div>
+<div className="hide">
+<FormSearch />
+</div>
       </header>
+    
       {/* Mobile Menu */}
       <div
         className={`${

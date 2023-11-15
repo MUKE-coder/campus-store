@@ -71,7 +71,7 @@ export default function page({ params: { slug } }) {
             </div>
             <div className="lg:w-[70%] md:w-[70%] w-[100%] flex flex-col gap-8 md:gap-5 lg:gap-5 roboto">
               <div className="flex justify-between">
-                <p className="text-sm lg:px-2 text-white bg-blue-800 flex items-center">
+                <p className="text-sm lg:px-2 text-blue-900 font-[900] flex items-center">
                   {product.subCatName}
                 </p>
                 <AiOutlineHeart className="text-[1.5rem]" color="orange" />

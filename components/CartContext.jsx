@@ -5,12 +5,15 @@ import { toast } from "react-toastify";
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
+  const [searchInput, setSearchInput] = useState("");
+  const [handleSearches, setHandleSearches] = useState([]);
+  const [productDetails, setProductDetails] = useState("");
   let cartItems = [];
-
+  
   if (typeof window !== "undefined") {
     cartItems = JSON.parse(localStorage.getItem("cartItem")) || [];
   }
-  const [productDetails, setProductDetails] = useState("");
+
   const [cart, setCart] = useState(cartItems);
   const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
 
@@ -27,6 +30,7 @@ export function CartProvider({ children }) {
       );
     }
   };
+
   const addToCart = (product) => {
     if (cart.some((item) => item.id === product.id)) {
       toast.error("This product is already in the cart");
@@ -44,18 +48,23 @@ export function CartProvider({ children }) {
   };
 
   useEffect(() => {
-    localStorage.setItem("cartItem", JSON.stringify(cart));
-  }, [cart]);
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cartItem"));
-    if (storedCart) {
-      setCart(storedCart);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cartItem", JSON.stringify(cart));
     }
-    const storedRecentlyViewed = JSON.parse(
-      localStorage.getItem("recentlyViewedProducts")
-    );
-    if (storedRecentlyViewed) {
-      setRecentlyViewedProducts(storedRecentlyViewed);
+  }, [cart]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedCart = JSON.parse(localStorage.getItem("cartItem"));
+      if (storedCart) {
+        setCart(storedCart);
+      }
+      const storedRecentlyViewed = JSON.parse(
+        localStorage.getItem("recentlyViewedProducts")
+      );
+      if (storedRecentlyViewed) {
+        setRecentlyViewedProducts(storedRecentlyViewed);
+      }
     }
   }, []);
 
@@ -69,6 +78,11 @@ export function CartProvider({ children }) {
         productDetails,
         recentlyViewedProducts,
         addRecentlyViewedProduct,
+        handleSearches,
+        setRecentlyViewedProducts,
+        setHandleSearches,
+        setSearchInput,
+        searchInput,
       }}
     >
       {children}

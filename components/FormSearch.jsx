@@ -1,8 +1,32 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
+import { products } from "@/data";
+import { useRouter } from "next/navigation";
+import { useCart } from "./CartContext";
+import { useForm } from "react-hook-form";
 
 export default function FormSearch() {
+  const { handleSubmit, register, reset } = useForm();
+  const {setHandleSearches}=useCart()
+  const {setSearchInput}=useCart()
+  const router = useRouter(); 
+  const [searchQuery, setSearchQuery] = useState("");
+  setSearchInput(searchQuery)
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const filteredData = products.filter((product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+   
+      setHandleSearches(filteredData)
+     
+    router.push("/search");
+    reset();
+  };
   return (
-    <form className="sm:flex items-center hidden">
+    
+    <form className="flex"onSubmit={handleSearch}>
+      
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
@@ -26,10 +50,13 @@ export default function FormSearch() {
         </div>
         <input
           type="text"
+          
           id="simple-search"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search products ..."
           required
+          {...register("searchQuery")}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
       <button

@@ -24,13 +24,13 @@ export default function Cart() {
 
   return (
     <section className="cart-section flex flex-col lg:flex lg:flex-row">
-      <div className="cart-content w-[100%] lg:w-[70%]">
-        <h1>Cart({cart.length})</h1>
+      <div className="cart-content w-[100%] lg:w-[70%]  bg-white flex flex-col items-center justify-center">
+        <h1 className="font-[900] text-lg ">Cart({cart.length})</h1>
         {cart.length > 0 ? (
           cart.map((item) => {
             return (
               <div className="cart-card">
-                <div className="card-col-1 flex flex-col lg:flex lg:flex-row items-center gap-8">
+                <div className="card-col-1 flex flex-col lg:flex lg:flex-row items-center gap-8 ">
                   <div className="cart-card-image">
                     <Image src={item.image} alt={item.title} fill />
                   </div>
@@ -49,9 +49,9 @@ export default function Cart() {
             );
           })
         ) : (
-          <h2 className="text-xs lg:text-sm font-[700] text-orange-700">
-            CART EMPTY ADD ITEMS😒😒
-          </h2>
+          <div className="w-[100%] h-[100%] flex flex-col items-center justify-center">
+           <img src="/shopping-cart-shopping.gif" alt="" />
+          </div>
         )}
       </div>
 
