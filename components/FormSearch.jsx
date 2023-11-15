@@ -15,7 +15,7 @@ export default function FormSearch() {
   const handleSearch = (e) => {
     e.preventDefault();
     const filteredData = products.filter((product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      product.title.toLowerCase().includes(searchQuery.toLowerCase().trim())
     );
    
       setHandleSearches(filteredData)
