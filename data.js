@@ -1837,6 +1837,6 @@ for (const product of products) {
 }
 
 // Output the updated products array
-console.log(JSON.stringify(products, null, 2));
+// console.log(JSON.stringify(products, null, 2));
 
 export { categories, subCategories, products };

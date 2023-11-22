@@ -59,7 +59,9 @@ export default function BreadCrumb({ data }) {
       </li>
   
       <li>
-        <Link href="" className="line-clamp-1 block transition hover:text-gray-700"> {data.currentTitle.title}</Link>
+        <Link href="" className="line-clamp-1 block transition hover:text-gray-700"> 
+        <p className="line-clamp-1">{data.currentTitle.title}</p>
+        </Link>
       </li>
     </ol>
   </nav>

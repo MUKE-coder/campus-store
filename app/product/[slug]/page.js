@@ -247,13 +247,14 @@ export default function page({ params: { slug } }) {
         <AddToCart product={product} />
         </div>
         <div className="w-[75%]">
-        <Link
-           href="/booking"
-          className="lg:hidden md:hidden flex w-[100%] py-3 bg-[#f2a51f] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+          <Link href="/booking"
+        className="lg:hidden md:hidden flex w-[100%] py-3 bg-[#f2a51f] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
           >
           <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
           BUY NOW</Link>
         </div>
+         
+       
         <Link href="tel:0752815998" className=" w-[10%] flex items-center px-2 py-2 text-[#f2a51f]  border-[1px] border-[#fabf07] rounded-md">
         <IoCall size={26}/>
         </Link>
