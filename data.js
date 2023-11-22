@@ -129,8 +129,8 @@ const products = [
     catId: 1,
     description: "Classic suede shoes for a sophisticated look.",
     hasFreeDelivery: true,
-    currentPrice: 69.99,
-    originalPrice: 79.99,
+    currentPrice: 150000,
+    originalPrice: 220000,
     subCatName: "Shoes",
     images: [
       "/shoes/suede/1.jpg",
@@ -163,8 +163,8 @@ const products = [
     catId: 1,
     description: "Comfortable mocasin shoes for a casual style.",
     hasFreeDelivery: true,
-    currentPrice: 49.99,
-    originalPrice: 59.99,
+    currentPrice: 70000,
+    originalPrice:100000,
     subCatName: "Shoes",
     images: [
       "/shoes/mocasin/1.jpg",
@@ -265,8 +265,8 @@ const products = [
     catId: 1,
     description: "High-quality Nike sneakers for sports and style.",
     hasFreeDelivery: true,
-    currentPrice: 99.99,
-    originalPrice: 109.99,
+    currentPrice: 130000,
+    originalPrice: 180000,
     subCatName: "Shoes",
     images: [
       "/shoes/nike/1.jpg",
@@ -333,8 +333,8 @@ const products = [
     catId: 1,
     description: "Fashionable sandals for a relaxed and stylish look.",
     hasFreeDelivery: true,
-    currentPrice: 44.99,
-    originalPrice: 49.99,
+    currentPrice: 600000,
+    originalPrice: 20000,
     subCatName: "Shoes",
     images: [
       "/shoes/sandles/1.jpg",
@@ -370,7 +370,7 @@ const products = [
     subCatId: 2,
     catId: 1,
     description:
-      "Navy blue chinos (stretcher) khaki will look good on your body.Choose from a wide range of Unique products on Campus Store and enjoy convenient and secure online shopping, delivery, guaranteed products and competitive pricing. Grab this deal and more at unbeatable prices with doorstep delivery.",
+      "Navy blue chinos (stretcher) khaki will look good on your body.Choose from a wide range of Unique products on Campus store Ug Ug and enjoy convenient and secure online shopping, delivery, guaranteed products and competitive pricing. Grab this deal and more at unbeatable prices with doorstep delivery.",
     hasFreeDelivery: true,
     currentPrice: 43000,
     originalPrice: 55000,
@@ -1716,7 +1716,7 @@ const products = [
   },
   {
     id: 92,
-    title: "Diamond Men Suit",
+    title: " Suit",
     image: "/diamond/diamond.jpg",
     slug: "diamond-men-suit",
     subCatId: 7,
@@ -1724,10 +1724,10 @@ const products = [
     description:
       "Shine at your special events with the Diamond men suit. It offers an elegant and stylish appearance, perfect for formal gatherings. Get it now at a special price!",
     hasFreeDelivery: true,
-    currentPrice: 29000,
-    originalPrice: 37000,
+    currentPrice: 290000,
+    originalPrice: 370000,
     subCatName: "Suits",
-    images: ["/diamond/diamond.jpg2", "/diamond/diamond.jpg"],
+    images: ["/diamond/diamond.jpg", "/diamond/diamond.jpg"],
   },
   {
     id: 93,

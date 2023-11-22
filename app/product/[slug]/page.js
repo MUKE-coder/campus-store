@@ -1,16 +1,14 @@
 import AddToCart from "@/components/AddToCart";
 import BreadCrumb from "@/components/BreadCrumb";
-import { useCart } from "@/components/CartContext";
 import DetailedPrdt from "@/components/DetailedPrdt";
 import ProductSlider from "@/components/ProductSlider";
-import WhatsAppChatLink from "@/components/WhatsAppChatLink";
 import { products } from "@/data";
-import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineHeart, AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { GiShoppingCart } from "react-icons/gi";
 import { GrDeliver } from "react-icons/gr";
+import { IoCall } from "react-icons/io5";
 import { MdStars } from "react-icons/md";
 
 export async function generateMetadata({ params: { slug } }) {
@@ -53,7 +51,8 @@ export default function page({ params: { slug } }) {
     },
   };
   return (
-    <div className="max-w-full min-h-screen m-[.3rem] md:mx-[1rem] lg:mx-[4rem] roboto">
+    <>
+    <div className="max-w-full min-h-screen m-[.3rem] md:mx-[1rem] lg:mx-[4rem] roboto relative">
       <BreadCrumb data={breadcrumb} />
       <div className="flex flex-col gap-3">
         <div className=" w-full min-h-[95vh] justify-between  flex flex-col md:flex-row lg:flex-row">
@@ -115,13 +114,13 @@ export default function page({ params: { slug } }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="lg:flex md:flex hidden gap-2">
                     <AddToCart product={product} />
                     <Link
                       href="/booking"
-                      className="flex w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+                      className="lg:flex md:flex hidden w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
                     >
-                      <GiShoppingCart className="text-[24px] absolute left-10 md:block lg:block hidden" />{" "}
+                      <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
                       BUY NOW
                       {/* <WhatsAppChatLink /> */}
                     </Link>
@@ -139,7 +138,7 @@ export default function page({ params: { slug } }) {
                   <p className="flex gap-1 items-center">
                     <MdStars className="text-orange-400 text-[19px]" />
                     Get up to 40% off During the time of festive seasons while
-                    using campus store
+                    using Campus store Ug
                   </p>
                   <p className="flex gap-1 items-center">
                     <MdStars className="text-orange-400 text-[19px]" />
@@ -242,6 +241,24 @@ export default function page({ params: { slug } }) {
           <DetailedPrdt data={similarPrdt} />
         </div>
       </div>
+     
     </div>
+    <div className="lg:hidden md:hidden flex gap-3 items-center fixed bottom-1 w-[100%] bg-gray-200 px-3 py-2">
+        <div className="w-[15%]">
+        <AddToCart product={product} />
+        </div>
+        <div className="w-[75%]">
+        <Link
+           href="/booking"
+          className="lg:hidden md:hidden flex w-[100%] py-3 bg-[#f2a51f] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+          >
+          <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
+          BUY NOW</Link>
+        </div>
+        <div className=" w-[10%] flex items-center px-2 py-2 text-[#f2a51f]  border-[1px] border-[#fabf07] rounded-md">
+        <IoCall size={26}/>
+        </div>
+      </div>
+    </>
   );
 }

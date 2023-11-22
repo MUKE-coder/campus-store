@@ -12,14 +12,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   metadataBase: new URL("https://campusstoreug.com"),
   title: {
-    default: "Campus Store UG - Your One-Stop Shop for All Your Needs",
-    template: "%s | Campus Store UG",
+    default: "Campus store Ug UG - Your One-Stop Shop for All Your Needs",
+    template: "%s | Campus store Ug UG",
   },
   description:
-    "Discover a wide range of quality products at Campus Store UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
+    "Discover a wide range of quality products at Campus store Ug UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
   applicationName: "Next.js",
   keywords: [
-    "Campus Store UG",
+    "Campus store Ug UG",
     "Kampala downtown",
     "electronics",
     "fashion",
@@ -42,7 +42,7 @@ export const metadata = {
     "latest trends",
   ],
   author: "collinz",
-  publisher: "Campus Store UG",
+  publisher: "Campus store Ug UG",
   alternates: {
     canonical: "/",
     languages: ["en"],
@@ -52,13 +52,13 @@ export const metadata = {
   },
   openGraph: {
     title: {
-      default: "Campus Store UG - Your One-Stop Shop for All Your Needs",
-      template: "%s | Campus Store UG",
+      default: "Campus store Ug UG - Your One-Stop Shop for All Your Needs",
+      template: "%s | Campus store Ug UG",
     },
     description:
-      "Discover a wide range of quality products at Campus Store UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
+      "Discover a wide range of quality products at Campus store Ug UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
     url: "http://campusstore.com",
-    siteName: "Campus store ug",
+    siteName: "Campus store Ug ug",
     type: "website",
     local: "en_us",
   },
