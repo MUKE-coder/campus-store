@@ -95,10 +95,10 @@ export default function Navbar() {
       <header className="bg-primary text-slate-50 md:px-24 lg:py-0 md:py-0 py-4 px-2 relative flex flex-col items-center justify-center gap-3">
         <div className="container mx-auto flex items-center justify-between py-2 ">
           <Link
-            className="text-2xl text-yellow-600  sm:text-3xl font-logo"
+            className="text-2xl  text-yellow-600  sm:text-3xl font-logo"
             href="/"
           >
-            <Image src={logo} priority height={60} />
+            <Image  src={logo} priority height={90} />
           </Link>
 <div className="hidden lg:block md:block">
 <FormSearch />

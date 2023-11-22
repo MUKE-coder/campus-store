@@ -6,7 +6,7 @@ import WhatsAppChatLink from "./WhatsAppChatLink";
 const Booking = () => {
   const { productDetails } = useCart();
   const prdtImg = productDetails.image;
-
+console.log(prdtImg)
   return (
     <div
       className="relative bg-cover bg-center h-screen flex items-center justify-center"
