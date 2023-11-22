@@ -8,7 +8,7 @@ export default function BreadCrumb({ data }) {
     <ol className="flex items-center gap-1 text-sm text-gray-900">
       <li>
         <Link href={data.base.path} className="block transition hover:text-gray-700">
-          <span className="sr-only"> Home </span>
+          <span className="sr-only text-sm"> Home </span>
   
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,9 +42,6 @@ export default function BreadCrumb({ data }) {
         </svg>
       </li>
   
-      <li>
-        <a href="" className="block transition hover:text-gray-700 line-clamp-1"> {data.currentSubCatName.title}</a>
-      </li>
   
       <li className="rtl:rotate-180">
         <svg
@@ -62,7 +59,7 @@ export default function BreadCrumb({ data }) {
       </li>
   
       <li>
-        <Link href="" className="block transition line-clamp-1 hover:text-gray-700"> {data.currentTitle.title}</Link>
+        <Link href="" className="line-clamp-1 block transition hover:text-gray-700"> {data.currentTitle.title}</Link>
       </li>
     </ol>
   </nav>

@@ -1,6 +1,7 @@
 "use client";
 import { useCart } from "@/components/CartContext";
 import CategoryBanner from "@/components/CategoryBanner";
+import CurrencySelector from "@/components/CurrencySelector";
 import DetailedPrdt from "@/components/DetailedPrdt";
 import Hero from "@/components/Hero";
 import ProductList from "@/components/ProductList";
@@ -16,7 +17,7 @@ export default function Home() {
     setCategory(newCat);
   }
   return (
-    <main>
+    <main className="relative">
       <Hero />
       <CategoryBanner updateSubCategories={updateSubCategories} />
       <ProductList subCats={subCategories} cat={category} />
@@ -29,7 +30,9 @@ export default function Home() {
       </div>
       ):("")
      }
-      
+      <div className="absolute left-0 top-6">
+        <CurrencySelector/>
+      </div>
     </main>
   );
 }

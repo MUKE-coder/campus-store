@@ -59,7 +59,7 @@ export default function Cart() {
         <h1>CART SUMMARY</h1>
         <div className="price">
           <h3 className="text-xs">Sub Total</h3>
-          <span className="text-xs">Shs {roundedTotalPrice}</span>
+          <span className="text-xs">UGX Shs {roundedTotalPrice}</span>
         </div>
         <Link
           className="px-5 py-4 bg-orange-600 rounded-md hover:bg-yellow-600 transition-all text-sm font-bold flex items-center justify-center"
@@ -67,7 +67,7 @@ export default function Cart() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Checkout shs {roundedTotalPrice}
+          Checkout UGX shs {roundedTotalPrice}
         </Link>
       </div>
     </section>

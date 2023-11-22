@@ -8,6 +8,8 @@ export function CartProvider({ children }) {
   const [searchInput, setSearchInput] = useState("");
   const [handleSearches, setHandleSearches] = useState([]);
   const [productDetails, setProductDetails] = useState("");
+  const [currency, setCurrency] = useState("UGX"); // Default currency
+
   let cartItems = [];
   
   if (typeof window !== "undefined") {
@@ -83,6 +85,8 @@ export function CartProvider({ children }) {
         setHandleSearches,
         setSearchInput,
         searchInput,
+        currency,
+        setCurrency,
       }}
     >
       {children}

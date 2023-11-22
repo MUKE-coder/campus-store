@@ -122,7 +122,6 @@ export default function page({ params: { slug } }) {
                     >
                       <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
                       BUY NOW
-                      {/* <WhatsAppChatLink /> */}
                     </Link>
                   </div>
                   <div className="w-[100%] h-[1px] bg-gray-200 "></div>
@@ -255,9 +254,9 @@ export default function page({ params: { slug } }) {
           <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
           BUY NOW</Link>
         </div>
-        <div className=" w-[10%] flex items-center px-2 py-2 text-[#f2a51f]  border-[1px] border-[#fabf07] rounded-md">
+        <Link href="tel:0752815998" className=" w-[10%] flex items-center px-2 py-2 text-[#f2a51f]  border-[1px] border-[#fabf07] rounded-md">
         <IoCall size={26}/>
-        </div>
+        </Link>
       </div>
     </>
   );

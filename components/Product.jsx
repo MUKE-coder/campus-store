@@ -6,7 +6,7 @@ import HomeAddToCart from "./HomeAddToCart";
 import { AiTwotoneStar } from "react-icons/ai";
 
 export default function Product({ product }) {
-  const { setProductDetails,addRecentlyViewedProduct } = useCart();
+  const { setProductDetails,addRecentlyViewedProduct ,currency } = useCart();
 
   const handleClick = () => {
     console.log("btn clicked");
@@ -19,7 +19,8 @@ export default function Product({ product }) {
   const discount =
     ((product.originalPrice - product.currentPrice) / product.originalPrice) *
     100;
-
+    const convertedPrice =
+    currency === "USD" ? product.priceUSD : currency === "KES" ? product.priceKES : product.currentPrice;
   return (
     <div>
       <div className="relative flex flex-col gap-1 border shadow rounded-sm w-[100%] lg:w-[100%] hover:shadow-2xl" onClick={handleClick}>
@@ -33,7 +34,7 @@ export default function Product({ product }) {
           <Link href={`/product/${product.slug}`} className=" ">
           <small className="text-orange-600 text-xs">Free delivery</small>
           <h2 className="text-xs lg:text-sm line-clamp-1">{product.title}</h2>
-          <p className="my-1 font-bold text-sm lg:text-lg">UGX {product.currentPrice}</p>
+          <p className="my-1 font-bold text-sm lg:text-lg"> {currency} {convertedPrice}</p>
           <div className="flex justify-between gap-2 items-center">
             <s className="lg:text-sm text-xs">UGX {product.originalPrice}</s>
             <p className="bg-orange-100 rounded-md p-1 text-xs">-{discount.toFixed(1)}%</p>
