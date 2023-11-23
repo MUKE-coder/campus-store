@@ -341,7 +341,7 @@ const products = [
       description: "Fashionable sandals for a relaxed and stylish look.",
       hasFreeDelivery: true,
       currentPrice: 60000,
-      originalPrice: 20000,
+      originalPrice: 80000,
       subCatName: "Shoes",
       images: [
         "/shoes/sandles/1.jpg",
