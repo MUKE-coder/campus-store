@@ -471,7 +471,7 @@ const products = [
   //FRIDGES
   {
     id: 11,
-    title: "ADH 98 Liters Double Door Refrigerator BCD 80999 - Silver",
+    title: "8 Liters Double Door Refrigerator BCD 80999 - Silver",
     image: "/fridges/double-door.jpg",
     slug: "adh-98-liters-double-door-refrigerator-bcd",
     subCatId: 8,
@@ -482,7 +482,7 @@ const products = [
     currentPrice: 572500,
     originalPrice: 700000,
     subCatName: "Fridges",
-    images: ["tshirt1.jpg", "tshirt2.jpg"],
+    images: ["/fridges/double-door.jpg", "/fridges/double-door.jpg"],
   },
   {
     id: 12,
