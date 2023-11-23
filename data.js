@@ -340,7 +340,7 @@ const products = [
       catId: 1,
       description: "Fashionable sandals for a relaxed and stylish look.",
       hasFreeDelivery: true,
-      currentPrice: 600000,
+      currentPrice: 60000,
       originalPrice: 20000,
       subCatName: "Shoes",
       images: [
@@ -1837,6 +1837,6 @@ for (const product of products) {
 }
 
 // Output the updated products array
-console.log(JSON.stringify(products, null, 2));
+// console.log(JSON.stringify(products, null, 2));
 
 export { categories, subCategories, products };
