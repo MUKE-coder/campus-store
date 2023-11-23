@@ -340,7 +340,7 @@ const products = [
       catId: 1,
       description: "Fashionable sandals for a relaxed and stylish look.",
       hasFreeDelivery: true,
-      currentPrice: 600000,
+      currentPrice: 60000,
       originalPrice: 20000,
       subCatName: "Shoes",
       images: [
