@@ -1,5 +1,5 @@
 "use client";
-import logo from "../public/logo.png";
+import logo from "../public/logo2.png";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BiMenu, BiSolidShoppingBags } from "react-icons/bi";
@@ -98,7 +98,7 @@ export default function Navbar() {
             className="text-2xl  text-yellow-600  sm:text-3xl font-logo"
             href="/"
           >
-            <Image  src={logo} priority height={90} />
+            <Image className="w-[100px]"  src={logo} priority height={90} width={90}/>
           </Link>
 <div className="hidden lg:block md:block">
 <FormSearch />

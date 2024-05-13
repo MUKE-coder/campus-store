@@ -14,7 +14,7 @@ export default function TopBanner() {
           </div>
           <p className="text-orange-600 hidden md:block">
             {" "}
-            Located at Kireka Shopping Center Opposite Police
+            Located at Kyaja
           </p>
         </div>
       </Marquee>

@@ -1,6 +1,6 @@
 import { products } from "@/data";
 export default function sitemap() {
-  const baseUrl = "https://campusstoreug.com";
+  const baseUrl = "https://Kyajastoreug.com";
   const productUrl = products.map((product) => {
     return {
       url: `${baseUrl}/product/${product.slug}`,

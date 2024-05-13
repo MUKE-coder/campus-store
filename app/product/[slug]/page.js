@@ -137,7 +137,7 @@ export default function page({ params: { slug } }) {
                   <p className="flex gap-1 items-center">
                     <MdStars className="text-orange-400 text-[19px]" />
                     Get up to 40% off During the time of festive seasons while
-                    using Campus store Ug
+                    usingkyaja store Ug
                   </p>
                   <p className="flex gap-1 items-center">
                     <MdStars className="text-orange-400 text-[19px]" />
@@ -151,7 +151,7 @@ export default function page({ params: { slug } }) {
               </div>
             </div>
           </div>
-          <div className="lg:w-[24%] mt-2 md:w-[24%] w-[100%] bg-white drop-shadow-sm rounded-md lg:p-[.6rem] md:p-[.6rem] p-[.9rem]  flex flex-col gap-4 h-[90%] roboto">
+          <div className="lg:w-[24%] mt-2 md:w-[24%] w-[100%] bg-white drop-shadow-sm rounded-md lg:p-[.6rem] md:p-[.6rem] p-[.9rem]  flex flex-col gap-4 h-[90%]">
             <div className="flex flex-col gap-2">
               <h2 className="text-[14px] font-[500] tracking-[.2px]">
                 DELIVERY & RETURNS

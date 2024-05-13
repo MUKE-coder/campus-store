@@ -1,5 +1,5 @@
 export default function robots() {
-  const baseUrl = "https://campusstoreug.com";
+  const baseUrl = "https://Kyajastoreug.com";
   return {
     rules: {
       userAgent: "*",

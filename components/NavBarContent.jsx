@@ -10,7 +10,7 @@ export default function NavBarContent() {
   return (
     <div className="px-8 flex flex-col gap-7 mt-4">
       <div className="flex flex-col gap-4">
-        <h2 className="text-lg font-bold">My Campus store Ug </h2>
+        <h2 className="text-lg font-bold">Mykyaja store Ug </h2>
         <div className="flex gap-4 items-center">
           <Link
             href="/cart"

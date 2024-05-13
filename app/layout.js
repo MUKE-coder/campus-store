@@ -10,16 +10,16 @@ import { CartProvider } from "@/components/CartContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://campusstoreug.com"),
+  metadataBase: new URL("https://Kyajastoreug.com"),
   title: {
-    default: "Campus store Ug UG - Your One-Stop Shop for All Your Needs",
-    template: "%s | Campus store Ug UG",
+    default: "Kyaja store Ug UG - Your One-Stop Shop for All Your Needs",
+    template: "%s | kyaja store Ug UG",
   },
   description:
-    "Discover a wide range of quality products at Campus store Ug UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
+    "Discover a wide range of quality products at kyaja store Ug UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
   applicationName: "Next.js",
   keywords: [
-    "Campus store Ug UG",
+    "Kyaja store Ug UG",
     "Kampala downtown",
     "electronics",
     "fashion",
@@ -42,7 +42,7 @@ export const metadata = {
     "latest trends",
   ],
   author: "collinz",
-  publisher: "Campus store Ug UG",
+  publisher: "Kyaja store Ug UG",
   alternates: {
     canonical: "/",
     languages: ["en"],
@@ -52,13 +52,13 @@ export const metadata = {
   },
   openGraph: {
     title: {
-      default: "Campus store Ug UG - Your One-Stop Shop for All Your Needs",
-      template: "%s | Campus store Ug UG",
+      default: "Kyaja store UG - Your One-Stop Shop for All Your Needs",
+      template: "%s | kyaja store Ug UG",
     },
     description:
-      "Discover a wide range of quality products at Campus store Ug UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
-    url: "http://campusstore.com",
-    siteName: "Campus store Ug ug",
+      "Discover a wide range of quality products at kyaja store Ug UG, located in Kampala downtown. Explore our extensive collection, including fashion, electronics, and more. From the latest gadgets to trendy fashion, we've got it all. Call us at +256 752 815998 for personalized assistance and unbeatable deals.",
+    url: "http://Kyajastore.com",
+    siteName: "Kyaja store Ug ",
     type: "website",
     local: "en_us",
   },

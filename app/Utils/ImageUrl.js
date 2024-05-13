@@ -1,4 +1,4 @@
 export function generateImageUrl(imageFilename) {
-  const baseUrl = "https://campus-store-lyart.vercel.app/";
+  const baseUrl = "https://Kyaja-store-lyart.vercel.app/";
   return `${baseUrl}${imageFilename}`;
 }

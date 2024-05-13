@@ -377,7 +377,7 @@ const products = [
       subCatId: 2,
       catId: 1,
       description:
-        "Navy blue chinos (stretcher) khaki will look good on your body.Choose from a wide range of Unique products on Campus store Ug Ug and enjoy convenient and secure online shopping, delivery, guaranteed products and competitive pricing. Grab this deal and more at unbeatable prices with doorstep delivery.",
+        "Navy blue chinos (stretcher) khaki will look good on your body.Choose from a wide range of Unique products onkyaja store Ug Ug and enjoy convenient and secure online shopping, delivery, guaranteed products and competitive pricing. Grab this deal and more at unbeatable prices with doorstep delivery.",
       hasFreeDelivery: true,
       currentPrice: 43000,
       originalPrice: 55000,
