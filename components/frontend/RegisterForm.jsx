@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -10,8 +10,6 @@ import TextInput from "../FormInputs/TextInput";
 
 export default function RegisterForm({ role = "USER" }) {
   const router = useRouter(); // Redirecting on the client side
-  const searchParams = useSearchParams();
-  const plan = searchParams.get("plan");
   const {
     register,
     handleSubmit,
@@ -21,7 +19,6 @@ export default function RegisterForm({ role = "USER" }) {
   const [loading, setLoading] = useState(false);
   const [emailErr, setEmailErr] = useState("");
   async function onSubmit(data) {
-    data.plan = plan;
     try {
       console.log(data);
       setLoading(true);
@@ -39,15 +36,7 @@ export default function RegisterForm({ role = "USER" }) {
         setLoading(false);
         toast.success("User Created Successfully");
         reset();
-        //if role =user => home
-        //if role= farmer => onboarding
-        // const userRole =responseData.data.role
-        if (role === "USER") {
-          router.push("/");
-        } else {
-          const { data } = responseData;
-          router.push(`/verify-email?userId=${data.id}`);
-        }
+        router.push("/");
       } else {
         setLoading(false);
         if (response.status === 409) {

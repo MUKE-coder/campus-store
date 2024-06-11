@@ -1,14 +1,12 @@
 "use client";
 import { HiInformationCircle } from "react-icons/hi";
 import { Alert } from "flowbite-react";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import { FaGoogle } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+
 export default function ForgotPasswordForm() {
   const router = useRouter();
   const [showNotification, setShowNotification] = useState(false);
