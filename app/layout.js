@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/CartContext";
+import Providers from "@/context/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,14 +68,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-amber-500">
-        <CartProvider>
-          <ToastContainer />
-          <TopBanner />
-          <Navbar />
-          {children}
-          <Footer />
-        </CartProvider>
+      <body className={inter.className}>
+        <Providers>
+          <CartProvider>
+            <ToastContainer />
+            {children}
+          </CartProvider>
+        </Providers>
       </body>
     </html>
   );
