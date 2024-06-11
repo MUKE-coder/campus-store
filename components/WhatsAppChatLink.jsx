@@ -3,10 +3,10 @@ import Link from "next/link";
 import React from "react";
 import { BsWhatsapp } from "react-icons/bs";
 import { useCart } from "./CartContext";
-import { generateImageUrl } from "@/app/Utils/ImageUrl";
+import { generateImageUrl } from "@/app/(front)/Utils/ImageUrl";
+
 const WhatsAppChatLink = () => {
   const { productDetails } = useCart();
-
   const imageUrl = generateImageUrl(productDetails.image);
   const orderMessage = `I would like to place an order for the following product:\n\nProduct: ${productDetails.title}\nPrice: ${productDetails.currentPrice}\nDescription: ${productDetails.description}\nImage:${imageUrl}`;
   const encodedMessage = encodeURIComponent(orderMessage);
