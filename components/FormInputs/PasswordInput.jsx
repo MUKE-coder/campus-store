@@ -1,4 +1,8 @@
+"use client";
+import { cn } from "@/lib/utils";
+import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function PasswordInput({
   label,
@@ -9,7 +13,9 @@ export default function PasswordInput({
   type = "text",
   className = "sm:col-span-2",
   defaultValue = "",
+  forgotPasswordLink,
 }) {
+  const [passType, setPassType] = useState(type);
   return (
     <div className={className}>
       <div className="flex justify-between items-center">
@@ -19,24 +25,46 @@ export default function PasswordInput({
         >
           {label}
         </label>
-        <Link
-          href="/forgot-password"
-          className="text-sm shrink-0 font-medium text-blue-600 hover:underline dark:text-blue-500"
-        >
-          Forgot Password
-        </Link>
+        {forgotPasswordLink && (
+          <div className="text-sm">
+            <Link
+              href={forgotPasswordLink}
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              Forgot password?
+            </Link>
+          </div>
+        )}
       </div>
-      <div className="mt-2">
-        <input
-          {...register(`${name}`, { required: isRequired })}
-          type={type}
-          name={name}
-          id={name}
-          defaultValue={defaultValue}
-          autoComplete={name}
-          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder={`Type the ${label.toLowerCase()}`}
-        />
+      <div className="">
+        <div className="relative">
+          <input
+            {...register(`${name}`, { required: isRequired })}
+            type={passType}
+            name={name}
+            id={name}
+            defaultValue={defaultValue}
+            autoComplete={name}
+            className={cn(
+              "block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-sm",
+              errors[name] && "focus:ring-red-500 pl-8"
+            )}
+            placeholder={`Type the ${label.toLowerCase()}`}
+          />
+          <button
+            type="button"
+            onClick={() =>
+              setPassType((prev) => (prev === "password" ? "text" : "password"))
+            }
+            className="bg-white py-2 px-3 rounded-tr-md rounded-br-md absolute inset-y-0 right-1 my-[2px] flex items-center"
+          >
+            {passType === "password" ? (
+              <Eye className="w-4 h-4 text-slate-600" />
+            ) : (
+              <EyeOff className="w-4 h-4 text-slate-600" />
+            )}
+          </button>
+        </div>
         {errors[`${name}`] && (
           <span className="text-xs text-red-600 ">{label} is required</span>
         )}

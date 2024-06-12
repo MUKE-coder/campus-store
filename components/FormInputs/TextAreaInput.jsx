@@ -1,4 +1,7 @@
 "use client";
+
+import { cn } from "@/lib/utils";
+
 export default function TextareaInput({
   label,
   name,
@@ -21,7 +24,10 @@ export default function TextareaInput({
           name={name}
           id={name}
           rows={3}
-          className="block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-slate-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-700 dark:focus:ring-slate-500 sm:text-sm sm:leading-6 dark:bg-transparent dark:text-slate-100"
+          className={cn(
+            "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-sm",
+            errors[`${name}`] && "focus:ring-red-500"
+          )}
           defaultValue={""}
           placeholder={`Type the ${label.toLowerCase()}`}
         />

@@ -61,6 +61,7 @@ export default function LoginForm() {
         register={register}
         errors={errors}
         type="password"
+        forgotPasswordLink="/forgot-password"
       />
       <SubmitButton
         isLoading={loading}

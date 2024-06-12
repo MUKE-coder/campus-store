@@ -15,7 +15,7 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { generateInitials } from "@/lib/generateInitials";
 export default function UserAvatar({ user = {} }) {
-  const { name, image } = user;
+  const { name, email, image } = user;
   const initials = generateInitials(name);
   const role = user?.role;
   const router = useRouter();
@@ -44,6 +44,7 @@ export default function UserAvatar({ user = {} }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="py-2 px-4 pr-8">
         <DropdownMenuLabel>{name}</DropdownMenuLabel>
+        <p className="text-xs -mt-2">{email}</p>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <Link href="/dashboard" className="flex items-center space-x-2">

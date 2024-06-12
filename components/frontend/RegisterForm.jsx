@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import SubmitButton from "../FormInputs/SubmitButton";
 import TextInput from "../FormInputs/TextInput";
+import PasswordInput from "../FormInputs/PasswordInput";
 
 export default function RegisterForm({ role = "USER" }) {
   const router = useRouter(); // Redirecting on the client side
@@ -86,7 +87,7 @@ export default function RegisterForm({ role = "USER" }) {
         <small className="text-red-600 -mt-2 mb-2">{emailErr}</small>
       )}
 
-      <TextInput
+      <PasswordInput
         label="Password"
         name="password"
         register={register}
