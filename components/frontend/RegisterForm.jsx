@@ -100,17 +100,15 @@ export default function RegisterForm({ role = "USER" }) {
         loadingButtonTitle="Creating Please wait..."
       />
 
-      <div className="flex gap-2 justify-between">
-        <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 py-4">
-          Already have an account?{" "}
-          <Link
-            href="/login"
-            className="font-medium text-purple-600 hover:underline dark:text-purple-500"
-          >
-            Login
-          </Link>
-        </p>
-      </div>
+      <p className="text-sm mt-3 font-light text-gray-500 dark:text-gray-400">
+        Already have an account?{" "}
+        <Link
+          href="/login"
+          className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+        >
+          Login
+        </Link>
+      </p>
     </form>
   );
 }

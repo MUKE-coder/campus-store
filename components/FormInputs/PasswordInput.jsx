@@ -1,4 +1,6 @@
-export default function TextInput({
+import Link from "next/link";
+
+export default function PasswordInput({
   label,
   name,
   register,
@@ -10,12 +12,20 @@ export default function TextInput({
 }) {
   return (
     <div className={className}>
-      <label
-        htmlFor={name}
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        {label}
-      </label>
+      <div className="flex justify-between items-center">
+        <label
+          htmlFor={name}
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          {label}
+        </label>
+        <Link
+          href="/forgot-password"
+          className="text-sm shrink-0 font-medium text-blue-600 hover:underline dark:text-blue-500"
+        >
+          Forgot Password
+        </Link>
+      </div>
       <div className="mt-2">
         <input
           {...register(`${name}`, { required: isRequired })}
