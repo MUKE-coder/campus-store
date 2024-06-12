@@ -9,12 +9,7 @@ import HelpModal from "./HelpModal";
 import CartCount from "./CartCount";
 import { useSession } from "next-auth/react";
 import UserAvatar from "../backoffice/UserAvatar";
-export default function ShopHeader() {
-  const { data: session, status } = useSession();
-  if (status === "loading") {
-    return <p>Loading...</p>;
-  }
-
+export default function ShopHeader({ user }) {
   return (
     <div className="bg-white dark:bg-slate-700 border-b border-t">
       <div className="flex items-center justify-between max-w-6xl mx-auto px-4 gap-8">
@@ -31,7 +26,7 @@ export default function ShopHeader() {
           <SearchForm />
         </div>
         <div className="flex gap-8">
-          {status === "unauthenticated" ? (
+          {!user ? (
             <Link
               href="/login"
               className="flex items-center space-x-1 text-green-950 dark:text-slate-100"
@@ -40,7 +35,7 @@ export default function ShopHeader() {
               <span>Login</span>
             </Link>
           ) : (
-            <UserAvatar user={session?.user} />
+            <UserAvatar user={user} />
           )}
 
           <HelpModal />

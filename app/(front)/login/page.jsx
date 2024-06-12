@@ -1,5 +1,12 @@
 import LoginForm from "@/components/frontend/LoginForm";
-export default function Login() {
+import { authOptions } from "@/lib/authOptions";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+export default async function Login() {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    redirect("/");
+  }
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
