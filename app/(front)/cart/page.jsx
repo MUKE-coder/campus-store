@@ -1,12 +1,9 @@
 "use client";
 import Breadcrumb from "@/components/frontend/Breadcrumb";
 import CartItems from "@/components/frontend/CartItems";
-import CartProduct from "@/components/frontend/CartProduct";
 import CartSubTotalCard from "@/components/frontend/CartSubTotalCard";
 import EmptyCart from "@/components/frontend/EmptyCart";
-import { Minus, Plus, Trash2 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -20,7 +17,7 @@ export default function Cart() {
       }, 0)
       .toFixed(2) ?? 0;
 
-  console.log(subTotal);
+  // console.log(subTotal);
   return (
     <div>
       <Breadcrumb />
