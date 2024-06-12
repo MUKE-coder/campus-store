@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import bcrypt from "bcrypt";
 import db from "@/lib/db";
 import { v4 as uuidv4 } from "uuid";
 import base64url from "base64url";
