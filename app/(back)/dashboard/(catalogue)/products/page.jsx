@@ -11,7 +11,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 
 export default async function page() {
-  const allProducts = await getData("products");
+  const allProducts = await getData("products/all");
   return (
     <div>
       {/* Header */}

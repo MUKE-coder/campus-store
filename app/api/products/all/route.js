@@ -9,6 +9,7 @@ export async function GET(request) {
       },
       include: {
         subCategory: true,
+        category: true,
       },
     });
     return NextResponse.json(products);

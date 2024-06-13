@@ -7,18 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 import Carousel from "nuka-carousel";
 
-export default function HeroSlider() {
-  const slides = [
-    {
-      image: slide1,
-    },
-    {
-      image: slide2,
-    },
-    {
-      image: slide3,
-    },
-  ];
+export default function HeroSlider({ banners }) {
+  // const slides = [
+  //   {
+  //     image: slide1,
+  //   },
+  //   {
+  //     image: slide2,
+  //   },
+  //   {
+  //     image: slide3,
+  //   },
+  // ];
   return (
     <>
       <Carousel
@@ -28,7 +28,7 @@ export default function HeroSlider() {
         adaptiveHeightAnimation
         className="w-full"
       >
-        {slides.map((item, i) => {
+        {banners.map((item, i) => {
           return (
             <Link href="/" className="block">
               <Image src={item.image} alt="alt" width={712} height={384} />

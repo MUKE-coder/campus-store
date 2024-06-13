@@ -16,8 +16,8 @@ export default function Product({ product }) {
     const prod = {
       id: product.id,
       title: product.title,
-      salePrice: product.currentPrice,
-      imageUrl: product.image,
+      salePrice: product.salePrice,
+      imageUrl: product.imageUrl,
       userId: "0001",
     };
     dispatch(addToCart(prod));
@@ -32,8 +32,7 @@ export default function Product({ product }) {
 
   const baseUrl = "http://localhost:3000/";
   const discount =
-    ((product.originalPrice - product.currentPrice) / product.originalPrice) *
-    100;
+    ((product.productPrice - product.salePrice) / product.productPrice) * 100;
   const convertedPrice =
     currency === "USD"
       ? product.priceUSD
@@ -46,13 +45,13 @@ export default function Product({ product }) {
       onClick={handleClick}
     >
       <small className="absolute left-2 top-2 font-semibold bg-yellow-100 py-1 px-2 rounded-md text-xs">
-        {product.subCatName}
+        {product.subCategory.title}
       </small>
       <Link
         href={`/product/${product.slug}`}
         className="flex items-center justify-center h-[60%]"
       >
-        <img src={product.image} alt="" className="w-[100%] " />
+        <img src={product.imageUrl} alt="" className="w-[100%] " />
       </Link>
       <div className="flex-col flex gap-1 px-2 pb-3 lg:pb-4 lg:px-4 h-[40%]">
         <Link href={`/product/${product.slug}`} className=" ">
@@ -65,9 +64,9 @@ export default function Product({ product }) {
           <div className="flex items-center justify-between">
             <p className="my-1 font-semibold text-sm">
               {" "}
-              {currency} {convertedPrice}
+              UGX {product.salePrice}
             </p>
-            <s className=" text-xs">UGX {product.originalPrice}</s>
+            <s className=" text-xs">UGX {product.productPrice}</s>
           </div>
           <p className="bg-orange-100 absolute top-1 right-0 rounded-md p-1 text-xs">
             -{discount.toFixed(1)}%

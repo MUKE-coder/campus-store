@@ -1,5 +1,5 @@
 import "../styles/main.scss";
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans } from "next/font/google";
 import TopBanner from "@/components/TopBanner";
 import Navbar from "@/components/Navbar";
 import { ToastContainer } from "react-toastify";
@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/CartContext";
 import Providers from "@/context/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   metadataBase: new URL("https://Kyajastoreug.com"),

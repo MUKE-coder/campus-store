@@ -1,19 +1,25 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { categories, subCategories } from "@/data";
 import LoadingProducts from "./LoadingProducts";
-export default function CategoryBanner({ updateSubCategories }) {
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+// import { subCategories } from "@/data";
+export default function CategoryBanner({
+  updateSubCategories,
+  categories,
+  allSubCats,
+}) {
   useEffect(() => {
-    handleCategoryFilter(1);
+    handleCategoryFilter(categories[0].id);
     setIsLoading(false);
   }, []);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   function handleCategoryFilter(id) {
     setActiveCategoryId(id);
-    const filteredCourse = subCategories.filter((item) => item.catId == id);
-    const category = categories.find((item) => item.id == id);
+    const filteredCourse = allSubCats.filter((item) => item.categoryId == id);
+    const category = categories.find((item) => item.id === id);
     updateSubCategories(filteredCourse, category);
   }
   // handleCategoryFilter(1);
@@ -28,22 +34,26 @@ export default function CategoryBanner({ updateSubCategories }) {
       ) : (
         <div className="grid grid-cols-3 sm:grid-cols-4 items-center gap-2 md:grid-cols-8 lg:grid-col-8 ">
           {categories.map((item) => {
-            const Icon = item.icon;
+            // const Icon = item.icon;
             const isActive = item.id === activeCategoryId;
             return (
               <button
                 onClick={() => handleCategoryFilter(item.id)}
                 key={item.id}
-                className={`${
-                  isActive
-                    ? "bg-secondary rounded-2xl shadow-md px-3 py-2 flex  gap-2 items-center text-center   text-sm flex-col sm:text-base "
-                    : " rounded-2xl shadow-md px-3 py-2 flex  gap-2 items-center text-center   text-sm flex-col sm:text-base"
-                }`}
+                className={cn(
+                  " rounded-2xl shadow-md px-3 py-2 flex  gap-2 items-center text-center text-sm flex-col sm:text-base ",
+                  isActive && "border-2 border-slate-800 "
+                )}
               >
-                <div className="p-2 bg-primary rounded-full">
-                  <Icon className="shrink-0 text-slate-100 md:h-8 md:w-8 w-3 h-3" />
+                <div className="p-2 border rounded-full overflow-hidden">
+                  <Image
+                    src={item.imageUrl}
+                    width={200}
+                    height={200}
+                    className="shrink-0 rounded-full object-cover text-slate-100 w-20 h-20"
+                  />
                 </div>
-                <span className="line-clamp-1">{item.name}</span>
+                <span className="line-clamp-1">{item.title}</span>
               </button>
             );
           })}

@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Product from "./Product";
 import { useEffect, useState } from "react";
-import { products } from "@/data";
+// import { products } from "@/data";
 import LoadingProducts from "./LoadingProducts";
 
 const responsive = {
@@ -23,14 +23,14 @@ const responsive = {
     slidesToSlide: 1,
   },
 };
-export default function ProductList({ subCats, cat }) {
+export default function ProductList({ subCats, cat, products }) {
   const [activeId, setActiveId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [subCatProducts, setSubCatProducts] = useState([]);
   useEffect(() => {
     if (cat.id) {
       const id = cat.id;
-      const filtered = products.filter((item) => item.catId == id);
+      const filtered = products.filter((item) => item.categoryId == id);
       setSubCatProducts(filtered);
       setIsLoading(false);
     } else {
@@ -40,7 +40,7 @@ export default function ProductList({ subCats, cat }) {
 
   function handleFilter(id) {
     setActiveId(id);
-    const filtered = products.filter((item) => item.subCatId == id);
+    const filtered = products.filter((item) => item.subCategoryId == id);
     setSubCatProducts(filtered);
   }
   return (
@@ -51,12 +51,12 @@ export default function ProductList({ subCats, cat }) {
         <>
           <div className="px-4 md:px-8 md:py-8 py-4">
             <h2 className="text-left font-bold mb-2 text-orange-700 text-base md:text-2xl">
-              Shop {cat.name} Products
+              Shop {cat.title} Products
             </h2>
             <p>{cat.description}</p>
             <div className="flex md:gap-4 mb-4 md:mb-8 mt-4 flex-col gap-3">
               <h2 className="text-sm font-bold">
-                Filter {cat.name} Products:{" "}
+                Filter {cat.title} Products:{" "}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {subCats.map((item, i) => {

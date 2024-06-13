@@ -7,6 +7,10 @@ export async function GET(request, { params: { slug } }) {
       where: {
         slug,
       },
+      include: {
+        subCategory: true,
+        category: true,
+      },
     });
     return NextResponse.json(product);
   } catch (error) {

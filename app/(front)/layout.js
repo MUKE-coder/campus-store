@@ -13,7 +13,7 @@ export default async function FrontLayout({ children }) {
     <div>
       <TopBanner />
       <ShopHeader user={user} />
-      <div className="max-w-6xl mx-auto py-6 px-8 lg:px-0 ">{children}</div>
+      <div className="max-w-7xl mx-auto py-6 px-8 lg:px-0 ">{children}</div>
       <Footer />
     </div>
   );
