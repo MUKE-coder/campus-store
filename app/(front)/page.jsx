@@ -1,3 +1,4 @@
+import { getAllProducts } from "@/actions/products";
 import HomePage from "@/components/HomePage";
 import { getData } from "@/lib/getData";
 import React from "react";
@@ -6,7 +7,7 @@ export default async function page() {
   const bannerData = (await getData("banners")) || [];
   const allCategories = (await getData("categories")) || [];
   const subCategories = (await getData("sub-categories")) || [];
-  const products = (await getData("products/all")) || [];
+  const products = await getAllProducts();
   const banners = bannerData.map((item) => {
     return {
       image: item.imageUrl,
