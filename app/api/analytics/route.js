@@ -4,8 +4,6 @@ import {
   Combine,
   DollarSign,
   LayoutGrid,
-  Loader,
-  LucideProps,
 } from "lucide-react";
 import { NextResponse } from "next/server";
 function calculateSalesSummary(sales) {
@@ -50,14 +48,14 @@ export async function GET() {
         title: "Total Orders",
         count: ordersCount,
         countUnit: "",
-        detailLink: "/dashboard/sales/orders",
+        detailLink: "/dashboard/orders",
         icon: Combine,
       },
       {
         title: "Total Products",
         count: productsCount,
         countUnit: "",
-        detailLink: "/dashboard/inventory/products",
+        detailLink: "/dashboard/products",
         icon: LayoutGrid,
       },
     ];

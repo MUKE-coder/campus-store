@@ -1,20 +1,4 @@
 import React from "react";
-import {
-  Activity,
-  CreditCard,
-  DollarSign,
-  Menu,
-  Package2,
-  Search,
-  Users,
-} from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { getData } from "@/lib/getData";
 import AnalyticsCard from "@/components/AnalyticsCard";
 import LatestOrders from "@/components/LatestOrders";
