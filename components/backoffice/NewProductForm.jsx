@@ -16,6 +16,8 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import MultipleImageInput from "../FormInputs/MultipleImageInput";
+import { createProduct } from "@/actions/products";
+import toast from "react-hot-toast";
 
 export default function NewProductForm({
   categories,
@@ -76,14 +78,35 @@ export default function NewProductForm({
       );
       console.log("update Request: ", data);
     } else {
-      makePostRequest(
-        setLoading,
-        "api/products",
-        data,
-        "Product",
-        reset,
-        redirect
-      );
+      // makePostRequest(
+      //   setLoading,
+      //   "api/products",
+      //   data,
+      //   "Product",
+      //   reset,
+      //   redirect
+      // );
+      try {
+        setLoading(true);
+        const responseData = await createProduct(data);
+        if (responseData) {
+          setLoading(false);
+          toast.success(`New Product Created Successfully`);
+          reset();
+          router.push("/dashboard/products");
+        } else {
+          setLoading(false);
+          if (responseData.status === 409) {
+            toast.error(`${responseData.message}`);
+          } else {
+            toast.error("Something Went wrong, Please Try Again");
+          }
+        }
+      } catch (error) {
+        setLoading(false);
+        console.log(error);
+      }
+
       setProductImages([]);
       setTags([]);
     }

@@ -4,9 +4,12 @@ import { getData } from "@/lib/getData";
 
 import React from "react";
 import { columns } from "./columns";
+import { getAllProducts } from "@/actions/products";
 
 export default async function page() {
-  const allProducts = await getData("products/all");
+  // const allProducts = await getData("products/all");
+  const products = await getAllProducts();
+  // console.log(products);
   return (
     <div>
       {/* Header */}
@@ -16,7 +19,7 @@ export default async function page() {
         linkTitle="Add Product"
       />
       <div className="py-8">
-        <DataTable data={allProducts} columns={columns} />
+        <DataTable data={products} columns={columns} />
       </div>
     </div>
   );
