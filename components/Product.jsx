@@ -20,6 +20,7 @@ export default function Product({ product }) {
       salePrice: product.salePrice,
       imageUrl: product.imageUrl,
       userId: "0001",
+      slug: product.slug,
     };
     dispatch(addToCart(prod));
     // addRecentlyViewedProduct(product);

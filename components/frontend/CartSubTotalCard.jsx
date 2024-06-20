@@ -17,15 +17,15 @@ export default function CartSubTotalCard({ subTotal }) {
   ).toFixed(2);
 
   const generateWhatsAppMessage = () => {
-    //     imageUrl
-    // title
-    // salePrice
-    // qty
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     let message = `New Order Details:\n\n`;
-    cartItems.forEach((item) => {
-      message += `Product: ${item.title}\nQuantity: ${item.qty}\nPrice: $${item.salePrice}\n\n`;
+    cartItems.forEach((item, i) => {
+      const productLink = `${baseUrl}/product/${item.slug}`;
+      message += `Product - ${i + 1}: ${item.title}\nQuantity: ${
+        item.qty
+      }\nPrice: $${formatMoney(item.salePrice)}\nLink: ${productLink}\n\n`;
     });
-    message += `Total Price: $${totalPrice}`;
+    message += `Total Price: $${formatMoney(totalPrice)}`;
     return encodeURIComponent(message);
   };
 
