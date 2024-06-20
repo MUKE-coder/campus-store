@@ -3,14 +3,6 @@ import Breadcrumb from "@/components/frontend/Breadcrumb";
 import CartItems from "@/components/frontend/CartItems";
 import CartSubTotalCard from "@/components/frontend/CartSubTotalCard";
 import EmptyCart from "@/components/frontend/EmptyCart";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import React from "react";
 import { useSelector } from "react-redux";
 
