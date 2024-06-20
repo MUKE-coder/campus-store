@@ -22,8 +22,8 @@ export default function CartSubTotalCard({ subTotal }) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     let message = `New Order Details:\n\n`;
     cartItems.forEach((item, i) => {
-      // const slug =generateSlug(item.title)
-      const productLink = `${baseUrl}/product/${item.slug}`;
+      const slug = generateSlug(item.title);
+      const productLink = `${baseUrl}/product/${slug}`;
       message += `Product - ${i + 1}: ${item.title}\nQuantity: ${
         item.qty
       }\nPrice: UGX ${formatMoney(item.salePrice)}\nLink: ${productLink}\n\n`;
