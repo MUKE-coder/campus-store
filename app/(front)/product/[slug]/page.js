@@ -3,6 +3,7 @@ import DetailedPrdt from "@/components/DetailedPrdt";
 import ProductSlider from "@/components/ProductSlider";
 import Breadcrumb from "@/components/frontend/Breadcrumb";
 import { products } from "@/data";
+import { formatMoney } from "@/lib/formatMoney";
 import { getData } from "@/lib/getData";
 import Link from "next/link";
 import { AiOutlineHeart, AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
@@ -87,10 +88,10 @@ export default async function page({ params: { slug } }) {
                 <div className="">
                   <div className="flex gap-2 items-center">
                     <h2 className="text-[25px] text-[#0c0c0c] font-[800] tracking-[.6px]">
-                      UGX {product.salePrice}
+                      UGX {formatMoney(product.salePrice)}
                     </h2>
                     <h3 className="line-through text-[#75757a] text-[15px] flex items-end tracking-[.6px]">
-                      UGX {product.productPrice}
+                      UGX {formatMoney(product.productPrice)}
                     </h3>
                     <p className="bg-[#fef3e9] drop-shadow-sm rounded-md p-1 text-orange-400 text-sm">
                       -{discount.toFixed(1)}%

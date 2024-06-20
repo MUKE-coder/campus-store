@@ -5,9 +5,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Button } from "../ui/button";
 import { formatMoney } from "@/lib/formatMoney";
+import { generateSlug } from "@/lib/generateSlug";
 
 export default function CartSubTotalCard({ subTotal }) {
   const cartItems = useSelector((store) => store.cart);
+  console.log(cartItems);
   const shipping = 10.0;
   const tax = 0.0;
   const totalPrice = (
@@ -20,12 +22,13 @@ export default function CartSubTotalCard({ subTotal }) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     let message = `New Order Details:\n\n`;
     cartItems.forEach((item, i) => {
+      // const slug =generateSlug(item.title)
       const productLink = `${baseUrl}/product/${item.slug}`;
       message += `Product - ${i + 1}: ${item.title}\nQuantity: ${
         item.qty
-      }\nPrice: $${formatMoney(item.salePrice)}\nLink: ${productLink}\n\n`;
+      }\nPrice: UGX ${formatMoney(item.salePrice)}\nLink: ${productLink}\n\n`;
     });
-    message += `Total Price: $${formatMoney(totalPrice)}`;
+    message += `Total Price: UGX ${formatMoney(totalPrice)}`;
     return encodeURIComponent(message);
   };
 
