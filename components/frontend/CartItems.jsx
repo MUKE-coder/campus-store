@@ -21,6 +21,7 @@ import { Minus, MoveLeft, Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { formatMoney } from "@/lib/formatMoney";
 export default function CartItems({ cartItems }) {
   const dispatch = useDispatch();
   function handleCartItemDelete(cartId) {
@@ -97,9 +98,15 @@ export default function CartItems({ cartItems }) {
                       <TableCell className="hidden md:table-cell">
                         <div className="flex items-center gap-2">
                           <div className="flex flex-col justify-center">
-                            <h4>${(item.salePrice * item.qty).toFixed(2)}</h4>
+                            <h4>
+                              UGX &nbsp;
+                              {formatMoney(
+                                (item.salePrice * item.qty).toFixed(2)
+                              )}
+                            </h4>
                             <p className="text-[10px] text-gray-300">
-                              (${item.salePrice}x {item.qty})
+                              (UGX &nbsp; {formatMoney(+item.salePrice)}x{" "}
+                              {item.qty})
                             </p>
                           </div>
                           <button onClick={() => handleCartItemDelete(item.id)}>

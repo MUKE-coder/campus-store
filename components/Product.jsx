@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/slices/cartSlice";
 import toast from "react-hot-toast";
 import { GiShoppingCart } from "react-icons/gi";
+import { formatMoney } from "@/lib/formatMoney";
 
 export default function Product({ product }) {
   const { setProductDetails, addRecentlyViewedProduct, currency } = useCart();
@@ -64,9 +65,9 @@ export default function Product({ product }) {
           <div className="flex items-center justify-between">
             <p className="my-1 font-semibold text-sm">
               {" "}
-              UGX {product.salePrice}
+              UGX {formatMoney(product.salePrice)}
             </p>
-            <s className=" text-xs">UGX {product.productPrice}</s>
+            <s className=" text-xs">UGX {formatMoney(product.productPrice)}</s>
           </div>
           <p className="bg-orange-100 absolute top-1 right-0 rounded-md p-1 text-xs">
             -{discount.toFixed(1)}%
