@@ -8,16 +8,120 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import {
+  ExternalLink,
+  Home,
+  Layers2,
+  LayoutGrid,
+  LayoutList,
+  Presentation,
+  Settings,
+  Truck,
+  User,
+  Users,
+  Users2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { sidebarLinks } from "@/config/sidebar";
+// import { sidebarLinks } from "@/config/sidebar";
 import Image from "next/image";
 
-export default function Sidebar() {
+export default function Sidebar({ session }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const role = session?.user?.role;
+  const userId = session?.user?.id;
 
+  const sidebarLinks = [
+    {
+      title: "Dashboard",
+      href: "/dashboard",
+      icon: Home,
+      dropdown: false,
+      roles: ["ADMIN", "USER"],
+    },
+    {
+      title: "Banners",
+      href: "/dashboard/banners",
+      icon: Presentation,
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "Products",
+      icon: LayoutGrid,
+      href: "/dashboard/products",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "Categories",
+      icon: Layers2,
+      href: "/dashboard/categories",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "Sub Categories",
+      icon: LayoutList,
+      href: "/dashboard/sub-categories",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "Users",
+      icon: Users,
+      href: "/dashboard/users",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "Customers",
+      icon: Users2,
+      href: "/dashboard/customers",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "Orders",
+      icon: Truck,
+      href: "/dashboard/orders",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
+      title: "My Orders",
+      icon: Truck,
+      href: `/dashboard/customers/${userId}`,
+      dropdown: false,
+      roles: ["USER"],
+    },
+    {
+      title: "Profile",
+      icon: User,
+      href: "/dashboard/profile",
+      dropdown: false,
+      roles: ["ADMIN", "USER"],
+    },
+    {
+      title: "Online Store",
+      icon: ExternalLink,
+      href: "/",
+      dropdown: false,
+      roles: ["ADMIN", "USER"],
+    },
+    {
+      title: "Settings",
+      href: "/dashboard/settings",
+      icon: Settings,
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+  ];
+  const filteredSidebarLinks = sidebarLinks.filter((link) =>
+    link.roles.includes(role)
+  );
   return (
     <div className="hidden border-r bg-muted/40 md:block">
       <div className="flex h-full max-h-screen flex-col gap-2">
@@ -33,7 +137,7 @@ export default function Sidebar() {
         </div>
         <div className="flex-1">
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-            {sidebarLinks.map((item, i) => {
+            {filteredSidebarLinks.map((item, i) => {
               const Icon = item.icon;
               const isHrefIncluded =
                 item.dropdownMenu &&
