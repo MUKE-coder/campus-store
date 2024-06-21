@@ -45,7 +45,7 @@ export async function POST(request) {
           city,
           country,
           district,
-          shippingCost: parseFloat(shippingCost),
+          shippingCost: parseFloat(shippingCost) ?? 0,
           paymentMethod,
           orderNumber: generateOrderNumber(8),
         },

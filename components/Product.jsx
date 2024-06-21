@@ -19,7 +19,7 @@ export default function Product({ product }) {
       title: product.title,
       salePrice: product.salePrice,
       imageUrl: product.imageUrl,
-      userId: "0001",
+      userId: "666ac69f0e152d2844421dd8",
       slug: product.slug,
     };
     dispatch(addToCart(prod));

@@ -75,6 +75,12 @@ export const sidebarLinks = [
     dropdown: false,
   },
   {
+    title: "Profile",
+    icon: User,
+    href: "/dashboard/profile",
+    dropdown: false,
+  },
+  {
     title: "Online Store",
     icon: ExternalLink,
     href: "/",

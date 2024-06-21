@@ -49,13 +49,18 @@ export default function CartSubTotalCard({ subTotal }) {
         <span>Total </span>
         <span>UGX &nbsp;{formatMoney(totalPrice)}</span>
       </div>
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <Button
           onClick={handleWhatsAppOrder}
           className="text-slate-50 rounded-lg py-3 px-6 font-normal bg-slate-900 dark:bg-green-600"
         >
           <FaWhatsapp className="w-5 h-5 mr-2 flex-shrink-0" />
           Place Order Via Whatsapp
+        </Button>
+      </div> */}
+      <div className="mt-4">
+        <Button>
+          <Link href="/checkout">Proceed to Checkout</Link>
         </Button>
       </div>
     </div>
