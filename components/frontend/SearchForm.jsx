@@ -20,7 +20,7 @@ export default function SearchForm() {
       </label>
       <div className="relative w-full">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <DoorOpen className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+        <Search className="w-4 h-4 me-2" />
         </div>
         <input
           {...register("searchTerm")}
@@ -33,9 +33,8 @@ export default function SearchForm() {
       </div>
       <button
         type="submit"
-        className="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-lime-700 rounded-lg border border-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
+        className="inline-flex items-center py-2 px-3 ms-2 text-sm font-bold text-white bg-[#f68b1e] rounded-sm border border-[#f68b1e] hover:bg-[#f68b1e]focus:ring-4 focus:outline-none focus:ring-[#f68b1e] dark:bg-[#f68b1e] dark:hover:bg-[#ca8037d8] btnShadow dark:focus:ring-[#f68a1eb6] uppercase"
       >
-        <Search className="w-4 h-4 me-2" />
         Search
       </button>
     </form>

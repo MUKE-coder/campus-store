@@ -8,7 +8,7 @@ export default async function VerifyMail({ searchParams }) {
   const { email } = user;
   console.log(userId);
   return (
-    <div className="max-w-2xl mx-auto min-h-screen mt-8">
+    <div className="max-w-2xl mx-auto min-h-screen mt-8 md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
       <div
         id="alert-additional-content-1"
         className="p-4 mb-4 text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"

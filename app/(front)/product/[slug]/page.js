@@ -2,7 +2,7 @@ import AddToCart from "@/components/AddToCart";
 import DetailedPrdt from "@/components/DetailedPrdt";
 import ProductSlider from "@/components/ProductSlider";
 import Breadcrumb from "@/components/frontend/Breadcrumb";
-import { products } from "@/data";
+
 import { formatMoney } from "@/lib/formatMoney";
 import { getData } from "@/lib/getData";
 import Link from "next/link";
@@ -14,7 +14,9 @@ import { IoCall } from "react-icons/io5";
 import { MdStars } from "react-icons/md";
 
 export async function generateMetadata({ params: { slug } }) {
-  const product = products?.find((product) => product.slug == slug);
+  const product = await getData(`products/product/${slug}`);
+
+  // console.log(product)
   return {
     title: product.title,
     description: product.description,
@@ -54,7 +56,7 @@ export default async function page({ params: { slug } }) {
   };
   return (
     <>
-      <div className="max-w-full min-h-screen m-[.3rem] md:mx-[1rem] lg:mx-[4rem] roboto relative">
+      <div className="max-w-full min-h-screen m-[.3rem] md:mx-[1rem] lg:mx-[4rem] roboto relative md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
         <Breadcrumb />
         <div className="flex flex-col gap-3">
           <div className=" w-full min-h-[95vh] justify-between  flex flex-col md:flex-row lg:flex-row">

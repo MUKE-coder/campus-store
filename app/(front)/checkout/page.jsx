@@ -30,7 +30,7 @@ export default async function page() {
     },
   ];
   return (
-    <div className=" min-h-screen">
+    <div className=" min-h-screen md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
       <div className="max-w-3xl my-6 mx-auto border border-slate-700 p-6 rounded-lg">
         {/* STEPS */}
         <Steps steps={steps} />

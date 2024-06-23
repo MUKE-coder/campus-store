@@ -24,7 +24,7 @@ export default async function page() {
     return <FarmerDashboard />;
   }
   return (
-    <div>
+    <div className="md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
       <Heading title="Dashboard Overview" />
       {/* Large Cards */}
       <div className="grid gap-4 mt-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">

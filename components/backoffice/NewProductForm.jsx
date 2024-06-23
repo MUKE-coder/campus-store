@@ -1,9 +1,8 @@
 "use client";
 import ArrayItemsInput from "@/components/FormInputs/ArrayItemsInput";
-
 import SelectInput from "@/components/FormInputs/SelectInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
-import TextareaInput from "@/components/FormInputs/TextAreaInput";
+import TextareaInput from "@/components/FormInputs/TextareaInput";
 import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
 import FormHeader from "@/components/backoffice/FormHeader";
@@ -48,15 +47,22 @@ export default function NewProductForm({
   });
   const isWholesale = watch("isWholesale");
   const categoryId = watch("categoryId");
-  console.log(categoryId);
-  const filteredSubCategories =
-    subCategories.filter((item) => item.categoryId === categoryId) || [];
+  // console.log(categoryId);
+  // const filteredSubCategories =
+  //   subCategories.filter((item) => item.categoryId === categoryId) || [];
   const router = useRouter();
   function redirect() {
     router.push("/dashboard/products");
   }
   const [productImages, setProductImages] = useState([]);
   console.log(productImages);
+
+  const productTypeOptions = [
+    { id: "topdeals", title: "Top Deals" },
+    { id: "featured", title: "Featured" },
+    { id: "flash", title: "Flash" },
+  ];
+
   async function onSubmit(data) {
     const slug = generateSlug(data.title);
     const productCode = generateUserCode("LLP", data.title);
@@ -68,6 +74,8 @@ export default function NewProductForm({
     console.log(data);
     if (id) {
       data.id = id;
+      console.log(data);
+
       // Make Put Request (Update)
       makePutRequest(
         setLoading,
@@ -78,14 +86,6 @@ export default function NewProductForm({
       );
       console.log("update Request: ", data);
     } else {
-      // makePostRequest(
-      //   setLoading,
-      //   "api/products",
-      //   data,
-      //   "Product",
-      //   reset,
-      //   redirect
-      // );
       try {
         setLoading(true);
         const responseData = await createProduct(data);
@@ -123,21 +123,6 @@ export default function NewProductForm({
           register={register}
           errors={errors}
         />
-        {/* <TextInput
-          label="Product SKU"
-          name="sku"
-          register={register}
-          errors={errors}
-          className="w-full"
-        /> */}
-
-        {/* <TextInput
-          label="Product Barcode"
-          name="barcode"
-          register={register}
-          errors={errors}
-          className="w-full"
-        /> */}
         <TextInput
           label="Product Price (Before Discount)"
           name="productPrice"
@@ -214,13 +199,21 @@ export default function NewProductForm({
           </>
         )}
 
+        <SelectInput
+          label="Product Type"
+          name="type"
+          register={register}
+          errors={errors}
+          className="w-full"
+          options={productTypeOptions}
+        />
+
         <MultipleImageInput
           imageUrls={productImages}
           setImageUrls={setProductImages}
           endpoint="multipleProductsUploader"
           label="Product Image Images"
         />
-        {/* Tags */}
         <ArrayItemsInput setItems={setTags} items={tags} itemTitle="Tag" />
 
         <TextareaInput

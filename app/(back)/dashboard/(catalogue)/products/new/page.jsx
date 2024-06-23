@@ -25,6 +25,7 @@ export default async function NewProduct() {
       title: category.title,
     };
   });
+  console.log(subCategories)
   return (
     <div>
       <FormHeader title="New Product" />

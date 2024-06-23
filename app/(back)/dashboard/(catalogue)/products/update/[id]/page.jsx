@@ -5,6 +5,8 @@ import React from "react";
 
 export default async function UpdateProduct({ params: { id } }) {
   const product = await getData(`products/${id}`);
+  const subCategoriesData = await getData("sub-categories");
+
   //Categories and Farmers
   const categoriesData = await getData("categories");
   const usersData = await getData("users");
@@ -13,6 +15,12 @@ export default async function UpdateProduct({ params: { id } }) {
     return {
       id: farmer.id,
       title: farmer.name,
+    };
+  });
+  const subCategories = subCategoriesData.map((category) => {
+    return {
+      id: category.id,
+      title: category.title,
     };
   });
   const categories = categoriesData.map((category) => {
@@ -28,6 +36,7 @@ export default async function UpdateProduct({ params: { id } }) {
         updateData={product}
         categories={categories}
         farmers={farmers}
+        subCategories={subCategories}
       />
     </div>
   );
