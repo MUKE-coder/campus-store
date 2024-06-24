@@ -1,10 +1,13 @@
+import { getSingleStyle } from "@/actions/styles";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaSnapchat, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
 
-export default function Footer() {
+export default async function Footer() {
+   const singleStyle= await getSingleStyle()
+  const backgroundColor =  singleStyle.footerColor || "#0f172a";
   return (
-  <div className="w-[100%] py-4 text-xs px-4 lg:px-8 min-h-[25vh] bg-[#0f172a] flex-col flex lg:flex-row gap-5 lg:gap-8 items-center justify-center">
+  <div style={{backgroundColor}} className="w-[100%] py-4 text-xs px-4 lg:px-8 min-h-[25vh] flex-col flex lg:flex-row gap-5 lg:gap-8 items-center justify-center">
    <div className="flex gap-2 ">
     <Link className="p-2 rounded-[50%] bg-[#31d4d9] " href="">   <FaSnapchat color="white" size={20}/>
 </Link>

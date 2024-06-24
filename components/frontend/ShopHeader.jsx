@@ -10,7 +10,7 @@ import CartCount from "./CartCount";
 import { useSession } from "next-auth/react";
 import UserAvatar from "../backoffice/UserAvatar";
 import { MobileNavBar } from "../MobileNavBar";
-export default function ShopHeader({ user , allCategories }) {
+export default function ShopHeader({ user , allCategories , backgroundColor  }) {
   
   return (
     <div className="bg-white dark:bg-slate-700 border-b border-t">
@@ -30,7 +30,7 @@ export default function ShopHeader({ user , allCategories }) {
        
         {/* SEARCH */}
         <div className="flex-grow lg:block md:block hidden">
-          <SearchForm />
+          <SearchForm backgroundColor={backgroundColor }/>
         </div>
         <div className="gap-8 lg:flex items-center md:flex  hidden">
           {!user ? (
@@ -46,7 +46,7 @@ export default function ShopHeader({ user , allCategories }) {
           )}
 
           <HelpModal />
-          <CartCount />
+          <CartCount backgroundColor={backgroundColor}/>
         </div>
         <div className="flex lg:hidden md:hidden gap-3 items-center justify-center">
 

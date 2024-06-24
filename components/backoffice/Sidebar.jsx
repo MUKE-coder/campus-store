@@ -70,6 +70,13 @@ export default function Sidebar({ session }) {
       roles: ["ADMIN"],
     },
     {
+      title: "Styles",
+      icon: LayoutList,
+      href: "/dashboard/styles/new",
+      dropdown: false,
+      roles: ["ADMIN"],
+    },
+    {
       title: "Users",
       icon: Users,
       href: "/dashboard/users",
@@ -100,7 +107,7 @@ export default function Sidebar({ session }) {
     {
       title: "Profile",
       icon: User,
-      href: "/dashboard/profile",
+      href: "/dashboard/settings",
       dropdown: false,
       roles: ["ADMIN", "USER"],
     },

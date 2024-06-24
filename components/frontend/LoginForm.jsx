@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import TextInput from "../FormInputs/TextInput";
-import { Loader } from "lucide-react";
 import SubmitButton from "../FormInputs/SubmitButton";
 import PasswordInput from "../FormInputs/PasswordInput";
 export default function LoginForm() {
@@ -28,16 +27,19 @@ export default function LoginForm() {
         ...data,
         redirect: false,
       });
-      console.log("SignIn response:", loginData);
-      if (loginData?.error) {
+
+      // console.log("SignIn response:", loginData);
+
+      if (loginData.ok) {
+        router.push("/dashboard");
         setLoading(false);
-        toast.error("Sign-in error: Check your credentials");
+        toast.success("Login Successful thank you");
       } else {
         // Sign-in was successful
-        toast.success("Login Successful");
+        toast.error("Sign-in error: Check your credentials");
         reset();
-        router.push("/dashboard");
-        window.location.reload();
+        // router.push("/dashboard");
+        // window.location.reload();
       }
     } catch (error) {
       setLoading(false);

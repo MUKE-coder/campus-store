@@ -1,3 +1,4 @@
+import { getSingleStyle } from "@/actions/styles";
 import AddToCart from "@/components/AddToCart";
 import DetailedPrdt from "@/components/DetailedPrdt";
 import ProductSlider from "@/components/ProductSlider";
@@ -15,8 +16,7 @@ import { MdStars } from "react-icons/md";
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await getData(`products/product/${slug}`);
-
-  // console.log(product)
+ 
   return {
     title: product.title,
     description: product.description,
@@ -29,7 +29,9 @@ export async function generateMetadata({ params: { slug } }) {
 export default async function page({ params: { slug } }) {
   const product = await getData(`products/product/${slug}`);
   const products = await getData(`products/all`);
-
+  const singleStyle= await getSingleStyle()
+  const backgroundColor =  singleStyle.primaryColor || "#f68b1e";
+  // console.log(product)
   const images = product.productImages;
   const productId = product.id;
   const productSubCatId = product.subCategoryId;
@@ -251,8 +253,9 @@ export default async function page({ params: { slug } }) {
         </div>
         <div className="w-[75%]">
           <Link
+          style={{backgroundColor}}
             href="/booking"
-            className="lg:hidden md:hidden flex w-[100%] py-3 bg-[#f2a51f] relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+            className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
           >
             <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
             BUY NOW

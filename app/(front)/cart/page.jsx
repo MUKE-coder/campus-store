@@ -18,7 +18,7 @@ export default function Cart() {
 
   // console.log(subTotal);
   return (
-    <div className="md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
+    <div className="md:pt-[3rem] pt-[3.8rem] lg:pt-[4rem] px-8 lg:px-[5rem] md:px-[3rem] pb-4">
       <Breadcrumb />
       {cartItems.length > 0 ? (
         <div className="grid grid-cols-12 gap-6 md:gap-14 ">

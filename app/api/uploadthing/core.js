@@ -17,6 +17,18 @@ export const ourFileRouter = {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "JB" };
     }),
+  topBannerImageUploader: f({ image: { maxFileSize: "2MB" } })
+    // Set permissions and file types for this FileRoute
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "JB" };
+    }),
+  bgImageUploader: f({ image: { maxFileSize: "2MB" } })
+    // Set permissions and file types for this FileRoute
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "JB" };
+    }),
   marketLogoUploader: f({ image: { maxFileSize: "1MB" } })
     // Set permissions and file types for this FileRoute
     .onUploadComplete(async ({ metadata, file }) => {
@@ -36,6 +48,12 @@ export const ourFileRouter = {
       return { uploadedBy: "JB" };
     }),
   farmerProfileUploader: f({ image: { maxFileSize: "1MB" } })
+    // Set permissions and file types for this FileRoute
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "JB" };
+    }),
+    profileImage: f({ image: { maxFileSize: "1MB" } })
     // Set permissions and file types for this FileRoute
     .onUploadComplete(async ({ metadata, file }) => {
       console.log("file url", file.url, metadata);

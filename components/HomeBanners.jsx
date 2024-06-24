@@ -7,7 +7,7 @@ export default function HomeBanners({banners, categories}) {
   return (
     <div className='lg:h-[70vh] md:h-[40vh] h-[40vh] w-full flex gap-3 shadow-md pt-4 p-2'>
 
-     <div className=' rounded-sm hidden lg:block lg:w-[18%] bg-white'>
+     <div className='rounded-sm hidden lg:block lg:w-[18%] bg-white'>
       <HomeSideBarCat categories={categories}/>
      </div>
 
@@ -17,21 +17,21 @@ export default function HomeBanners({banners, categories}) {
 
      <div className='lg:w-[20%] hidden lg:flex flex-col gap-2'>
      <div className='w-full h-1/2 bg-[#ffffff] rounded-sm p-3 flex flex-col gap-6'>
-      <div className='flex gap-2 '>
+      <div className='flex gap-2 h-[33%]'>
         <img src="/help.png" alt="" className='w-9 h-9 object-contain'/>
         <div className='flex flex-col'>
           <h2 className='text-sm text-[#313133] font-semibold'>HELP CENTER</h2>
           <p className='text-xs text-[#313133]'>Guide To Customer Care</p>
         </div>
       </div>
-      <div className='flex gap-2 '>
+      <div className='flex gap-2 h-[33%]'>
         <img src="/return.png" alt="" className='w-9 h-9 object-contain'/>
         <div className='flex flex-col'>
           <h2 className='text-sm text-[#313133] font-semibold'>EASY RETURN</h2>
           <p className='text-xs text-[#313133]'>Quick Refund </p>
         </div>
       </div>
-      <div className='flex gap-2 '>
+      <div className='flex gap-2 h-[33%]'>
         <img src="/sell.png" alt="" className='w-9 h-9 object-contain'/>
         <div className='flex flex-col'>
           <h2 className='text-sm text-[#313133] font-semibold'>SELL ON KYAJA</h2>

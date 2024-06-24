@@ -1,3 +1,4 @@
+import { getSingleStyle } from "@/actions/styles";
 import AppBanner from "@/components/AppBanner";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -12,7 +13,8 @@ import React from "react";
 export default async function FrontLayout({ children }) {
   const session = await getServerSession(authOptions);
   const allCategories = (await getData("categories")) || [];
-
+  const singleStyle= await getSingleStyle()
+  const backgroundColor =  singleStyle.primaryColor || "#f68b1e";
   const user = session?.user;
   return (
     <div className="relative">
@@ -22,7 +24,7 @@ export default async function FrontLayout({ children }) {
       <SubNav/>
       {/* <TopBanner /> */}
       <div className="sticky top-0 h-[5vh] z-30">
-      <ShopHeader allCategories={allCategories} user={user} />
+      <ShopHeader backgroundColor={backgroundColor} allCategories={allCategories} user={user} />
       </div>
       <div className="overflow-hidden ">{children}</div>
       <Footer />
