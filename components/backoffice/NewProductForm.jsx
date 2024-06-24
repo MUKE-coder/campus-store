@@ -3,7 +3,6 @@ import ArrayItemsInput from "@/components/FormInputs/ArrayItemsInput";
 import SelectInput from "@/components/FormInputs/SelectInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextareaInput from "@/components/FormInputs/TextareaInput";
-import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
 import {  makePutRequest } from "@/lib/apiRequest";
 import { generateSlug } from "@/lib/generateSlug";
@@ -15,6 +14,7 @@ import { useForm } from "react-hook-form";
 import MultipleImageInput from "../FormInputs/MultipleImageInput";
 import { createProduct } from "@/actions/products";
 import toast from "react-hot-toast";
+import TextInput from "../FormInputs/TextInput";
 
 export default function NewProductForm({
   categories,
