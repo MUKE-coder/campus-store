@@ -5,11 +5,9 @@ import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextareaInput from "@/components/FormInputs/TextareaInput";
 import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
-import FormHeader from "@/components/backoffice/FormHeader";
-import { makePostRequest, makePutRequest } from "@/lib/apiRequest";
+import {  makePutRequest } from "@/lib/apiRequest";
 import { generateSlug } from "@/lib/generateSlug";
 import { generateUserCode } from "@/lib/generateUserCode";
-import { Plus, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
