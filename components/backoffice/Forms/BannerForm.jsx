@@ -1,12 +1,10 @@
 "use client";
 import ImageInput from "@/components/FormInputs/ImageInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
-import TextareaInput from "@/components/FormInputs/TextAreaInput";
 import TextInput from "@/components/FormInputs/TextInput";
+// import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
-import FormHeader from "@/components/backoffice/FormHeader";
 import { makePostRequest, makePutRequest } from "@/lib/apiRequest";
-import { generateSlug } from "@/lib/generateSlug";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
