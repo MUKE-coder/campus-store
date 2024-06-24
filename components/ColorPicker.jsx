@@ -25,7 +25,7 @@ export function ColorPicker() {
         <Button className="bg-[#ea580c] text-white font-semibold" variant="outline">Pick Color</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <h2 className="text-xl font-bold mb-4">Pick a Color</h2>
+        <h2 className="text-xl font-bold mb-4">Click Color to Copy</h2>
         <div className="grid grid-cols-4 gap-8">
           {Object.entries(colors).map(([colorName, shades]) =>
             shades.map((color, index) => (

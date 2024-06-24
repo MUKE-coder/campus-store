@@ -70,7 +70,7 @@ export default function Sidebar({ session }) {
       roles: ["ADMIN"],
     },
     {
-      title: "Styles",
+      title: "App Theme",
       icon: LayoutList,
       href: "/dashboard/styles/new",
       dropdown: false,
