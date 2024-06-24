@@ -38,7 +38,7 @@ export default async function page() {
       <div className="w-full min-h-[100vh] lg:px-[6rem] md:pt-[1rem] pt-[1rem]">
      <RecentlyViewed />
      <FlashSales flashProducts={flashProducts}/>
-     <TopCategories />
+     {/* <TopCategories /> */}
      <TopOffers/>
      <AllCategories/>
      <FeaturedProducts/>
