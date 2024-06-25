@@ -22,7 +22,9 @@ export default function NewProductForm({
   updateData = {},
 }) {
   console.log(updateData);
-  const initialImageUrl = updateData?.imageUrl || "/placeholder.svg";
+  const initialImageUrl = updateData?.imageUrl;
+  const initialProductImages = updateData?.productImages ?? [];
+
   const initialTags = updateData?.tags ?? [];
   const id = updateData?.id ?? "";
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
@@ -52,7 +54,7 @@ export default function NewProductForm({
   function redirect() {
     router.push("/dashboard/products");
   }
-  const [productImages, setProductImages] = useState([]);
+  const [productImages, setProductImages] = useState(initialProductImages);
   console.log(productImages);
 
   const productTypeOptions = [
@@ -69,7 +71,7 @@ export default function NewProductForm({
     data.tags = tags;
     data.qty = 1;
     data.productCode = productCode;
-    console.log(data);
+    // console.log(data);
     if (id) {
       data.id = id;
       console.log(data);
