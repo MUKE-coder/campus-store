@@ -24,9 +24,9 @@ model style {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   primaryColor  String?
   secondaryColor String?
-  bgImage   String?
+  bgImage   String? @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   footerColor String?
-  topBannerImage  String?
+  topBannerImage  String? @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
@@ -35,7 +35,7 @@ model Banner {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   link      String
-  imageUrl  String
+  imageUrl  String @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   isActive  Boolean
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -51,7 +51,7 @@ model Category {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   slug        String     @unique
-  imageUrl    String?
+  imageUrl    String? @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   description String?
   isActive    Boolean
   products    Product[]
@@ -75,8 +75,8 @@ model Product {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   title          String
   slug           String   @unique
-  imageUrl       String?
-  productImages  String[]
+  imageUrl       String?  @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
+  productImages  String[] @default(["https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg"])
   description    String?
   isActive       Boolean
   isWholesale    Boolean
