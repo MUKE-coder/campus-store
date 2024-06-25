@@ -14,6 +14,7 @@ import TextareaInput from "../FormInputs/TextAreaInput";
 import SelectInput from "../FormInputs/SelectInput";
 import ArrayItemsInput from "../FormInputs/ArrayItemsInput";
 import SubmitButton from "../FormInputs/SubmitButton";
+import ImageUploader from "../ImageUploader";
 
 export default function NewProductForm({
   categories,
@@ -21,7 +22,7 @@ export default function NewProductForm({
   updateData = {},
 }) {
   console.log(updateData);
-  const initialImageUrl = updateData?.imageUrl ?? "";
+  const initialImageUrl = updateData?.imageUrl || "/placeholder.svg";
   const initialTags = updateData?.tags ?? [];
   const id = updateData?.id ?? "";
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
@@ -64,7 +65,7 @@ export default function NewProductForm({
     const slug = generateSlug(data.title);
     const productCode = generateUserCode("LLP", data.title);
     data.slug = slug;
-    data.productImages = productImages;
+    data.productImages = productImages || "https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg";
     data.tags = tags;
     data.qty = 1;
     data.productCode = productCode;
@@ -205,12 +206,14 @@ export default function NewProductForm({
           options={productTypeOptions}
         />
 
-        <MultipleImageInput
+        {/* <MultipleImageInput
           imageUrls={productImages}
+
           setImageUrls={setProductImages}
           endpoint="multipleProductsUploader"
           label="Product Image Images"
-        />
+        /> */}
+        <ImageUploader imageUrls={productImages} setImageUrls={setProductImages} endpoint="multipleProductsUploader"  label="Product Images"/>
         <ArrayItemsInput setItems={setTags} items={tags} itemTitle="Tag" />
 
         <TextareaInput

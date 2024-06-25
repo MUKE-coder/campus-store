@@ -123,7 +123,7 @@ export default async function page({ params: { slug } }) {
                     <div className="lg:flex md:flex hidden gap-2">
                       <AddToCart product={product} />
                       <Link
-                        href="/booking"
+                        href="/checkout"
                         className="lg:flex md:flex hidden w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
                       >
                         <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
@@ -254,7 +254,7 @@ export default async function page({ params: { slug } }) {
         <div className="w-[75%]">
           <Link
           style={{backgroundColor}}
-            href="/booking"
+            href="/checkout"
             className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
           >
             <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}

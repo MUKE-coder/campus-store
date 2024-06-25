@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { useCart } from "./CartContext";
 import { GiShoppingCart } from "react-icons/gi";
 import { FaCartArrowDown } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 export default function AddToCart({ product }) {
   const dispatch = useDispatch();
