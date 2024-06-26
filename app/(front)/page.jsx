@@ -14,13 +14,13 @@ export default async function Page() {
   const bannerData = (await getData("banners")) || [];
   const products = await getAllProducts();
   const allCategories = (await getData("categories")) || [];
-  const allCategoriesData=allCategories.splice(0 , 12)
-    const flashProducts = products.filter((item) => item.type == "flash");
+  const allCategoriesData=allCategories?.splice(0 , 12)
+    const flashProducts = products?.filter((item) => item.type == "flash");
     const singleStyle= await getSingleStyle()
 
-    const backgroundImageUrl = singleStyle.bgImage || "/homebg.png";
+    const backgroundImageUrl = singleStyle?.bgImage || "/homebg.png";
 
-    const backgroundColor =  singleStyle.secondaryColor || "#633185";
+    const backgroundColor =  singleStyle?.secondaryColor || "#633185";
 
   return (
     <div style={{ backgroundColor }} className="bg-[#633185] min-h-[100vh]">

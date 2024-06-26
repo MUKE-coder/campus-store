@@ -1,9 +1,7 @@
 import { getSingleStyle } from "@/actions/styles";
 import AppBanner from "@/components/AppBanner";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import SubNav from "@/components/SubNav";
-import TopBanner from "@/components/TopBanner";
 import ShopHeader from "@/components/frontend/ShopHeader";
 import { authOptions } from "@/lib/authOptions";
 import { getData } from "@/lib/getData";
