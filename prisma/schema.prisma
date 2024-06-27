@@ -63,6 +63,7 @@ model Category {
 model SubCategory {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   title       String
+  image       String? @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   products    Product[]
   categoryId     String   @db.ObjectId
   category       Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)

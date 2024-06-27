@@ -60,7 +60,7 @@ export async function DELETE(request, { params: { id } }) {
 
 export async function PUT(request, { params: { id } }) {
   try {
-    const { title, categoryId } = await request.json();
+    const { title, categoryId ,image} = await request.json();
     const existingCategory = await db.subCategory.findUnique({
       where: {
         id,
@@ -77,7 +77,7 @@ export async function PUT(request, { params: { id } }) {
     }
     const updatedCategory = await db.subCategory.update({
       where: { id },
-      data: { title, categoryId },
+      data: { title, categoryId ,image },
     });
     return NextResponse.json(updatedCategory);
   } catch (error) {

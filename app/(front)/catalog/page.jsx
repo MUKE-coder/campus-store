@@ -6,7 +6,6 @@ import { searchProducts } from '@/actions/search';
 import CatPrdts from '@/components/CatPrdts';
 import SearchSideBar from '@/components/SearchSideBar';
 import RecentlyViewed from '@/components/RecentlyViewed';
-import SearchForm from '@/components/frontend/SearchForm';
 
 export default function CatalogPage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -62,10 +61,7 @@ export default function CatalogPage() {
         <p className='text-base text-black animate-pulse 😒😒'>No Results found.</p>
       </div>
     ): (
-        <div className='lg:px-[6rem] md:pt-[3rem] px-2 pt-[1rem] lg:pt-[3.2rem] min-h-[100vh]'>
-          <div className="flex-grow block md:hidden lg:hidden ">
-          <SearchForm backgroundColor={backgroundColor }/>
-        </div>
+        <div className='lg:px-[6rem] md:pt-[3rem] px-2 pt-[2rem] lg:pt-[3.2rem] min-h-[100vh]'>
         <div className='w-full min-h-screen flex gap-1 lg:flex-row flex-col mt-5'>
         <div className='shadow-lg w-[20%] lg:block hidden'>
          <SearchSideBar/>

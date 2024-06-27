@@ -10,8 +10,12 @@ import CartCount from "./CartCount";
 import { useSession } from "next-auth/react";
 import UserAvatar from "../backoffice/UserAvatar";
 import { MobileNavBar } from "../MobileNavBar";
+import { usePathname } from "next/navigation";
 export default function ShopHeader({ user , allCategories , backgroundColor  }) {
-  
+  const pathName=usePathname()
+  if(pathName.startsWith("/search")){
+    return null
+  }
   return (
     <div className="bg-white dark:bg-slate-700 border-b border-t">
       <div className="flex items-center justify-between lg:max-w-6xl mx-auto px-4 gap-8">
@@ -50,7 +54,7 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
         </div>
         <div className="flex lg:hidden md:hidden gap-3 items-center justify-center">
 
-         <Link href="/search">
+         <Link href="/search/?q=shoes">
          <Search className="w-6 h-6 text-gray-800" />
          </Link>
 

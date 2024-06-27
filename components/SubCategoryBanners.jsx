@@ -10,12 +10,18 @@ const categories = [
     { title: "Back", image: "https://ug.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/56/203261/1.jpg?3930" }
   ];
 
-  const Card = ({ title, image ,id}) => (
-    <Link href={`/subcategory/${id}`} className="flex flex-col items-center shadow-sm rounded-lg min-h-[50%] ">
+  const DEFAULT_IMAGE_URL = "https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg";
+
+  const Card = ({ title, image, id }) => (
+    <Link href={`/subcategory/${id}`} className="flex flex-col items-center shadow-sm rounded-lg min-h-[50%]">
       <div className="h-[50%] w-full">
-        <img src="https://ug.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/56/203261/1.jpg?3930" alt={title} className="w-full object-cover h-full rounded-sm" />
+        <img
+          src={image || DEFAULT_IMAGE_URL}
+          alt={title}
+          className="w-full object-cover h-full rounded-sm"
+        />
       </div>
-      <p className="mt-2 text-center text-lg font-medium line-clamp-1">{title}</p>
+      <p className="mt-2 text-center text-sm font-medium line-clamp-1">{title}</p>
     </Link>
   );
 export default function SubCategoryBanners({subCategories}) {

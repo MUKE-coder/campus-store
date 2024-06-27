@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title, categoryId } = await request.json();
+    const { title, categoryId , image } = await request.json();
     const newCategory = await db.subCategory.create({
-      data: { title, categoryId },
+      data: { title, categoryId , image },
     });
     return NextResponse.json(newCategory);
   } catch (error) {

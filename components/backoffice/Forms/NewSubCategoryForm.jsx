@@ -5,6 +5,7 @@ import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextareaInput from "@/components/FormInputs/TextAreaInput";
 import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
+import ImageUploader from "@/components/ImageUploader";
 import FormHeader from "@/components/backoffice/FormHeader";
 import { makePostRequest, makePutRequest } from "@/lib/apiRequest";
 import { generateSlug } from "@/lib/generateSlug";
@@ -27,12 +28,17 @@ export default function NewSubCategoryForm({ updateData = {}, categories }) {
       ...updateData,
     },
   });
+  const initialSubImage = updateData?.image ? [updateData.image] : [];
+  const [subImages, setSubImages] = useState(initialSubImage);
+  console.log(subImages)
   const router = useRouter();
   function redirect() {
     router.push("/dashboard/sub-categories");
   }
   async function onSubmit(data) {
-    console.log(data);
+    
+    data.image =subImages[0] || "https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg";
+    // console.log(data);
     if (id) {
       data.id = id;
       // Make Put Request (Update)
@@ -76,7 +82,10 @@ export default function NewSubCategoryForm({ updateData = {}, categories }) {
           className="w-full"
           options={categories}
         />
+         <ImageUploader imageUrls={subImages} setImageUrls={setSubImages} endpoint="subCategoryUploader"  label="Sub-Category Image"/>
       </div>
+     
+
 
       <SubmitButton
         isLoading={loading}
