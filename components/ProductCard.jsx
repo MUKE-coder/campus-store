@@ -33,7 +33,7 @@ export default function Product({ product , addToCart }) {
 
   return (
     <div
-      className="relative flex flex-col gap-1 rounded-sm w-[100%] lg:w-[100%] transform transition-transform hover:scale-95 hover:shadow-md"
+      className="relative flex flex-col gap-1 rounded-sm w-[100%] lg:w-[100%] transform transition-transform hover:scale-95 hover:shadow-md h-[100%]"
       onClick={handleClick}
     >
       {/* <small className="absolute left-2 top-2 font-medium bg-[#4f46e5] py-1 px-2 rounded-md text-xs">
@@ -43,7 +43,7 @@ export default function Product({ product , addToCart }) {
         href={`/product/${product.slug}`}
         className="flex items-center justify-center h-[60%]"
       >
-        <img src={product.imageUrl} alt="" className="w-[100%] object-cover" />
+        <img src={product.imageUrl} alt="" className="w-[100%] object-cover h-full" />
       </Link>
       <div className="flex-col flex gap-1 px-2 pb-3 lg:pb-1 lg:px-4 h-[40%] mt-5">
         <Link href={`/product/${product.slug}`} className=" ">

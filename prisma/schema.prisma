@@ -33,12 +33,13 @@ model style {
 
 model Banner {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  link      String
-  imageUrl  String @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
+  title     String?
+  link      String?
+  imageUrl  String   @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   isActive  Boolean
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  productIds String[] @default([])
 }
 
 // Relationships
@@ -71,7 +72,6 @@ model SubCategory {
   updatedAt DateTime? @updatedAt
 }
 
-
 model Product {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   title          String
@@ -102,8 +102,6 @@ model Product {
   createdAt  DateTime    @default(now())
   updatedAt  DateTime?   @updatedAt
 }
-
-
 
 enum UserRole {
   ADMIN

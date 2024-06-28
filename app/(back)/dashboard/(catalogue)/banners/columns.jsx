@@ -48,10 +48,10 @@ export const columns = [
     header: "Banner Image",
     cell: ({ row }) => <ImageColumn row={row} accessorKey="imageUrl" />,
   },
-  {
-    accessorKey: "link",
-    header: "Banner Link",
-  },
+  // {
+  //   accessorKey: "link",
+  //   header: "Banner Link",
+  // },
   {
     accessorKey: "isActive",
     header: "IsActive",

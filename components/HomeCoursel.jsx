@@ -43,7 +43,7 @@ export default function HomeCoursel({slides}) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <Link href={`${slide.link}`}>
+            <Link href={`/banner/${slide.id}`}>
               <img src={slide.imageUrl} alt={`Slide ${index + 1}`} className='w-full h-full object-cover rounded-md'/>
             </Link>
           </SwiperSlide>

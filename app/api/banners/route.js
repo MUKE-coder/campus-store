@@ -3,16 +3,18 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title, link, imageUrl, isActive } = await request.json();
+    const { title, link, imageUrl, isActive, productIds } = await request.json();
+    // console.log(title, link, imageUrl, isActive, productIds)
     const newBanner = await db.banner.create({
       data: {
         title,
         link,
         imageUrl,
         isActive,
+        productIds,
       },
     });
-    console.log(newBanner);
+    // console.log(newBanner)
     return NextResponse.json(newBanner);
   } catch (error) {
     console.log(error);
@@ -24,6 +26,8 @@ export async function POST(request) {
     );
   }
 }
+
+
 export async function GET(request) {
   try {
     const banners = await db.banner.findMany({

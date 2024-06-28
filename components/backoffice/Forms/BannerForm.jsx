@@ -1,20 +1,32 @@
 "use client";
+import { getAllProducts } from "@/actions/products";
 import ImageInput from "@/components/FormInputs/ImageInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextInput from "@/components/FormInputs/TextInput";
-// import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
+import { FancyMultiSelect } from "@/components/MultiSelectPrdt";
 import { makePostRequest, makePutRequest } from "@/lib/apiRequest";
 import { useRouter } from "next/navigation";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function BannerForm({ updateData = {} }) {
+  console.log(updateData)
   const initialImageUrl = updateData?.imageUrl ?? "";
   const id = updateData?.id ?? "";
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
   const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState(updateData.productIds||[]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const products = await getAllProducts();
+      setProducts(products);
+    }
+    fetchProducts();
+  }, []);
+
   const {
     register,
     reset,
@@ -34,12 +46,11 @@ export default function BannerForm({ updateData = {} }) {
   const isActive = watch("isActive");
   async function onSubmit(data) {
     data.imageUrl = imageUrl;
-    console.log(data);
+    data.productIds = selectedProducts.map((product) => product.id);
+    console.log(data)
     if (id) {
-      //Make Put Request
       makePutRequest(setLoading, `api/banners/${id}`, data, "Banner", redirect);
     } else {
-      //make post request
       makePostRequest(
         setLoading,
         "api/banners",
@@ -51,11 +62,17 @@ export default function BannerForm({ updateData = {} }) {
       setImageUrl("");
     }
   }
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3 "
+      className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3"
     >
+      <FancyMultiSelect
+        products={products}
+        selectedProducts={selectedProducts}
+        setSelectedProducts={setSelectedProducts}
+      />
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <TextInput
           label="Banner Title"
@@ -63,14 +80,6 @@ export default function BannerForm({ updateData = {} }) {
           register={register}
           errors={errors}
         />
-        <TextInput
-          label="Banner Link"
-          name="link"
-          type="url"
-          register={register}
-          errors={errors}
-        />
-        {/* Configure this endpoint in the core js */}
         <ImageInput
           imageUrl={imageUrl}
           setImageUrl={setImageUrl}
@@ -85,13 +94,10 @@ export default function BannerForm({ updateData = {} }) {
           register={register}
         />
       </div>
-
       <SubmitButton
         isLoading={loading}
         buttonTitle={id ? "Update Banner" : "Create Banner"}
-        loadingButtonTitle={`${
-          id ? "Updating" : "Creating"
-        } Banner please wait...`}
+        loadingButtonTitle={`${id ? "Updating" : "Creating"} Banner please wait...`}
       />
     </form>
   );
