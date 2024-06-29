@@ -16,7 +16,7 @@ export default function SubCategoriesComp({subCategoriesData}) {
           <ProductCard key={product.id} product={product} addToCart={false} />
         ))
       ) : (
-        <p className="text-black text-lg animate-pulse">No products found for this subcategory.</p>
+        <p className="text-black text-lg animate-pulse line-clamp-1">No products found for this subcategory.</p>
       )}
     </div>
     <div>

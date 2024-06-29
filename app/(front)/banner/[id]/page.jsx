@@ -8,7 +8,7 @@ import React from 'react'
 
 export default async function page({params:{id}}) {
     const bannerProducts = await getBannerProducts(id);
-     console.log(bannerProducts)
+    //  console.log(bannerProducts)
     if (!bannerProducts) {
       return <div>Banner not found</div>;
     }

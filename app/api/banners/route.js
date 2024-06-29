@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title, link, imageUrl, isActive, productIds } = await request.json();
-    // console.log(title, link, imageUrl, isActive, productIds)
+    const { title, link, imageUrl, isActive, productIds , previewImageUrl  } = await request.json();
+    console.log(title, link, imageUrl, isActive, productIds)
     const newBanner = await db.banner.create({
       data: {
         title,
@@ -12,6 +12,7 @@ export async function POST(request) {
         imageUrl,
         isActive,
         productIds,
+        previewImageUrl 
       },
     });
     // console.log(newBanner)

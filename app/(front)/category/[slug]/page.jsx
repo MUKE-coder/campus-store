@@ -14,23 +14,29 @@ export default async function Page({ params: { slug } }) {
   // console.log(categoryData)
   return (
     <div className='lg:px-[6rem] md:pt-[3rem] px-2 pt-[2rem] lg:pt-[3.2rem] min-h-[100vh]'>
-     <div className=''>
-     <Breadcrumb />
 
-      </div>
-      <CatBanner 
+     <div className='bg-gray-50 shadow-sm p-2 mb-5'>
+     <Breadcrumb />
+     <div className='flex items-center justify-between'>
+        <h1 className='font-bold text-3xl text-[#1c1d1f]'>{categoryData.title}({categoryData.products.length})</h1>
+        <p className='text-xs text-gray-700'>{categoryData.products.length} of {categoryData.products.length} results</p>
+       </div>
+     </div>
+
+      {/* <CatBanner 
         title={categoryData.title}
         description={categoryData.description}
         bgImage={categoryData.imageUrl}
-      />
-       <CategoryGrid subCategories={categoryData.subCategories}/>
+      /> */}
+       {/* <CategoryGrid subCategories={categoryData.subCategories}/> */}
+      
 
        <div className='w-full min-h-screen flex gap-1 lg:flex-row flex-col mt-5'>
-       <div className='shadow-lg w-[20%] lg:block hidden'>
-        <CatSideBar slug={slug}/>
+       <div className='shadow-sm w-[20%] lg:block hidden'>
+        <CatSideBar slug={slug} subCategories={categoryData.subCategories}/>
        </div>
        <div className='w-full lg:w-[80%]'>
-        <CatPrdts products={categoryData.products}/>
+        <CatPrdts products={categoryData.products} />
        </div>
        </div>
        <RecentlyViewed />

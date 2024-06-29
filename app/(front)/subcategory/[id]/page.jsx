@@ -9,9 +9,9 @@ export default async function Page({params:{id}}) {
   console.log(subCategoryData)
   return (
     <div className='lg:px-[6rem] md:pt-[3rem] px-2 pt-[2rem] lg:pt-[3.2rem] min-h-[100vh]'>
-    <div className=''>
+    {/* <div className=''>
     <Breadcrumb />
-      </div>
+      </div> */}
      <SubCategoriesComp subCategoriesData={subCategoriesData}/>
     </div>
   )

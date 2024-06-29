@@ -58,7 +58,7 @@ export async function DELETE(request, { params: { id } }) {
 export async function PUT(request, { params }) {
   try {
     const { id } = params;
-    const { title, link, imageUrl, isActive, productIds } = await request.json();
+    const { title, link, imageUrl, isActive, productIds ,previewImageUrl  } = await request.json();
     const updatedBanner = await db.banner.update({
       where: { id },
       data: {
@@ -67,6 +67,7 @@ export async function PUT(request, { params }) {
         imageUrl,
         isActive,
         productIds,
+        previewImageUrl 
       },
     });
     return NextResponse.json(updatedBanner);

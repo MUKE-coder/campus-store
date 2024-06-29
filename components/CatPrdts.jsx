@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { IoPricetag } from "react-icons/io5";
 
-export default function CatPrdts({products}) {
+export default function CatPrdts({products }) {
  
   return (
    <div className="flex flex-col gap-6 w-full min-h-[50%] bg-white">

@@ -13,8 +13,10 @@ import { useForm } from "react-hook-form";
 export default function BannerForm({ updateData = {} }) {
   console.log(updateData)
   const initialImageUrl = updateData?.imageUrl ?? "";
+  const previewImageUrl = updateData?.previewImageUrl  ?? "";
   const id = updateData?.id ?? "";
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
+  const [bannerImageUrl, setBannerImageUrl] = useState(previewImageUrl);
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState(updateData.productIds||[]);
@@ -44,10 +46,14 @@ export default function BannerForm({ updateData = {} }) {
     router.push("/dashboard/banners");
   }
   const isActive = watch("isActive");
+  
   async function onSubmit(data) {
     data.imageUrl = imageUrl;
+    data.bannerImageUrl = previewImageUrl ;
     data.productIds = selectedProducts.map((product) => product.id);
+
     console.log(data)
+
     if (id) {
       makePutRequest(setLoading, `api/banners/${id}`, data, "Banner", redirect);
     } else {
@@ -80,12 +86,20 @@ export default function BannerForm({ updateData = {} }) {
           register={register}
           errors={errors}
         />
-        <ImageInput
+       <div className="flex lg:flex-row flex-col gap-2 w-full">
+       <ImageInput
           imageUrl={imageUrl}
           setImageUrl={setImageUrl}
           endpoint="bannerImageUploader"
           label="Banner Image"
         />
+        <ImageInput
+          imageUrl={bannerImageUrl}
+          setImageUrl={setBannerImageUrl}
+          endpoint="bannerPreviewImageUploader"
+          label="Preview Banner Image"
+        />
+       </div>
         <ToggleInput
           label="Publish your Banner"
           name="isActive"

@@ -64,6 +64,9 @@ export default function RecentlyViewed() {
   //   },
   // ];
   const { recentlyViewedProducts } = useCart();
+  if(!recentlyViewedProducts){
+    return null
+  }
 // console.log(recentlyViewedProducts)
   return (
    <div className="flex flex-col gap-6 w-full min-h-[50%] bg-white rounded-lg lg:p-5 p-3">
