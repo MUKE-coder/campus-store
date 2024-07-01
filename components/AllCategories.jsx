@@ -17,7 +17,7 @@ export default async function AllCategories() {
         {allCategories.splice(0,12).map((category, index) => (
           <Link href={`/category/${category.slug}`} key={index} className='relative overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-md'>
             <img src={category.imageUrl} alt={category.title} className='w-full h-full object-cover' />
-            <div className='absolute text-sm bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white text-center  font-bold line-clamp-1'>
+            <div className='absolute text-sm bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white text-center  font-bold line-clamp-1 capitalize'>
               {category.title}
             </div>
           </Link>

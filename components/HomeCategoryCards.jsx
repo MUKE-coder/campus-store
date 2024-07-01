@@ -32,7 +32,7 @@ export default async function HomeCategoryCards() {
          
           >
             <img src={category.imageUrl} alt={category.title} className='w-full h-[90%] mb-1 object-cover rounded-xl' />
-            <div className='text-black font-medium text-sm text-center line-clamp-2'>{category.title}</div>
+            <div className='text-black font-medium text-sm text-center line-clamp-2 capitalize'>{category.title}</div>
           </Link>
         ))}
       </div>

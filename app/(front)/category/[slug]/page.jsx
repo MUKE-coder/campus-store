@@ -18,7 +18,7 @@ export default async function Page({ params: { slug } }) {
      <div className='bg-gray-50 shadow-sm p-2 mb-5'>
      <Breadcrumb />
      <div className='flex items-center justify-between'>
-        <h1 className='font-bold text-3xl text-[#1c1d1f] uppercase'>{categoryData.title}({categoryData.products.length})</h1>
+        <h1 className='font-bold text-3xl text-[#1c1d1f] capitalize'>{categoryData.title}({categoryData.products.length})</h1>
         <p className='text-xs text-gray-700'>{categoryData.products.length} of {categoryData.products.length} results</p>
        </div>
      </div>
