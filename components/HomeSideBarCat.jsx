@@ -26,7 +26,7 @@ export default function HomeSideBarCat({ categories }) {
       {categories.map((category, index) => {
         const Icon = iconMapping[category.title] || CiCircleMore;
         return (
-          <Link href={`/category/${category.slug}`} key={index} className='w-full flex gap-1 items-center text-xs text-[#313133] hover:text-[#ff9900]'>
+          <Link href={`/category/${category.slug}`} key={index} className='w-full flex gap-1 items-center text-xs text-[#313133] hover:text-[#ff9900] capitalize'>
             <Icon size={16} /> {category.title}
           </Link>
         );
