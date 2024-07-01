@@ -11,7 +11,7 @@ export default async function CatSideBar({subCategories}) {
       {
         subCategories?.map((cat , i)=>{
           return (
-            <Link key={i} className='text-sm hover:text-orange-500' href={`/subcategory/${cat.id}`}>{cat.title}</Link>
+            <Link key={i} className='text-sm hover:text-orange-500 lowercase' href={`/subcategory/${cat.id}`}>{cat.title}</Link>
           )
         })
       }

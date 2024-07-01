@@ -48,7 +48,7 @@ export default function Product({ product , addToCart }) {
       <div className="flex-col flex gap-1 px-2 pb-3 lg:pb-1 lg:px-4 h-[40%] mt-5">
         <Link href={`/product/${product.slug}`} className=" ">
         
-          <h2 className="text-xs lg:text-xs line-clamp-1 font-medium">
+          <h2 className="text-xs lg:text-xs line-clamp-1 font-medium lowercase">
             {product.title}
           </h2>
           <div className="flex items-center justify-between">
