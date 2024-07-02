@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
-import CartProduct from "./CartProduct";
-import EmptyCart from "./EmptyCart";
+
 import {
   Table,
   TableBody,
@@ -40,13 +39,13 @@ export default function CartItems({ cartItems }) {
       {cartItems.length > 0 && (
         <>
           <div className="flex justify-between items-center">
-            <h2 className="py-2 mb-6 text-2xl">
+            <h2 className="py-2 mb-6 text-lg lg:text-2xl">
               Shopping Cart({cartItems.length})
             </h2>
             <Button asChild variant={"outline"}>
               <Link href="/">
                 <MoveLeft className="w-4 h-4 mr-2" />
-                <span>Continue Shopping</span>
+                <span className="text-xs lg:text-sm md:text-sm">Continue Shopping</span>
               </Link>
             </Button>
           </div>
@@ -54,7 +53,7 @@ export default function CartItems({ cartItems }) {
             <TableHeader>
               <TableRow>
                 <TableHead>Image</TableHead>
-                <TableHead>Product Name</TableHead>
+                <TableHead className="whitespace-nowrap">Product Name</TableHead>
                 <TableHead className="hidden md:table-cell">Quantity</TableHead>
                 <TableHead className="hidden md:table-cell">Total</TableHead>
               </TableRow>
@@ -74,8 +73,15 @@ export default function CartItems({ cartItems }) {
                           width="64"
                         />
                       </TableCell>
-                      <TableCell className="font-medium">
+                      <TableCell className="font-medium lg:text-sm md:text-sm text-xs flex items-center justify-between">
                         {item.title}
+
+                       <div className="lg:hidden md:hidden block">
+                       <button onClick={() => handleCartItemDelete(item.id)}>
+                            <Trash2 className="text-red-600 w-4 h-4" />
+                          </button>
+                       </div>
+
                       </TableCell>
 
                       <TableCell className="hidden md:table-cell">

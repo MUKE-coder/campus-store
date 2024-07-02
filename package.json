@@ -32,6 +32,7 @@
     "@reduxjs/toolkit": "^2.2.5",
     "@tanstack/react-table": "^8.17.3",
     "@uploadthing/react": "^6.6.0",
+    "axios": "^1.7.2",
     "base64url": "^3.0.1",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.3",

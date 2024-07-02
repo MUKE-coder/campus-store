@@ -167,6 +167,9 @@ model Order {
       zip       String?
   shippingCost  Float?
   orderNumber   String?
+   region        String?
+  district      String?
+  county        String?
   //Payment Method
   paymentMethod String
 

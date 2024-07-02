@@ -44,10 +44,10 @@ export default function SalesInvoice({ order }) {
           <div className="flex justify-between border-b border-gray-500 pb-8">
             <div className="flex flex-col">
               <h2>Bill From:</h2>
-              <p>LimiFood </p>
-              <p>150 Eleign Street</p>
-              <p>Canada</p>
-              <p>sales@kyaja.com</p>
+              <p>Kyaja Ecommerce</p>
+              <p>Ttula kawempe </p>
+              <p>P.O box 164310 Kampala </p>
+              <p>Info.kyaja@gmail.com</p>
             </div>
             <div className="">
               <Image src={logo} alt="kyaja logo" className="w-20 h-20" />
@@ -64,9 +64,9 @@ export default function SalesInvoice({ order }) {
               <p>
                 {order?.apartment} {order.streetAddress}
               </p>
-              <p>{order?.state}</p>
+              <p>{order?.region}</p>
               <p>
-                {order.city} - {order.country}
+                {order.district} - {order.county}
               </p>
               <p>{order.email}</p>
             </div>

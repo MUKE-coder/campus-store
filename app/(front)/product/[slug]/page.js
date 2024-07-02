@@ -164,7 +164,7 @@ export default async function page({ params: { slug } }) {
                 </h2>
                 <div className="w-[100%] h-[1px] bg-gray-200 "></div>
               </div>
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
                 <h2 className="text-md tracking-[.4px] font-[500]">
                   Choose your location
                 </h2>
@@ -182,7 +182,7 @@ export default async function page({ params: { slug } }) {
                     <option value="option4">Bukoto</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
               <div className="flex flex-col gap-3">
                 <div className="flex gap-2">
                   <div>

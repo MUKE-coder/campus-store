@@ -1,7 +1,11 @@
+import SlackConfirmEmail, { NewOrderEmail } from "@/components/ReactEmail";
 import db from "@/lib/db";
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
+  // const email ="Info.kyaja@gmail.com"
   try {
     const { checkoutFormData, orderItems } = await request.json();
     const {
@@ -16,6 +20,8 @@ export async function POST(request) {
       shippingCost,
       streetAddress,
       userId,
+      region,
+      county,
     } = checkoutFormData;
 
     // Create orderNumber function
@@ -44,6 +50,8 @@ export async function POST(request) {
           streetAddress,
           city,
           country,
+          region,
+          county,
           district,
           shippingCost: parseFloat(shippingCost) ?? 0,
           paymentMethod,
@@ -90,6 +98,12 @@ export async function POST(request) {
 
     console.log(result.newOrder, result.newOrderItems, result.sales);
 
+    const verify= await resend.emails.send({
+      from: 'New Order !! <info@flakolimited.com>',
+      to: ["Info.kyaja@gmail.com"],
+      subject: 'New Order',
+      react:NewOrderEmail(),
+    });
     // Return the response
     return NextResponse.json(result.newOrder);
   } catch (error) {

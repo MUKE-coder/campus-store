@@ -51,8 +51,8 @@ export default async function page({ params: { id } }) {
                       </p>
                       <p className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-300">
                         {order?.apartment}-{order.streetAddress}
-                        {order?.state}, {order.city}, {order?.zip},{" "}
-                        {order.country}
+                        {order?.region}, {order.district}, {order?.county},{" "}
+                        {order.streetAddress}
                       </p>
                     </div>
 

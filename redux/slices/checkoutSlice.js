@@ -1,7 +1,11 @@
 const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
   currentStep: 1,
-  checkoutFormData: {},
+  checkoutFormData: {
+    region: '',
+    district: '',
+    county: '',
+  },
 };
 const checkoutSlice = createSlice({
   name: "checkout",
