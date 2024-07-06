@@ -14,7 +14,10 @@ export default async function Page() {
   const bannerData = (await getData("banners")) || [];
   const products = await getAllProducts();
   const allCategories = (await getData("categories")) || [];
-  const allCategoriesData=allCategories?.splice(0 , 12)
+  const categoriesWithProducts = allCategories.filter(category => 
+    category.products && category.products.length > 0
+  );
+  const allCategoriesData=categoriesWithProducts ?.splice(0 , 12)
     const flashProducts = products?.filter((item) => item.type == "flash");
     const singleStyle= await getSingleStyle()
 

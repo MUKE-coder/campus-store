@@ -18,14 +18,17 @@ const categories = [
 ];
 
 export default async function HomeCategoryCards() {
-  const allCategories = (await getData("categories")) || [];
 
+  const allCategories = (await getData("categories")) || [];
+const categoriesWithProducts = allCategories.filter(category => 
+    category.products && category.products.length > 0
+  );
   // console.log(allCategories)
 //   console.log(categoriesData)
   return (
     <div className='min-h-[40vh] bg-[#633185] shadow-lg w-full lg:p-2 md:px-3 px-1 lg:rounded-sm'>
       <div className='w-full bg-white min-h-full lg:rounded-lg p-4 grid md:grid-cols-4 grid-cols-2 lg:grid-cols-6 gap-2'>
-        {allCategories?.splice(0,6).map((category, index) => (
+        {categoriesWithProducts?.splice(0,6).map((category, index) => (
           <Link href={`/category/${category.slug}`} 
             key={index} 
             className='relative flex flex-col items-center justify-center rounded-lg transform transition-transform hover:scale-105'
