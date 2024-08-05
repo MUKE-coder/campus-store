@@ -60,6 +60,8 @@ export default function CatalogPage() {
       noResults?(
       <div className='w-full h-screen flex justify-center items-center '>
         <p className='text-base text-black animate-pulse 😒😒'>No Results found.</p>
+        <RecentlyViewed />
+
       </div>
     ): (
         <div className='lg:px-[6rem] md:pt-[3rem] px-2 pt-[1rem] lg:pt-[3.2rem] min-h-[100vh]'>

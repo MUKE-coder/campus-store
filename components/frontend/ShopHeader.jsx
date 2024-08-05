@@ -17,7 +17,8 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
     return null
   }
   return (
-    <div className="bg-white dark:bg-slate-700 border-b border-t">
+   <div className="bg-white pb-2 dark:bg-slate-700">
+     <div className="">
       <div className="flex items-center justify-between lg:max-w-6xl mx-auto px-4 gap-8">
         {/* Logo */}
         <div className="flex items-center lg:gap-0 md:gap-0 gap-2" >
@@ -54,9 +55,9 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
         </div>
         <div className="flex lg:hidden md:hidden gap-3 items-center justify-center">
 
-         <Link href="/search/?q=shoes">
+         {/* <Link href="/search/#">
          <Search className="w-6 h-6 text-gray-800" />
-         </Link>
+         </Link> */}
 
          <button>
          {!user ? (
@@ -77,5 +78,14 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
         </div>
       </div>
     </div>
+     <div className="lg:hidden md:hidden block">
+      <div className="flex items-center justify-between lg:max-w-6xl mx-auto px-4 gap-8">
+        {/* SEARCH */}
+        <div className="flex-grow lg:block md:block block">
+          <SearchForm backgroundColor={backgroundColor }/>
+        </div>
+      </div>
+    </div>
+   </div>
   );
 }
