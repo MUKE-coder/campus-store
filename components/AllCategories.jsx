@@ -13,7 +13,7 @@ export default async function AllCategories() {
 
   return (
     <div style={{backgroundColor}} className='flex flex-col gap-6 w-full min-h-[20vh] lg:min-h-[50vh] mt-5'>
-      <div className='text-xl text-center text-[#313133] font-semibold pt-4'>
+      <div className='text-xl text-center text-[#ffff] font-semibold pt-4'>
       Curated For You | Shop Now
       </div>
       <div className='grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 p-4 bg-[#fff]'>

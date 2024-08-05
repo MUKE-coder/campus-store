@@ -18,12 +18,12 @@ export default async function TopOffers() {
 
     <div style={{backgroundColor}} className="flex items-center justify-between  p-4">
       
-      <h2 className="text-[#373133] font-bold lg:tracking-normal lg:text-lg text-lg flex items-center gap-1 pt-4">Payweek Deals | Top Offers
+      <h2 className="text-[#ffff] font-bold lg:tracking-normal lg:text-lg text-lg flex items-center gap-1 pt-4">Payweek Deals | Top Offers
 
       </h2>
      
       <div className="lg:block md:block hidden">
-      <Link className="text-[#373133] font-bold lg:text-sm text-xs flex items-center gap-1" href="/more/topdeals">SEE ALL
+      <Link className="text-[#ffff] font-bold lg:text-sm text-xs flex items-center gap-1" href="/more/topdeals">SEE ALL
       <ChevronRight className="w-5 h-5"/>
       </Link>
      </div>

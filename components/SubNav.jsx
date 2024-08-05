@@ -8,7 +8,7 @@ export default async function SubNav() {
   const backgroundColor =  singleStyle.secondaryColor || "#633185";
 
   return (
-    <div style={{ backgroundColor }} className=' w-full lg:h-[9.1vh] h-[10%] flex justify-center items-center'>
+    <div style={{ backgroundColor }} className=' w-full lg:h-[9.1vh] h-[10%] justify-center items-center lg:flex md:flex hidden'>
       <img src={navImageUrl} alt="" className='lg:w-[90%] w-full h-full object-contain '/>
      </div>
   )

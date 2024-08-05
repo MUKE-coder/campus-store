@@ -15,13 +15,13 @@ export default async function FrontLayout({ children }) {
   const backgroundColor =  singleStyle.primaryColor || "#f68b1e";
   const user = session?.user;
   return (
-    <div className="relative">
-      <div className="lg:hidden md:hidden block">
+    <div className="relative overflow-hidden lg:px-0  md:px-0px-1">
+      {/* <div className="lg:hidden md:hidden block">
       <AppBanner/>
-      </div>
+      </div> */}
       <SubNav/>
       {/* <TopBanner /> */}
-      <div className="sticky top-0 h-[5vh] z-30">
+      <div className="sticky top-0 h-[5vh] z-30 ">
       <ShopHeader backgroundColor={backgroundColor} allCategories={allCategories} user={user} />
       </div>
       <div className="overflow-hidden ">{children}</div>

@@ -81,8 +81,8 @@ export default function SearchForm({ backgroundColor }) {
       </div>
       <button
         type="submit"
-        className=" hidden lg:flex md:flex items-center py-2 px-3 ms-2 text-sm font-bold text-white rounded-sm border border-[#f68b1e] hover:bg-[#f68b1e] focus:ring-4 focus:outline-none focus:ring-[#f68b1e] dark:bg-[#f68b1e] dark:hover:bg-[#ca8037d8] btnShadow dark:focus:ring-[#f68a1eb6] uppercase"
-        style={{ backgroundColor }}
+        className=" hidden lg:flex md:flex items-center py-2 px-3 ms-2 text-sm font-bold text-white bg-[#f68b1e] rounded-sm border border-[#f68b1e] hover:bg-[#f68b1e] focus:ring-4 focus:outline-none focus:ring-[#f68b1e] dark:bg-[#f68b1e] dark:hover:bg-[#ca8037d8]  dark:focus:ring-[#f68a1eb6] uppercase"
+       
       >
         Search
       </button>

@@ -12,7 +12,7 @@ export default async function SearchSideBar() {
       {
         allCategories?.map((cat , i)=>{
           return (
-            <Link key={i} className='text-sm hover:text-orange-500 capitalize' href={`/category/${cat.slug}`}>{cat.title}</Link>
+            <Link key={i} className='text-sm hover:text-orange-500 capitalize ' href={`/category/${cat.slug}`}>{cat.title}</Link>
           )
         })
       }

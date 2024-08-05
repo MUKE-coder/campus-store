@@ -5,14 +5,19 @@ import HomeSideBarCat from './HomeSideBarCat'
 export default function HomeBanners({banners, categories}) {
   // console.log(categories)
   return (
-    <div className='lg:h-[70vh] md:h-[40vh] h-[40vh] w-full flex gap-3 shadow-md pt-4 p-2'>
+    <div className='lg:h-[70vh] md:h-[40vh] min-h-[30vh] w-full flex gap-3 shadow-md pt-4 p-2'>
 
      <div className='rounded-sm hidden lg:block lg:w-[18%] bg-white'>
       <HomeSideBarCat categories={categories}/>
      </div>
 
      <div className='lg:w-[62%] w-full '>
+     <div className='text-xl text-center text-[#ffff] font-semibold py-3 bg-[#f68b1e] mb-2 lg:hidden md:hidden block'>
+      Curated For You | Shop Now
+      </div>
+    <div>
     <HomeCoursel slides={banners}/>
+    </div>
      </div>
 
      <div className='lg:w-[20%] hidden lg:flex flex-col gap-2'>
