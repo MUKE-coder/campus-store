@@ -70,15 +70,13 @@ const mobileSlides = [
   { id: "668b908dc0bef7fb232f313a", imageUrl: "https://ug.jumia.is/cms/DH_Deals_2_SX_660X330.gif" },
 ];
 
-
-
 export default function HomeCarousel({slides}) {
   const [slidesData, setSlidesData] = useState([]);
 
   useEffect(() => {
     const updateSlides = () => {
       if (window.innerWidth < 768) {
-        setSlidesData(mobileSlides);
+        setSlidesData(slides);
       } else {
         setSlidesData(slides);
       }
