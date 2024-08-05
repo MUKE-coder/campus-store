@@ -12,9 +12,9 @@ export default function HomeBanners({banners, categories}) {
      </div>
 
      <div className='lg:w-[62%] w-full '>
-     <div className='text-sm text-center text-[#ffff] font-semibold py-3 bg-[#f68b1e] mb-2 lg:hidden md:hidden block'>
+     {/* <div className='text-sm text-center text-[#ffff] font-semibold py-3 bg-[#f68b1e] mb-2 lg:hidden md:hidden block'>
       Curated For You | Shop Now
-      </div>
+      </div> */}
     <div>
     <HomeCoursel slides={banners}/>
     </div>
