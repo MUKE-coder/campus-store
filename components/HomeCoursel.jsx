@@ -66,8 +66,8 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Link from 'next/link';
 
 const mobileSlides = [
-  {id: "https://example.com/link1", imageUrl: "https://ug.jumia.is/cms/DH_Deals_7_SX_660X330.gif" },
-  { id: "https://example.com/link2", imageUrl: "https://ug.jumia.is/cms/DH_Deals_2_SX_660X330.gif" },
+  {id: "668b98ceca4fb049da23f94a", imageUrl: "banner/668b98ceca4fb049da23f94a" },
+  { id: "668b908dc0bef7fb232f313a", imageUrl: "https://ug.jumia.is/cms/DH_Deals_2_SX_660X330.gif" },
 ];
 
 
