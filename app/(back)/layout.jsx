@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 export default async function BackLayout({ children }) {
   const session = await getServerSession(authOptions);
   if (!session) {
-    redirect("/login");
+    redirect("/login?q=dashboard");
   }
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">

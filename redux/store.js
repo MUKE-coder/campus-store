@@ -4,6 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./slices/cartSlice";
 import checkoutSlice from "./slices/checkoutSlice";
 import onboardingSlice from "./slices/onboardingSlice";
+import buynow from "./slices/buynow";
 
 export const store = configureStore({
   reducer: {
@@ -11,5 +12,6 @@ export const store = configureStore({
     cart: cartSlice,
     checkout: checkoutSlice,
     onboarding: onboardingSlice,
+    buynow: buynow,
   },
 });

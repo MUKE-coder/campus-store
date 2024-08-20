@@ -1,8 +1,4 @@
-// Create a slice
-//Create reducers
-//export the reducer and reducers
 const { createSlice } = require("@reduxjs/toolkit");
-// Get initial state from localStorage if available
 const initialState =
   (typeof window !== "undefined" && JSON.parse(localStorage.getItem("cart"))) ||
   [];
@@ -74,8 +70,15 @@ const cartSlice = createSlice({
         }
       }
     },
+    clearCart: (state) => {
+      state.length = 0;
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify([]));
+      }
+      return state;
+    },
   },
 });
-export const { addToCart, removeFromCart, incrementQty, decrementQty } =
+export const { addToCart, removeFromCart, incrementQty, decrementQty , clearCart } =
   cartSlice.actions;
 export default cartSlice.reducer;

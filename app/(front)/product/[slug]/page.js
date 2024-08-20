@@ -1,18 +1,20 @@
 import { getSingleStyle } from "@/actions/styles";
 import AddToCart from "@/components/AddToCart";
-import DetailedPrdt from "@/components/DetailedPrdt";
+import ProductCard from "../../../../components/ProductCard";
 import ProductSlider from "@/components/ProductSlider";
 import Breadcrumb from "@/components/frontend/Breadcrumb";
-
 import { formatMoney } from "@/lib/formatMoney";
 import { getData } from "@/lib/getData";
 import Link from "next/link";
 import { AiOutlineHeart, AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
-import { GiShoppingCart } from "react-icons/gi";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 import { GrDeliver } from "react-icons/gr";
 import { IoCall } from "react-icons/io5";
 import { MdStars } from "react-icons/md";
+import BookNowBtn from "@/components/BookNowBtn";
+import LargeBookNowBtn from "@/components/LargeBookNowBtn";
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await getData(`products/product/${slug}`);
@@ -27,6 +29,8 @@ export async function generateMetadata({ params: { slug } }) {
 }
 
 export default async function page({ params: { slug } }) {
+
+  
   const product = await getData(`products/product/${slug}`);
   const products = await getData(`products/all`);
   const singleStyle= await getSingleStyle()
@@ -122,13 +126,7 @@ export default async function page({ params: { slug } }) {
                     </div>
                     <div className="lg:flex md:flex hidden gap-2">
                       <AddToCart product={product} />
-                      <Link
-                        href="/checkout"
-                        className="lg:flex md:flex hidden w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
-                      >
-                        <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
-                        BUY NOW
-                      </Link>
+                      <LargeBookNowBtn product={product} />
                     </div>
                     <div className="w-[100%] h-[1px] bg-gray-200 "></div>
                   </div>
@@ -164,25 +162,7 @@ export default async function page({ params: { slug } }) {
                 </h2>
                 <div className="w-[100%] h-[1px] bg-gray-200 "></div>
               </div>
-              {/* <div className="flex flex-col gap-2">
-                <h2 className="text-md tracking-[.4px] font-[500]">
-                  Choose your location
-                </h2>
-                <div className="flex flex-col gap-3">
-                  <select className="border-2 px-3 py-3 border-[#a3a3a66c] rounded-md text-[16px] text-[#313133] hover:border-orange-500 font-[400]">
-                    <option value="option1">Kampala region</option>
-                    <option value="option2">Entebbe region</option>
-                    <option value="option3">northern region</option>
-                    <option value="option4">Western region</option>
-                  </select>
-                  <select className="border-2 px-3 py-3 border-[#a3a3a66c] rounded-md text-[16px] text-[#313133] hover:border-orange-500">
-                    <option value="option1">Central Business District</option>
-                    <option value="option2">Bwaise </option>
-                    <option value="option3">Buloba</option>
-                    <option value="option4">Bukoto</option>
-                  </select>
-                </div>
-              </div> */}
+           
               <div className="flex flex-col gap-3">
                 <div className="flex gap-2">
                   <div>
@@ -204,28 +184,14 @@ export default async function page({ params: { slug } }) {
                   </div>
                   <div className="flex flex-col gap-1">
                     <h2 className="text-[14px] font-[500] tracking-[.4px]">
-                      Pickup Station
+                      Be alert
                     </h2>
                     <p className="text-[12px] font-[300] tracking-[.4px]">
-                      Pickup Station Delivery Fees UGX 1,900 Pickup by 01
-                      November when you order within next 14hrs 6mins
+                      Only pay on delivery.
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <div>
-                    <GrDeliver size={20} />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <h2 className="text-[14px] font-[500] tracking-[.4px]">
-                      Door Delivery
-                    </h2>
-                    <p className="text-[12px] font-[300] tracking-[.4px]">
-                      Delivery Fees UGX 3,900 Delivery by 01 November when you
-                      order within next 15hrs 25mins
-                    </p>
-                  </div>
-                </div>
+             
               </div>
             </div>
           </div>
@@ -237,13 +203,17 @@ export default async function page({ params: { slug } }) {
           </div>
           <div
             className="
-        w-full min-h-[100%] bg-white p-[1rem] gap-4 drop-shadow-sm rounded-md 
+        w-full min-h-[100%] bg-white p-[.6rem] lg:p-[1rem] gap-4 drop-shadow-sm rounded-md 
         roboto flex flex-col "
           >
             <h2 className="text-[20px] font-[500] tracking-[.3px] text-[#313133] ">
               You may also like
             </h2>
-            <DetailedPrdt data={similarPrdt} />
+            <div  className="grid md:grid-cols-4 grid-cols-2 lg:grid-cols-5 gap-4 lg:px-3 px-1">
+             {similarPrdt?.splice(0,5).map((product) => (
+               <ProductCard key={product.id} product={product} addToCart={false} />
+             ))}
+            </div>
           </div>
         </div>
       </div>
@@ -252,14 +222,8 @@ export default async function page({ params: { slug } }) {
           <AddToCart product={product} />
         </div>
         <div className="w-[75%]">
-          <Link
-          style={{backgroundColor}}
-            href="/checkout"
-            className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
-          >
-            <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
-            BUY NOW
-          </Link>
+         
+          <BookNowBtn product={product} backgroundColor={backgroundColor} />
         </div>
 
         <Link

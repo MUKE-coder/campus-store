@@ -1,8 +1,5 @@
 
 import ProductCard from "./ProductCard";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { IoPricetag } from "react-icons/io5";
 
 export default function CatPrdts({products }) {
  
@@ -14,7 +11,7 @@ export default function CatPrdts({products }) {
     </div>
     <div  className="grid md:grid-cols-4 grid-cols-2 lg:grid-cols-4 px-3 gap-4 lg:px-2">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} addToCart={true} />
+        <ProductCard key={product.id} product={product} addToCart={false} />
       ))}
     </div>
    </div>

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 import { searchProducts } from '@/actions/search';
 import CatPrdts from '@/components/CatPrdts';
@@ -12,7 +12,6 @@ export default function CatalogPage() {
   const [loading, setLoading] = useState(true);
   const [noResults, setNoResults] = useState(false);
   const searchParams = useSearchParams();
-  const router = useRouter();
   
   const searchTerm = searchParams.get('q') || '';
 
@@ -34,26 +33,9 @@ export default function CatalogPage() {
     return <div className=' w-full h-screen flex justify-center items-center'>
       <span className="loader"></span>
     </div>;
-  }
-  const backgroundColor =  "#f68b1e" || "#f68b1e";
-  
+  }  
   return (
-    // <div>
-    //   <h1>Search Results for: "{searchTerm}"</h1>
-    //   {noResults ? (
-    //     <p>No products found.</p>
-    //   ) : (
-    //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    //       {searchResults.map(product => (
-    //         <div key={product.id} className="border p-4 rounded-md">
-    //           <h2 className="text-lg font-bold">{product.title}</h2>
-    //           <p>{product.description}</p>
-    //           {/* Add more product details as needed */}
-    //         </div>
-    //       ))}
-    //     </div>
-    //   )}
-    // </div>
+
     <>
     {
       noResults?(

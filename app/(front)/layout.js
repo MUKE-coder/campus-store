@@ -1,5 +1,4 @@
 import { getSingleStyle } from "@/actions/styles";
-import AppBanner from "@/components/AppBanner";
 import Footer from "@/components/Footer";
 import SubNav from "@/components/SubNav";
 import ShopHeader from "@/components/frontend/ShopHeader";
@@ -16,11 +15,7 @@ export default async function FrontLayout({ children }) {
   const user = session?.user;
   return (
     <div className="relative overflow-hidden lg:px-0  md:px-0 px-1">
-      {/* <div className="lg:hidden md:hidden block">
-      <AppBanner/>
-      </div> */}
       <SubNav/>
-      {/* <TopBanner /> */}
       <div className="sticky top-0 h-[5vh] z-30 ">
       <ShopHeader backgroundColor={backgroundColor} allCategories={allCategories} user={user} />
       </div>

@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 export default function AddToCart({ product }) {
   const dispatch = useDispatch();
+
   function handleAddToCart() {
     const prod = {
       id: product.id,
@@ -21,6 +22,7 @@ export default function AddToCart({ product }) {
     // addRecentlyViewedProduct(product);
     toast.success("Item added Successfully");
   }
+  
   return (
     <button
       onClick={handleAddToCart}

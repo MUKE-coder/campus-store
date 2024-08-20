@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AnalyticsCard({ item }) {
   const Icon = item.icon;
-  console.log(Icon);
+  // console.log(Icon);
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

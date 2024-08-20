@@ -4,13 +4,14 @@ import SearchForm from "./SearchForm";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.svg";
-import { AlignJustify, HelpCircle, Search, ShoppingCart, User } from "lucide-react";
+import {User } from "lucide-react";
 import HelpModal from "./HelpModal";
 import CartCount from "./CartCount";
-import { useSession } from "next-auth/react";
 import UserAvatar from "../backoffice/UserAvatar";
 import { MobileNavBar } from "../MobileNavBar";
 import { usePathname } from "next/navigation";
+
+
 export default function ShopHeader({ user , allCategories , backgroundColor  }) {
   const pathName=usePathname()
   if(pathName.startsWith("/search")){
@@ -23,12 +24,10 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
         {/* Logo */}
         <div className="flex items-center lg:gap-0 md:gap-0 gap-2" >
         <MobileNavBar allCategories={allCategories}/>
-        {/* <AlignJustify className="w-6 h-6 lg:hidden md:hidden block" /> */}
         <Link  className="flex items-center lg:gap-0 md:gap-0 gap-2"href="/">
           <Image src={logo} alt="kyaja logo" className="lg:w-[4rem] w-[3rem] h-[3rem] lg:h-[4rem] mt-4" />
           <div className="flex flex-col">
             <span className="font-black text-xl uppercase text-[#282828] lg:block md:block hidden">Kyaja</span>
-            {/* <span className="text-xs">Shop Smart, Shop Online</span> */}
           </div>
         </Link>
         </div>

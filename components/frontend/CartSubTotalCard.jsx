@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Button } from "../ui/button";
 import { formatMoney } from "@/lib/formatMoney";
@@ -9,7 +8,6 @@ import { generateSlug } from "@/lib/generateSlug";
 
 export default function CartSubTotalCard({ subTotal }) {
   const cartItems = useSelector((store) => store.cart);
-  console.log(cartItems);
   const shipping = 10.0;
   const tax = 0.0;
   const totalPrice = (
@@ -33,7 +31,7 @@ export default function CartSubTotalCard({ subTotal }) {
   };
 
   const handleWhatsAppOrder = () => {
-    const phoneNumber = "256752815998"; // Replace with the shop owner's WhatsApp number
+    const phoneNumber = "256752815998"; 
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");
@@ -49,15 +47,7 @@ export default function CartSubTotalCard({ subTotal }) {
         <span>Total </span>
         <span>UGX &nbsp;{formatMoney(totalPrice)}</span>
       </div>
-      {/* <div className="mt-8">
-        <Button
-          onClick={handleWhatsAppOrder}
-          className="text-slate-50 rounded-lg py-3 px-6 font-normal bg-slate-900 dark:bg-green-600"
-        >
-          <FaWhatsapp className="w-5 h-5 mr-2 flex-shrink-0" />
-          Place Order Via Whatsapp
-        </Button>
-      </div> */}
+     
       <div className="mt-4">
         <Button>
           <Link href="/checkout">Proceed to Checkout</Link>

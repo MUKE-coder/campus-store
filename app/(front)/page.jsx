@@ -35,18 +35,10 @@ export default async function Page() {
       <div className="w-full min-h-[100vh] lg:px-[6rem] md:pt-[1rem] pt-[1rem]">
      <RecentlyViewed />
      <FlashSales flashProducts={flashProducts}/>
-     {/* <TopCategories /> */}
      <TopOffers/>
      <AllCategories/>
      <FeaturedProducts/>
-
       </div>
-      {/* <HomePage
-        banners={banners}
-        categories={categories}
-        allSubCats={subCategories}
-        products={products}
-      /> */}
     </div>
   );
 }

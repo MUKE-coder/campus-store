@@ -8,7 +8,7 @@ export async function updateOrCreateProfile(formData) {
         if (!formData.userId) {
         console.log('User ID is required.');
           }
-      const existingProfile = await   db.userProfile.findUnique({
+      const existingProfile = await  db.userProfile.findUnique({
         where: { id: formData.userId },
       });
   
@@ -57,7 +57,7 @@ export async function updateOrCreateProfile(formData) {
       });
   
       if (profile) {
-        console.log(profile);
+        // console.log(profile);
         return profile;
       } 
     } catch (error) {

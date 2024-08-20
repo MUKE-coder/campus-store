@@ -9,16 +9,15 @@ export default async function Footer() {
   return (
   <div style={{backgroundColor}} className="w-[100%] py-4 text-xs px-4 lg:px-8 min-h-[25vh] flex-col flex lg:flex-row gap-5 lg:gap-8 items-center justify-center">
    <div className="flex gap-2 ">
-    <Link className="p-2 rounded-[50%] bg-[#31d4d9] " href="">   <FaSnapchat color="white" size={20}/>
-</Link>
-   <Link className="p-2 rounded-[50%] bg-[#437bff] " href=""><FaFacebookF color="white"  size={20}/></Link>
-   <Link className="p-2 rounded-[50%] bg-[#d3c855] " href="">   <FaWhatsapp color="white" size={20}/></Link>
+    {/* <Link className="p-2 rounded-[50%] bg-[#31d4d9] " href=""><FaSnapchat color="white" size={20}/>
+</Link> */}
+   <Link className="p-2 rounded-[50%] bg-[#437bff] " href="https://www.facebook.com/profile.php?id=61561792047966&mibextid=ZbWKwL."><FaFacebookF color="white"  size={20}/></Link>
 
-   <Link className="p-2 rounded-[50%] bg-[#d35d55] "  href="">   <FaYoutube color="white" size={20}/>
+   <Link className="p-2 rounded-[50%] bg-[#d35d55] "  href="https://youtube.com/@kyajacom?si=ifzRHWSyzvtCcUFL"><FaYoutube color="white" size={20}/>
 </Link>
-   <Link className="p-2 rounded-[50%] bg-[#34ea55] " href="">   <FaTiktok color="white" size={20}/>
+   <Link className="p-2 rounded-[50%] bg-[#34ea55] " href="https://www.tiktok.com/@kyajalogistics?_t=8p0SZ58LZlV&_r=1">   <FaTiktok color="white" size={20}/>
 </Link>
-   <Link className="p-2 rounded-[50%] bg-[#bd32a2] " href=""> <FaInstagram color="white" size={20}/>
+   <Link className="p-2 rounded-[50%] bg-[#bd32a2] " href="https://www.instagram.com/kyaja_logistics?igsh=MWpldmgwcWdpdDFxMA=="> <FaInstagram color="white" size={20}/>
 </Link>
 
    </div>

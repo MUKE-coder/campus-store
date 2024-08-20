@@ -11,7 +11,7 @@ export default async function page({ params: { id } }) {
   const subTotal = orderItems
     .reduce((acc, item) => acc + item.price * item.quantity, 0)
     .toFixed(2);
-  console.log(order);
+  // console.log(order);
   return (
     <section className="py-12 dark:bg-slate-950 bg-slate-50 sm:py-16 lg:py-20 md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-5xl">
@@ -23,6 +23,17 @@ export default async function page({ params: { id } }) {
                 className="inline-flex items-center justify-center px-4 py-3 text-xs font-bold text-gray-900 transition-all duration-200 bg-gray-100 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-200"
               >
                 View invoice
+              </Link>
+
+             
+            </div>
+            <div className="absolute top-4 left-4">
+          
+              <Link
+                href={`/`}
+                className="inline-flex items-center justify-center px-4 py-3 text-xs font-bold text-gray-900 transition-all duration-200 bg-gray-100 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-200 mb-3"
+              >
+                Continue Shopping
               </Link>
             </div>
 
@@ -47,12 +58,10 @@ export default async function page({ params: { id } }) {
                         Shipping Address
                       </h2>
                       <p className="mt-6 text-sm font-medium text-gray-600 dark:text-gray-300">
-                        {order.firstName} {order.lastName}
+                        {order.name}
                       </p>
                       <p className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-                        {order?.apartment}-{order.streetAddress}
-                        {order?.region}, {order.district}, {order?.county},{" "}
-                        {order.streetAddress}
+                      {order.address}
                       </p>
                     </div>
 
@@ -63,11 +72,7 @@ export default async function page({ params: { id } }) {
                       <p className="mt-6 text-sm font-medium text-gray-600 dark:text-gray-300">
                         {order.paymentMethod}
                       </p>
-                      {/* <p className="mt-1 text-sm font-medium text-gray-600">
-                        VISA
-                        <br />
-                        **** 4660
-                      </p> */}
+                 
                     </div>
                   </div>
                 </div>

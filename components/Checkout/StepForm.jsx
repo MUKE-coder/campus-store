@@ -5,11 +5,12 @@ import PersonalDetailsForm from "./StepForms/PersonalDetailsForm";
 import ShippingDetailsForm from "./StepForms/ShippingDetailsForm";
 import PaymentMethodForm from "./StepForms/PaymentMethodForm";
 import OrderSummary from "./StepForms/OrderSummary";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 export default function StepForm({ regions, districts, counties }) {
+
   const currentStep = useSelector((store) => store.checkout.currentStep);
-  console.log(currentStep);
+  // console.log(currentStep);
   function renderFormByStep(step) {
     if (step === 1) {
       return <PersonalDetailsForm />;

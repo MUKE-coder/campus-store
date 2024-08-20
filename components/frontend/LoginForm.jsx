@@ -1,6 +1,6 @@
 "use client";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter ,  useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -10,6 +10,10 @@ import SubmitButton from "../FormInputs/SubmitButton";
 import PasswordInput from "../FormInputs/PasswordInput";
 export default function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  
+  const successRoute = searchParams.get('q') || '/';
+  // console.log(singleBuyItem)
   const {
     register,
     handleSubmit,
@@ -19,10 +23,10 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(data) {
-    console.log(data);
+    // console.log(data);
     try {
       setLoading(true);
-      console.log("Attempting to sign in with credentials:", data);
+      // console.log("Attempting to sign in with credentials:", data);
       const loginData = await signIn("credentials", {
         ...data,
         redirect: false,
@@ -31,13 +35,15 @@ export default function LoginForm() {
       // console.log("SignIn response:", loginData);
 
       if (loginData.ok) {
-        router.push("/dashboard");
+        router.push(`/${successRoute}`);
         setLoading(false);
         toast.success("Login Successful thank you");
       } else {
         // Sign-in was successful
         toast.error("Sign-in error: Check your credentials");
         reset();
+        setLoading(false);
+
         // router.push("/dashboard");
         // window.location.reload();
       }

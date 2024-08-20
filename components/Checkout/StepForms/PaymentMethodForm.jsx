@@ -3,7 +3,7 @@ import TextInput from "@/components/FormInputs/TextInput";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import NavButtons from "../NavButtons";
-import { Circle, CreditCard, HeartHandshake, Truck } from "lucide-react";
+import { CircleHeartHandshake} from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setCurrentStep,
@@ -18,9 +18,6 @@ export default function PaymentMethodForm() {
   );
 
   const {
-    register,
-    reset,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -30,10 +27,10 @@ export default function PaymentMethodForm() {
   });
   const initialPaymentMethod = existingFormData.paymentMethod || "";
   const [paymentMethod, setPaymentMethod] = useState(initialPaymentMethod);
-  console.log(paymentMethod);
+  // console.log(paymentMethod);
   async function processData(data) {
     data.paymentMethod = paymentMethod;
-    console.log(data);
+    // console.log(data);
     //Update the checkout Data
     dispatch(updateCheckoutFormData(data));
     //Update the Current Step
@@ -73,26 +70,7 @@ export default function PaymentMethodForm() {
                 <Circle className="w-5 h-5 ms-3 flex-shrink-0" />
               </label>
             </li>
-            {/* <li>
-              <input
-                type="radio"
-                id="hosting-big"
-                name="hosting"
-                value="Credit Card"
-                class="hidden peer"
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              <label
-                htmlFor="hosting-big"
-                class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
-              >
-                <div className="flex gap-2 items-center">
-                  <CreditCard className="w-8 h-8 ms-3 flex-shrink-0 " />
-                  <p>Credit Card</p>
-                </div>
-                <Circle className="w-5 h-5 ms-3 flex-shrink-0" />
-              </label>
-            </li> */}
+           
           </ul>
         </div>
       </div>

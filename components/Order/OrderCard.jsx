@@ -85,9 +85,7 @@ export default function OrderCard({ order }) {
                             <p className="text-base font-bold capitalize text-gray-900">
                               {item.title}
                             </p>
-                            {/* <p className="mt-1.5 text-sm font-medium text-gray-500">
-                              Golden
-                            </p> */}
+                     
                           </div>
 
                           <div className="mt-4 sm:mt-0 flex items-center justify-between">

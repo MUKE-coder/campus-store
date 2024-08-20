@@ -1,17 +1,17 @@
-"use client"
-import * as React from "react"
-import Link, { LinkProps } from "next/link"
-import { useRouter } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
-import { Button } from "./ui/button"
-import { ScrollArea } from "./ui/scroll-area"
-import Image from "next/image"
+"use client";
+import * as React from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { ScrollArea } from "./ui/scroll-area";
+import Image from "next/image";
 import logo from "../public/logo.svg";
 
 export function MobileNavBar({ allCategories }) {
-  const [open, setOpen] = React.useState(false)
-//   console.log(allCategories)
+  const [open, setOpen] = React.useState(false);
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -57,60 +57,58 @@ export function MobileNavBar({ allCategories }) {
           className="flex items-center"
           onOpenChange={setOpen}
         >
-          {/* <Icons.logo className="mr-2 h-4 w-4" /> */}
           <span className="font-bold"></span>
         </MobileLink>
         <ScrollArea className="!p-0  pb-3">
           <div className="flex h-screen flex-col justify-between border-e bg-white">
             <div className="">
-            <Link  className="flex items-center lg:gap-0 md:gap-0 gap-2"href="/">
-          <Image src={logo} alt="kyaja logo" className="lg:w-[4rem] w-[3rem] h-[3rem] lg:h-[4rem] mt-4" />
-          <div className="flex flex-col">
-            <span className="font-black text-lg uppercase text-[#282828] block  ">Kyaja</span>
-            {/* <span className="text-xs">Shop Smart, Shop Online</span> */}
-          </div>
-        </Link>
+              <Link className="flex items-center lg:gap-0 md:gap-0 gap-2" href="/">
+                <Image
+                  src={logo}
+                  alt="kyaja logo"
+                  className="lg:w-[4rem] w-[3rem] h-[3rem] lg:h-[4rem] mt-4"
+                />
+                <div className="flex flex-col">
+                  <span className="font-black text-lg uppercase text-[#282828] block">
+                    Kyaja
+                  </span>
+                </div>
+              </Link>
 
               <ul className="mt-2 space-y-1">
-                {allCategories?.map(category => (
+                {allCategories?.map((category) => (
                   <li key={category.id}>
-                    <Link
+                    <MobileLink
                       href={`/category/${category.slug}`}
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      onOpenChange={setOpen}
                     >
                       {category.title}
-                    </Link>
+                    </MobileLink>
                   </li>
                 ))}
-             
               </ul>
             </div>
           </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  )
+  );
 }
 
-function MobileLink({
-  href,
-  onOpenChange,
-  className,
-  children,
-  ...props
-}) {
-  const router = useRouter()
+function MobileLink({ href, onOpenChange, className, children, ...props }) {
+  const router = useRouter();
   return (
     <Link
       href={href}
       onClick={() => {
-        router.push(href.toString())
-        onOpenChange?.(false)
+        router.push(href.toString());
+        onOpenChange?.(false);
       }}
       className={cn(className)}
       {...props}
     >
       {children}
     </Link>
-  )
+  );
 }

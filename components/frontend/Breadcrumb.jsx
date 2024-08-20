@@ -26,7 +26,7 @@ export default function Breadcrumb() {
             <li key={i}>
               <div className="flex items-center capitalize">
                 <ChevronRight className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" />
-                <span className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white ">
+                <span className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white line-clamp-1">
                   {item}
                 </span>
               </div>

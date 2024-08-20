@@ -5,6 +5,7 @@ import logo from "../../public/logo.svg";
 import { convertIsoDateToNormal } from "@/lib/convertIsoDatetoNormal";
 import { useReactToPrint } from "react-to-print";
 import { formatMoney } from "@/lib/formatMoney";
+
 export default function SalesInvoice({ order }) {
   const shippingCost = order.shippingCost;
   const invoiceDate = convertIsoDateToNormal(order.createdAt);
@@ -59,14 +60,10 @@ export default function SalesInvoice({ order }) {
             <div className="flex flex-col">
               <h2>Bill To:</h2>
               <p>
-                {order.firstName} {order.lastName}
+                {order.name}
               </p>
               <p>
-                {order?.apartment} {order.streetAddress}
-              </p>
-              <p>{order?.region}</p>
-              <p>
-                {order.district} - {order.county}
+                {order?.address}
               </p>
               <p>{order.email}</p>
             </div>

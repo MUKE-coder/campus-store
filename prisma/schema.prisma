@@ -133,7 +133,7 @@ model User {
   orders            Order[] //User can have multiple Orders
   createdAt         DateTime       @default(now())
   updatedAt         DateTime       @updatedAt
-  sales              Sale[]
+  // sales              Sale[]
 }
 
 model UserProfile {
@@ -153,31 +153,15 @@ model UserProfile {
 model Order {
   id            String  @id @default(auto()) @map("_id") @db.ObjectId
   userId        String  @db.ObjectId
-  // Personal Details
-  firstName     String
-  lastName      String
+  name   String
   email         String
   phone         String
-  // shipping details
-  streetAddress String?
-  city          String?
-  country       String?
-  apartment     String?
-      state     String?
-      zip       String?
-  shippingCost  Float?
+  address String?
   orderNumber   String?
-   region        String?
-  district      String?
-  county        String?
-  //Payment Method
+  totalOrderAmount   Int?
   paymentMethod String
-
-  // Order Items
   orderItems OrderItem[]
-
-  // Status
-  orderStatus OrderStatus @default(PROCESSING) // Set PROCESSING as the default value
+  orderStatus OrderStatus @default(PROCESSING) 
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   user        User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
@@ -188,7 +172,6 @@ model OrderItem {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   orderId   String   @db.ObjectId
   productId String   @db.ObjectId
-  vendorId  String   @db.ObjectId
   imageUrl  String?
   title     String?
   quantity  Int
@@ -203,7 +186,7 @@ model Sale {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   orderId      String   @db.ObjectId
   productId    String   @db.ObjectId
-  vendorId     String   @db.ObjectId
+  // vendorId     String   @db.ObjectId
   total        Float
   productTitle String
   productImage String
@@ -213,5 +196,5 @@ model Sale {
   updatedAt    DateTime @updatedAt
   order        Order    @relation(fields: [orderId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  vendor       User     @relation(fields: [vendorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  // vendor       User     @relation(fields: [vendorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
