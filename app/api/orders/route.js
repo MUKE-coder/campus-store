@@ -1,4 +1,4 @@
-import SlackConfirmEmail, { NewOrderEmail } from "@/components/ReactEmail";
+// import SlackConfirmEmail, { NewOrderEmail } from "@/components/ReactEmail";
 import db from "@/lib/db";
 import { NextResponse } from "next/server";
 // import { Resend } from "resend";
@@ -66,7 +66,7 @@ export async function POST(request) {
 
     // Send order confirmation email
     // await resend.emails.send({
-    //   from: 'New Order !! <info@flakolimited.com>',
+    //   from: "Kyaja Ecommerce <info@rwoma.com>",
     //   to: ["Info.kyaja@gmail.com"],
     //   subject: 'New Order',
     //   react: NewOrderEmail(),

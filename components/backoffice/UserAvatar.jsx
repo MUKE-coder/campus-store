@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import {Dropdown } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { generateInitials } from "@/lib/generateInitials";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { getProfileByUserId } from "@/actions/UpdateUser";
 
@@ -27,11 +26,10 @@ export default function UserAvatar({ user = {} }) {
  
 
   const { name, email, image } = user;
-  const initials = generateInitials(name);
   const role = user?.role;
   const router = useRouter();
   async function handleLogout() {
-    
+    // console.log("btn clicked")
     await signOut();
     router.push("/");
   }

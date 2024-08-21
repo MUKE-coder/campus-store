@@ -3,10 +3,10 @@ import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 export default async function Login() {
-  const session = await getServerSession(authOptions);
-  if (session) {
-    redirect("/");
-  }
+  // const session = await getServerSession(authOptions);
+  // if (session) {
+  //   redirect("/");
+  // }
   return (
     <section className="bg-white dark:bg-gray-900 pt-[3.8rem] lg:pt-[4rem] px-8 lg:px-[5rem] md:px-[3rem] pb-4">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">

@@ -1,5 +1,5 @@
 import AnalyticsCard from "@/components/AnalyticsCard";
-import FarmerDashboard from "@/components/backoffice/FarmerDashboard";
+// import FarmerDashboard from "@/components/backoffice/FarmerDashboard";
 import Heading from "@/components/backoffice/Heading";
 import LargeCards from "@/components/backoffice/LargeCards";
 import UserDashboard from "@/components/backoffice/UserDashboard";
@@ -17,9 +17,9 @@ export default async function page() {
   if (role === "USER") {
     return <UserDashboard />;
   }
-  if (role === "FARMER") {
-    return <FarmerDashboard />;
-  }
+  // if (role === "FARMER") {
+  //   return <FarmerDashboard />;
+  // }
   return (
     <div className="md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
       <Heading title="Dashboard Overview" />

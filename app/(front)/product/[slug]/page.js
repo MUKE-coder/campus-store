@@ -8,8 +8,6 @@ import { getData } from "@/lib/getData";
 import Link from "next/link";
 import { AiOutlineHeart, AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
 import { GrDeliver } from "react-icons/gr";
 import { IoCall } from "react-icons/io5";
 import { MdStars } from "react-icons/md";

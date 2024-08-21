@@ -36,7 +36,7 @@ export default function Product({ product , addToCart }) {
     >
       <Link
         href={`/product/${product.slug}`}
-        className="flex items-center justify-center lg:h-[60%] h-[55%]"
+        className="flex items-center justify-center lg:h-[55%] h-[55%]"
       >
         <img src={product.imageUrl} alt="" className="w-[100%] object-cover h-full rounded-md" />
       </Link>

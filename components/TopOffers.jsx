@@ -14,7 +14,7 @@ export default async function TopOffers() {
   const backgroundColor =  singleStyle.primaryColor || "#f68b1e";
   
   return (
-   <div className="flex flex-col gap-6 w-full min-h-[50%] bg-white mt-5">
+   <div className="flex flex-col gap-6 w-full min-h-[50vh] bg-white mt-5">
 
     <div style={{backgroundColor}} className="flex items-center justify-between  p-4">
       
