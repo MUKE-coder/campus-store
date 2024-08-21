@@ -1,4 +1,5 @@
 "use client"
+import { setBuyNowProduct } from '@/redux/slices/buynow';
 import Link from 'next/link'
 import React from 'react'
 import { GiShoppingCart } from 'react-icons/gi'
@@ -24,7 +25,7 @@ export default function BookNowBtn({backgroundColor, product }) {
     <Link
     onClick={()=>handleAddToCart()}
     style={{backgroundColor}}
-      href="/checkout?q=single-item"
+      href="/buy-now?q=single-item"
       className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
     >
       <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}

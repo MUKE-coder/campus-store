@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
 import { clearCart } from "@/redux/slices/cartSlice";
 
-export default function CheckoutPage() {
+export default function BuyNowComp() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const dispatch = useDispatch();
@@ -25,10 +25,10 @@ export default function CheckoutPage() {
   const [isLoadingOrder, setIsLoadingOrder] = useState(false);
 
   const singleItem = useSelector((store) => store.buynow);
-  // console.log(singleItem)
+//   console.log(singleItem)
   const cartItems = useSelector((store) => store.cart);
 
-  const hasSingleItem = singleBuyItem.includes("single-item") && singleItem;
+  const hasSingleItem =  singleItem;
   const hasCartItems = cartItems && cartItems.length > 0;
 
   // Update buyItems array based on the conditions
