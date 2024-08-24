@@ -1,7 +1,7 @@
 "use client";
 import { MdCheckCircle } from "react-icons/md";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { UpdateProfile } from "@/components/CheckOutProfileForm";
 import { useSession } from "next-auth/react";
@@ -9,14 +9,14 @@ import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
 import { clearCart } from "@/redux/slices/cartSlice";
 
-export default function BuyNowComp() {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+export default function CheckoutPage() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const dispatch = useDispatch();
   const router = useRouter();
   const searchParams = useSearchParams();
-  
-  const singleBuyItem = searchParams.get('q') || '';
+
+  let singleBuyItem = searchParams.get("q") || "";
 
   const { data: session, status } = useSession();
   const user = session?.user;
@@ -25,18 +25,32 @@ export default function BuyNowComp() {
   const [isLoadingOrder, setIsLoadingOrder] = useState(false);
 
   const singleItem = useSelector((store) => store.buynow);
-//   console.log(singleItem)
   const cartItems = useSelector((store) => store.cart);
 
-  const hasSingleItem =  singleItem;
+  useEffect(() => {
+    // Check if the single item is stored in local storage
+    const storedSingleItem = localStorage.getItem("singleItem");
+    if (storedSingleItem) {
+      // Use the stored single item if available
+      singleBuyItem = JSON.parse(storedSingleItem);
+      localStorage.removeItem("singleItem"); // Clear it from storage after use
+    } else if (singleBuyItem.includes("single-item") && singleItem) {
+      // If not in local storage, use the item from the search parameter
+      localStorage.setItem("singleItem", JSON.stringify(singleItem));
+    }
+  }, [singleBuyItem, singleItem]);
+
+  const hasSingleItem = singleBuyItem && singleItem;
   const hasCartItems = cartItems && cartItems.length > 0;
 
   // Update buyItems array based on the conditions
   const buyItems = hasSingleItem ? [singleItem] : cartItems;
 
-  const subTotal = buyItems.reduce((acc, currentItem) => {
-    return acc + currentItem.salePrice * (currentItem.qty || 1);
-  }, 0).toFixed(2);
+  const subTotal = buyItems
+    .reduce((acc, currentItem) => {
+      return acc + currentItem.salePrice * (currentItem.qty || 1);
+    }, 0)
+    .toFixed(2);
 
   const generateOrderNumber = () => {
     const timestamp = Date.now();
@@ -45,7 +59,7 @@ export default function BuyNowComp() {
   };
 
   const handleOrder = async () => {
-    console.log("btn clicked")
+    console.log("btn clicked");
     if (!address || !phone) {
       toast.error("Please click the Change button to update your profile before checkout.");
       return;

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { GiShoppingCart } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 
-export default function LargeBookNowBtn({ product }) {
+export default function LargeBookNowBtn({ product , session}) {
   const dispatch = useDispatch();
 
   function handleAddToCart() {
@@ -21,13 +21,31 @@ export default function LargeBookNowBtn({ product }) {
   }
 
   return (
-    <Link
-      onClick={() => handleAddToCart()}
-      href="/checkout?q=single-item"
-      className="lg:flex md:flex hidden w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
-    >
-      <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
-      BUY NOW
-    </Link>
+    <>
+    
+    {
+      session ?(
+        <Link
+        onClick={() => handleAddToCart()}
+        href="/buy-now?q=single-item"
+        className="lg:flex md:flex hidden w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+      >
+        <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
+        BUY NOW
+      </Link>
+      ):(
+        <Link
+        onClick={() => handleAddToCart()}
+        href="/login?q=buy-now?q=single-item"
+        className="lg:flex md:flex hidden w-[100%] py-[1rem] bg-yellow-800 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+      >
+        <GiShoppingCart className="text-[24px] absolute md:left-6 lg:left-10 md:block lg:block hidden" />{" "}
+        BUY NOW
+      </Link>
+      )
+    }
+    
+    </>
+   
   );
 }

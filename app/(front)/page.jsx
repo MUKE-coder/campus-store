@@ -26,18 +26,18 @@ export default async function Page() {
     const backgroundColor =  singleStyle?.secondaryColor || "#633185";
 
   return (
-    <div style={{ backgroundColor }} className="bg-[#633185] min-h-[100vh]">
+    <div style={{ backgroundColor }} className="bg-[#633185] min-h-[100vh] pb-5">
       <div className="w-full min-h-[90vh] home-bg lg:px-[6rem] md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]" style={{ backgroundImage: `url(${backgroundImageUrl})` }}
       >
       <HomeBanners categories={allCategoriesData} banners={bannerData}/>
       <HomeCategoryCards />
       </div>
       <div className="w-full min-h-[100vh] lg:px-[6rem] md:pt-[1rem] pt-[1rem]">
-     <RecentlyViewed />
      <FlashSales flashProducts={flashProducts}/>
      <TopOffers/>
      <AllCategories/>
      <FeaturedProducts/>
+     <RecentlyViewed />
       </div>
     </div>
   );

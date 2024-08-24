@@ -13,6 +13,8 @@ import { IoCall } from "react-icons/io5";
 import { MdStars } from "react-icons/md";
 import BookNowBtn from "@/components/BookNowBtn";
 import LargeBookNowBtn from "@/components/LargeBookNowBtn";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await getData(`products/product/${slug}`);
@@ -27,7 +29,8 @@ export async function generateMetadata({ params: { slug } }) {
 }
 
 export default async function page({ params: { slug } }) {
-
+  const session = await getServerSession(authOptions);
+  const user=session?.user
   
   const product = await getData(`products/product/${slug}`);
   const products = await getData(`products/all`);
@@ -124,7 +127,8 @@ export default async function page({ params: { slug } }) {
                     </div>
                     <div className="lg:flex md:flex hidden gap-2">
                       <AddToCart product={product} />
-                      <LargeBookNowBtn product={product} />
+
+                      <LargeBookNowBtn product={product} session={session}/>
                     </div>
                     <div className="w-[100%] h-[1px] bg-gray-200 "></div>
                   </div>
@@ -221,7 +225,7 @@ export default async function page({ params: { slug } }) {
         </div>
         <div className="w-[75%]">
          
-          <BookNowBtn product={product} backgroundColor={backgroundColor} />
+          <BookNowBtn product={product} backgroundColor={backgroundColor} session={session}/>
         </div>
 
         <Link

@@ -9,6 +9,7 @@ export default async function page() {
   const session = await getServerSession(authOptions);
   const user=session?.user
   // console.log(user)
+  
   if (!session) {
     redirect("/login?q=checkout");
   }

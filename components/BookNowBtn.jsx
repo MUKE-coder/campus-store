@@ -5,7 +5,7 @@ import React from 'react'
 import { GiShoppingCart } from 'react-icons/gi'
 import { useDispatch } from 'react-redux';
 
-export default function BookNowBtn({backgroundColor, product }) {
+export default function BookNowBtn({backgroundColor, product , session }) {
   const dispatch = useDispatch();
 
   function handleAddToCart() {
@@ -22,14 +22,31 @@ export default function BookNowBtn({backgroundColor, product }) {
   }
 
   return (
-    <Link
-    onClick={()=>handleAddToCart()}
-    style={{backgroundColor}}
-      href="/buy-now?q=single-item"
-      className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
-    >
-      <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
-      BUY NOW
-    </Link>
+    <>
+    {
+      session ?(
+        <Link
+        onClick={()=>handleAddToCart()}
+        style={{backgroundColor}}
+          href="/buy-now?q=single-item"
+          className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+        >
+          <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
+          BUY NOW
+        </Link>
+      ):(
+        <Link
+        onClick={()=>handleAddToCart()}
+        style={{backgroundColor}}
+          href="/login?q=buy-now?q=single-item"
+          className="lg:hidden md:hidden flex w-[100%] py-3 relative drop-shadow-lg font-[600] text-white text-[15px] items-center justify-center gap-3 px-5 hover:bg-orange-700 transition-all tracking-[.1px] rounded-md"
+        >
+          <GiShoppingCart className="text-sm absolute left-10 md:block lg:block hidden" />{" "}
+          BUY NOW
+        </Link>
+      )
+    }
+    </>
+  
   )
 }
