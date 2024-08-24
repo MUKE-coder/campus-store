@@ -30,14 +30,14 @@ export async function POST(request) {
       const newOrderItems = await prisma.orderItem.createMany({
         data: orderItems.map((item) => ({
           productId: item.id,
-          quantity: parseInt(item.quantity),
+          quantity: parseInt(item.qty),
           price: parseFloat(item.salePrice),
           orderId: newOrder.id,
           imageUrl: item.imageUrl,
           title: item.title,
         })),
       });
-    console.log(newOrderItems)
+    // console.log(newOrderItems)
       // Create sales records
 
       // const sales = await Promise.all(

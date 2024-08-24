@@ -59,7 +59,7 @@ export default function CheckoutPage() {
   };
 
   const handleOrder = async () => {
-    const updatedSingleItem = { ...singleItem, quantity: 1 };
+    const updatedSingleItem = { ...singleItem, qty: 1 };
 
     // console.log("btn clicked");
     if (!address || !phone) {
