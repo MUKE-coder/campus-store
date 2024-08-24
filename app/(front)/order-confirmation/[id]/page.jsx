@@ -8,7 +8,8 @@ import React from "react";
 export default async function page({ params: { id } }) {
   const order = await getData(`orders/${id}`);
   const { orderItems } = order;
-  const subTotal = orderItems
+  console.log(order)
+  const subTotal = order?.orderItems
     .reduce((acc, item) => acc + item.price * item.quantity, 0)
     .toFixed(2);
   // console.log(order);
@@ -84,8 +85,8 @@ export default async function page({ params: { id } }) {
 
                   <div className="flow-root mt-8">
                     <ul className="divide-y divide-gray-200 -my-5">
-                      {orderItems.length > 0 &&
-                        orderItems.map((item, i) => {
+                      {order.orderItems.length > 0 &&
+                        order.orderItems.map((item, i) => {
                           return (
                             <li
                               key={i}

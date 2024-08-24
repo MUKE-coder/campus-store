@@ -26,7 +26,7 @@ export default function CheckoutPage() {
 
   const singleItem = useSelector((store) => store.buynow);
   const cartItems = useSelector((store) => store.cart);
-
+  // console.log(singleItem)
   useEffect(() => {
     // Check if the single item is stored in local storage
     const storedSingleItem = localStorage.getItem("singleItem");
@@ -59,7 +59,9 @@ export default function CheckoutPage() {
   };
 
   const handleOrder = async () => {
-    console.log("btn clicked");
+    const updatedSingleItem = { ...singleItem, quantity: 1 };
+
+    // console.log("btn clicked");
     if (!address || !phone) {
       toast.error("Please click the Change button to update your profile before checkout.");
       return;
@@ -77,9 +79,10 @@ export default function CheckoutPage() {
         orderNumber,
         totalOrderAmount: parseInt(subTotal),
         paymentMethod: "Pay on Delivery",
-        orderItems: buyItems,
+        orderItems: [updatedSingleItem],
       };
 
+      //  console.log(orderData)
       const response = await fetch(`${baseUrl}/api/orders`, {
         method: "POST",
         headers: {
