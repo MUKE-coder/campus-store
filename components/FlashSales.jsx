@@ -26,14 +26,13 @@ const Timer = () => {
   };
 
   return (
-    <div className="text-[#ffff] font-bold lg:text-lg text-xs">
+    <div className="text-[#ffff] font-bold lg:text-lg text-xs lg:block md:block hidden">
       Time Left: {formatTime(time)}
     </div>
   );
 };
 
 export default function FlashSales({flashProducts}) {
- 
   return (
    <div className="flex flex-col gap-6 w-full min-h-[50%] bg-white mt-5">
     <div className="flex items-center justify-between bg-[#e61601] p-4">

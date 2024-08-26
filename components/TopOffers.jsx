@@ -2,7 +2,6 @@
 import ProductCard from "./ProductCard";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { IoPricetag } from "react-icons/io5";
 import { getAllProducts } from "@/actions/products";
 import { getSingleStyle } from "@/actions/styles";
 

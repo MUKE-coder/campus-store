@@ -30,7 +30,7 @@ export async function generateMetadata({ params: { slug } }) {
 
 export default async function page({ params: { slug } }) {
   const session = await getServerSession(authOptions);
-  const user=session?.user
+  // const user=session?.user
   
   const product = await getData(`products/product/${slug}`);
   const products = await getData(`products/all`);
@@ -46,21 +46,7 @@ export default async function page({ params: { slug } }) {
   const similarPrdt = similarData.filter((prdt) => prdt.id !== productId);
   const discount =
     ((product.productPrice - product.salePrice) / product.productPrice) * 100;
-  const breadcrumb = {
-    base: {
-      path: "/",
-      title: "Home",
-    },
-    currentSubCatName: {
-      title: product.subCategory.title,
-    },
-    currentTitle: {
-      title: product.title,
-    },
-    currentDescription: {
-      title: product.description,
-    },
-  };
+
   return (
     <>
       <div className="max-w-full min-h-screen m-[.3rem] md:mx-[1rem] lg:mx-[4rem] roboto relative md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
