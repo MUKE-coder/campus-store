@@ -30,7 +30,7 @@ export default async function TopOffers() {
 
     </div>
 
-    <div  className="grid md:grid-cols-4 grid-cols-2 lg:grid-cols-5 px-3 gap-4 lg:px-2">
+    <div  className="grid md:grid-cols-4 grid-cols-2 lg:grid-cols-5 px-3 gap-5 lg:pb-6 pb-4 lg:px-4">
       {topProducts?.splice(0,15).map((product) => (
         <ProductCard key={product.id} product={product} addToCart={false} />
       ))}

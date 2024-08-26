@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default function CartCount({backgroundColor}) {
+export default function MobileCart({backgroundColor}) {
   const cartItems = useSelector((store) => store.cart);
   return (
     <Link
@@ -14,7 +14,7 @@ export default function CartCount({backgroundColor}) {
       <ShoppingCart className="text-lime-700 dark:text-lime-500" />
       <span className="text-[#5b5b5d] font-semibold lg:block hidden
       ">Cart</span>
-      <div style={{backgroundColor}} className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white  rounded-full top-[1%] left-[0%]  dark:border-gray-900">
+      <div style={{backgroundColor}} className="inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white  rounded-full  dark:border-gray-900">
         {cartItems.length}
       </div>
     </Link>

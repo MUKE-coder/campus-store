@@ -41,7 +41,7 @@ export default function FlashSales({flashProducts}) {
       <Timer />
       <Link className="text-[#fff] font-bold lg:text-sm text-xs flex items-center gap-1" href="/more/flash">SEE ALL <ChevronRight className="w-5 h-5"/></Link>
     </div>
-    <div  className="grid md:grid-cols-4 grid-cols-2 lg:grid-cols-5 gap-4 px-3">
+    <div  className="grid md:grid-cols-4 grid-cols-2 lg:grid-cols-5 gap-4 px-3 lg:pb-6 pb-4">
       {flashProducts?.splice(0,5).map((product) => (
         <ProductCard key={product.id} product={product} addToCart={false} />
       ))}

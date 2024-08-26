@@ -10,6 +10,7 @@ import CartCount from "./CartCount";
 import UserAvatar from "../backoffice/UserAvatar";
 import { MobileNavBar } from "../MobileNavBar";
 import { usePathname } from "next/navigation";
+import MobileCart from "../MobileCart";
 
 
 export default function ShopHeader({ user , allCategories , backgroundColor  }) {
@@ -72,7 +73,7 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
           )}
          </button>
 
-         <CartCount />
+         <MobileCart />
 
         </div>
       </div>
