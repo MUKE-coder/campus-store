@@ -53,7 +53,7 @@ export default function Product({ product , addToCart }) {
             {product.title}
           </h2>
           <div className="flex lg:flex-row md:flex-row flex-col items-center justify-between">
-            <p className="my-1 font-bold text-base lg:text-sm">
+            <p className="my-1 font-bold text-md lg:text-md">
               UGX {formatMoney(product.salePrice)}
             </p>
             <s className="text-xs">UGX {formatMoney(product.productPrice)}</s>
