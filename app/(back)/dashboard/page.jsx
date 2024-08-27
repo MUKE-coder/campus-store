@@ -1,5 +1,4 @@
 import AnalyticsCard from "@/components/AnalyticsCard";
-// import FarmerDashboard from "@/components/backoffice/FarmerDashboard";
 import Heading from "@/components/backoffice/Heading";
 import LargeCards from "@/components/backoffice/LargeCards";
 import UserDashboard from "@/components/backoffice/UserDashboard";
