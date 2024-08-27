@@ -11,9 +11,11 @@ import PasswordInput from "../FormInputs/PasswordInput";
 export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
-  const successRoute = searchParams.get('q') || '/';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  const successRoute = searchParams.get('q') || ``;
   // console.log(singleBuyItem)
+
   const {
     register,
     handleSubmit,
@@ -38,14 +40,13 @@ export default function LoginForm() {
         router.push(`/${successRoute}`);
         setLoading(false);
         toast.success("Login Successful thank you");
+        router.refresh();
+        // window.location.reload();
       } else {
-        // Sign-in was successful
         toast.error("Sign-in error: Check your credentials");
         reset();
         setLoading(false);
-
-        // router.push("/dashboard");
-        // window.location.reload();
+        router.refresh()
       }
     } catch (error) {
       setLoading(false);

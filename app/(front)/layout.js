@@ -13,6 +13,8 @@ export default async function FrontLayout({ children }) {
   const singleStyle= await getSingleStyle()
   const backgroundColor =  singleStyle.primaryColor || "#f68b1e";
   const user = session?.user;
+
+  
   return (
     <div className="relative overflow-hidden lg:px-0  md:px-0 px-1">
       <SubNav/>

@@ -40,7 +40,7 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
         <div className="gap-8 lg:flex items-center md:flex  hidden">
           {!user ? (
             <Link
-              href="/login"
+              href="/login?q=dashboard"
               className="flex items-center space-x-1 text-[#5b5b5d] dark:text-slate-100 font-semibold"
             >
               <User />
@@ -62,7 +62,7 @@ export default function ShopHeader({ user , allCategories , backgroundColor  }) 
          <button>
          {!user ? (
             <Link
-              href="/login"
+              href="/login?q=dashboard"
               className="flex items-center space-x-1 text-[#5b5b5d] dark:text-slate-100 font-semibold"
             >
               <User />

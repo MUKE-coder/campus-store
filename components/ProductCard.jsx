@@ -31,7 +31,7 @@ export default function Product({ product , addToCart }) {
 
   return (
     <>
-    <Link href={`/product/${product.slug}`} className="group relative block overflow-hidden border-[1px] border-gray-100 rounded-md pb-3">
+    <Link onClick={handleClick} href={`/product/${product.slug}`} className="group relative block overflow-hidden border-[1px] border-gray-100 rounded-md pb-3">
     {/* <Link
         href={`/product/${product.slug}`}
         className="flex items-center justify-center  h-38  sm:h-56 "

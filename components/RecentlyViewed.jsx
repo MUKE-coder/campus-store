@@ -8,7 +8,7 @@ export default function RecentlyViewed() {
   if(!recentlyViewedProducts){
     return null
   }
-// console.log(recentlyViewedProducts)
+console.log(recentlyViewedProducts)
   return (
    <div className="flex flex-col gap-6 w-full min-h-[60vh] bg-white rounded-lg lg:p-5 p-3 mt-5">
     <div className="flex items-center justify-between">
