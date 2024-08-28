@@ -16,7 +16,7 @@ export default async function FrontLayout({ children }) {
 
   
   return (
-    <div className="relative overflow-hidden lg:px-0  md:px-0 px-1">
+    <div className="relative overflow-hidden lg:px-0  md:px-0 px-0">
       <SubNav/>
       <div className="sticky top-0 h-[5vh] z-30 ">
       <ShopHeader backgroundColor={backgroundColor} allCategories={allCategories} user={user} />
