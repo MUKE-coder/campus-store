@@ -1,14 +1,21 @@
-import Heading from "@/components/backoffice/Heading";
-import PageHeader from "@/components/backoffice/PageHeader";
-import TableActions from "@/components/backoffice/TableActions";
+
 import DataTable from "@/components/data-table-components/DataTable";
 import { getData } from "@/lib/getData";
-
-import Link from "next/link";
 import React from "react";
 import { columns } from "./columns";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import Unauthorized from "@/components/Unauthorized";
 
 export default async function Customers() {
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
+  const role = user?.role;
+  if (role === "USER") {
+    return(
+      <Unauthorized/>
+    )
+  }
   const users = await getData("users");
 
   return (

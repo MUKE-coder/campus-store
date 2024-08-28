@@ -33,7 +33,11 @@ import logo from "../../public/logo.svg";
 import UserAvatar from "./UserAvatar";
 export default function Header({ session }) {
   const pathname = usePathname();
-  const user = session.user;
+  const role = session?.user?.role;
+  const filteredSidebarLinks = sidebarLinks.filter((link) =>
+    link.roles.includes(role)
+  );
+  // const user = session.user;
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
@@ -50,7 +54,7 @@ export default function Header({ session }) {
               <Image src={logo} alt="kyaja logo" className="w-14 h-14 mt-2" />
               <span className="">Kyaja</span>
             </Link>
-            {sidebarLinks.map((item, i) => {
+            {filteredSidebarLinks.map((item, i) => {
               const Icon = item.icon;
               const isHrefIncluded =
                 item.dropdownMenu &&

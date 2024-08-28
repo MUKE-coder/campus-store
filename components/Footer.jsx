@@ -1,44 +1,55 @@
-import { getSingleStyle } from "@/actions/styles";
+"use client"
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaSnapchat, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa";
-
+import { FaAngleUp, FaFacebookF, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
 export default async function Footer() {
-   const singleStyle= await getSingleStyle()
-  const backgroundColor =  singleStyle?.footerColor || "#0f172a";
+  // const singleStyle = await getSingleStyle();
+  const backgroundColor = "#313133";
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-  <div style={{backgroundColor}} className="w-[100%] py-4 text-xs px-4 lg:px-8 min-h-[25vh] flex-col flex lg:flex-row gap-5 lg:gap-8 items-center justify-center">
-   <div className="flex gap-2 ">
-    {/* <Link className="p-2 rounded-[50%] bg-[#31d4d9] " href=""><FaSnapchat color="white" size={20}/>
-</Link> */}
-   <Link className="p-2 rounded-[50%] bg-[#437bff] " href="https://www.facebook.com/profile.php?id=61561792047966&mibextid=ZbWKwL."><FaFacebookF color="white"  size={20}/></Link>
+    <div style={{ backgroundColor }} className="w-full text-white text-center pb-6">
+      <div className="flex justify-center mb-4 bg-[#3b3b3b] py-3 px-3">
+        <button
+          className="text-sm mb-2 bg-transparent text-white focus:outline-none flex flex-col items-center gap-2"
+          onClick={scrollToTop}
+        >
+          <FaAngleUp size={20} />
+          BACK TO TOP
+        </button>
+      </div>
+      <div className="flex gap-2 justify-center items-center mt-5 mb-5">
+        <Link className="p-2 rounded-[50%] bg-[#437bff]" href="https://www.facebook.com/profile.php?id=61561792047966&mibextid=ZbWKwL.">
+          <FaFacebookF color="white" size={18} />
+        </Link>
+        <Link className="p-2 rounded-[50%] bg-[#d35d55]" href="https://youtube.com/@kyajacom?si=ifzRHWSyzvtCcUFL">
+          <FaYoutube color="white" size={18} />
+        </Link>
+        <Link className="p-2 rounded-[50%] bg-[#34ea55]" href="https://www.tiktok.com/@kyajalogistics?_t=8p0SZ58LZlV&_r=1">
+          <FaTiktok color="white" size={18} />
+        </Link>
+        <Link className="p-2 rounded-[50%] bg-[#bd32a2]" href="https://www.instagram.com/kyaja_logistics?igsh=MWpldmgwcWdpdDFxMA==">
+          <FaInstagram color="white" size={18} />
+        </Link>
+      </div>
 
-   <Link className="p-2 rounded-[50%] bg-[#d35d55] "  href="https://youtube.com/@kyajacom?si=ifzRHWSyzvtCcUFL"><FaYoutube color="white" size={20}/>
-</Link>
-   <Link className="p-2 rounded-[50%] bg-[#34ea55] " href="https://www.tiktok.com/@kyajalogistics?_t=8p0SZ58LZlV&_r=1">   <FaTiktok color="white" size={20}/>
-</Link>
-   <Link className="p-2 rounded-[50%] bg-[#bd32a2] " href="https://www.instagram.com/kyaja_logistics?igsh=MWpldmgwcWdpdDFxMA=="> <FaInstagram color="white" size={20}/>
-</Link>
+      <div className="flex flex-wrap justify-center gap-6 text-xs lg:text-sm mb-6 px-3">
+        <Link href="https://wa.me/+256752815998?text=Hello%18Customer%20Care" className="hover:underline">CHAT WITH US</Link>
+        <Link href="https://wa.me/+256752815998?text=Hello%20Customer%20Care" className="hover:underline">HELP CENTER</Link>
+        <Link href="https://wa.me/+256752815998?text=Hello%20Customer%20Care" className="hover:underline">CONTACT US</Link>
+        <Link href="https://wa.me/+256752815998?text=Hello%20Customer%20Care" className="hover:underline">TERMS & CONDITIONS</Link>
+        <Link href="https://wa.me/+256752815998?text=Hello%20Customer%20Care" className="hover:underline">REPORT A PRODUCT</Link>
+      </div>
 
-   </div>
-   <div className="lg:w-[30%] ">
-    <Link className="text-white text-sm" href="">Find us @ Kampala, Down Town, <span className="text-orange-400">Tel+256752815998</span> (available 24/7 online)
-     Basement 08 , PO Box 100735 Kampala, Uganda</Link>
-   </div>
-   <div className="text-[#ce8120] text-sm lg:w-[30%]">
-   About us
-    | About us
-FAQs |
-Return Policy |
-Terms and Conditions |
-Download Price List |
-Sitemap |
-Become an affiliate |
-Leave feedback |
-Customer Reviews |
-Warranty and Return Policy |
-Admin 
-   </div>
-  </div>
+      <div className="border-t border-[#6b6a6c] py-4 text-sm lg:mx-[30%] px-3">
+        <p>All Rights Reserved</p>
+      </div>
+    </div>
   );
 }

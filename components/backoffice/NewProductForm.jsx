@@ -15,6 +15,7 @@ import SelectInput from "../FormInputs/SelectInput";
 import ArrayItemsInput from "../FormInputs/ArrayItemsInput";
 import SubmitButton from "../FormInputs/SubmitButton";
 import ImageUploader from "../ImageUploader";
+import { revalidatePath } from "next/cache";
 
 export default function NewProductForm({
   categories,
@@ -53,6 +54,10 @@ export default function NewProductForm({
   const router = useRouter();
   function redirect() {
     router.push("/dashboard/products");
+    // window.location.reload()
+    router.refresh()
+
+
   }
   const [productImages, setProductImages] = useState(initialProductImages);
   console.log(productImages);
@@ -94,6 +99,10 @@ export default function NewProductForm({
           toast.success(`New Product Created Successfully`);
           reset();
           router.push("/dashboard/products");
+          // revalidatePath("/dashboard/products")
+          router.refresh()
+
+          // window.location.reload()
         } else {
           setLoading(false);
           if (responseData.status === 409) {
