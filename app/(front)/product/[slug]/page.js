@@ -1,3 +1,4 @@
+
 import { getSingleStyle } from "@/actions/styles";
 import AddToCart from "@/components/AddToCart";
 import ProductCard from "../../../../components/ProductCard";
@@ -7,7 +8,6 @@ import { formatMoney } from "@/lib/formatMoney";
 import { getData } from "@/lib/getData";
 import Link from "next/link";
 import { AiOutlineHeart, AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
-import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { GrDeliver } from "react-icons/gr";
 import { IoCall } from "react-icons/io5";
 import { MdStars } from "react-icons/md";
@@ -15,10 +15,11 @@ import BookNowBtn from "@/components/BookNowBtn";
 import LargeBookNowBtn from "@/components/LargeBookNowBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
+import ShareBlog from "@/components/ShareBlog";
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await getData(`products/product/${slug}`);
- 
+
   return {
     title: product.title,
     description: product.description,
@@ -29,6 +30,8 @@ export async function generateMetadata({ params: { slug } }) {
 }
 
 export default async function page({ params: { slug } }) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const session = await getServerSession(authOptions);
   // const user=session?.user
   
@@ -60,8 +63,9 @@ export default async function page({ params: { slug } }) {
                 <div className="flex flex-col gap-5">
                   <h2 className="text-sm">SHARE PRODUCT</h2>
                   <div className="flex gap-3 items-center ">
-                    <BsFacebook className="text-[20px] text-gray-800 hover:text-orange-700 cursor-pointer" />
-                    <BsTwitter className="text-[20px] text-gray-800 hover:text-orange-700 cursor-pointer" />
+                    {/* <BsFacebook className="text-[20px] text-gray-800 hover:text-orange-700 cursor-pointer" />
+                    <BsTwitter className="text-[20px] text-gray-800 hover:text-orange-700 cursor-pointer" /> */}
+                    <ShareBlog productUrl={`${baseUrl}/product/${slug}`}/>
                   </div>
                 </div>
               </div>
