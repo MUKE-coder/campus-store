@@ -33,20 +33,17 @@ export function HomeSkeleton() {
 
 export function CategorySkeleton() {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#0fa3ae] mt-5">
-   
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        
-        {[...Array(6)].map((_, i) => (
-          <div key={i} className="flex flex-col space-y-2 items-center">
-            <Skeleton className="w-full aspect-square rounded-lg bg-white" />
-            {/* <Skeleton className="h-4 w-3/4 bg-white" /> */}
-            <Skeleton className="h-4 w-1/2 bg-white" />
+    <div className='min-h-[40vh] bg-[#633185] shadow-lg w-full lg:p-2 md:px-3 px-1 lg:rounded-sm'>
+      <div className='w-full bg-white min-h-full lg:rounded-lg p-4 grid md:grid-cols-4 grid-cols-2 lg:grid-cols-6 gap-2'>
+        {[...Array(6)].map((_, index) => (
+          <div key={index} className='relative flex flex-col items-center justify-center rounded-lg'>
+            <Skeleton className="w-full h-[90%] mb-1 rounded-xl" />
+            <Skeleton className="w-3/4 h-4" />
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export function ProductCardsSkeleton() {
