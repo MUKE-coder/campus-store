@@ -6,7 +6,7 @@ import HomeCategoryCards from "@/components/front-end/HomeCategoryCards";
 import HomeBanners from "@/components/HomeBanners";
 import AllCategories from "@/components/AllCategories";
 import { getData } from "@/lib/getData";
-import { HomeSkeleton, CategorySkeleton, ProductCardsSkeleton } from '@/components/KyajaSkeleton';
+import {  CategorySkeleton, ProductCardsSkeleton } from '@/components/KyajaSkeleton';
 import RecentlyViewed from '@/components/front-end/RecentlyViewed';
 import FeaturedProducts from '@/components/front-end/FeauredPrdts';
 import { Category } from '@/types';
@@ -92,10 +92,10 @@ export default function Home() {
   return (
     <div className="bg-[#10A2AF] min-h-[100vh] pb-5 [family-name:var(--font-geist-sans)]">
       <div  className="w-full min-h-[90vh] home-bg lg:px-[6rem] md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem] lg:bg-[url('https://utfs.io/f/edeb1895-1108-49c1-a634-ece1d1630774-zgvybo.webp')] bg-[url('https://utfs.io/f/d5966dfb-89b5-41b4-9ea5-bcac489bd9ab-fvhgwz.svg')]">
-        <Suspense fallback={<HomeSkeleton />}>
+        {/* <Suspense fallback={<HomeSkeleton />}> */}
           <BannerSection />
           {/* <HomeSkeleton /> */}
-        </Suspense>
+        {/* </Suspense> */}
         <Suspense fallback={<CategorySkeleton />}>
           <CategorySection />
           {/* <CategorySkeleton /> */}
