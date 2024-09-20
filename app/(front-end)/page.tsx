@@ -91,7 +91,7 @@ async function AllCategoriesSection() {
 export default function Home() {
   return (
     <div className="bg-[#10A2AF] min-h-[100vh] pb-5 [family-name:var(--font-geist-sans)]">
-      <div  className="w-full min-h-[90vh] home-bg lg:px-[6rem] md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem] lg:bg-[url('https://utfs.io/f/edeb1895-1108-49c1-a634-ece1d1630774-zgvybo.webp')] ">
+      <div  className="w-full home-bg lg:px-[6rem] md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem] bg-[url('https://utfs.io/f/edeb1895-1108-49c1-a634-ece1d1630774-zgvybo.webp')] ">
         <Suspense fallback={<HomeSkeleton />}>
           <BannerSection />
           {/* <HomeSkeleton /> */}
