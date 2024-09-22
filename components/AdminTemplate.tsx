@@ -23,15 +23,16 @@ import {
   }
   
   export const YelpRecentLoginEmail = ({
-    name, email, phone, address, totalOrderAmount
+    name, email, phone, address, totalOrderAmount ,orderItems
   }: {
     name:string,
     email:string ,
     phone:string,
     address:string ,
-    totalOrderAmount:number
+    totalOrderAmount:number,
+    orderItems:any
   }) => {
-    
+    const totalPrice = orderItems.reduce((acc: number, item: any) => acc + item.salePrice * item.qty, 0);
   
     return (
       <Html>
@@ -100,7 +101,38 @@ import {
                     *The total amount from the order is :
                     {totalOrderAmount}
                   </Text>
-  
+                  <div className="mt-2">
+                <table className="w-full border-collapse">
+                  <thead className="bg-[#000000] text-white text-left">
+                    <tr>
+                      <th className="p-3 text-xs ">PRODUCTS</th>
+                      <th className="p-3 text-xs">PRICE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {orderItems.map((item: any) => (
+                      <tr key={item.id}>
+                        <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
+                          {item.qty}x {item.title}
+                        </td>
+                        <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
+                          Shs {item.salePrice}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t font-bold text-sm">
+                        TOTAL
+                      </td>
+                      <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-2 border-t font-bold text-xs">
+                       Shs{totalPrice}
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
                   <Text style={paragraph}>
                     Kindly respond To the Client Immediately.
                   </Text>

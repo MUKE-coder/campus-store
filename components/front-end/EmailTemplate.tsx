@@ -33,7 +33,7 @@ export const EmailTemplate = ({ orderItems }: any) => {
         <Tailwind>
           <Container className="bg-white mx-auto !mt-0 !mb-0">
             <div style={{ borderBottom: "1px solid #e1e1e1" }} className="!mt-0 !mb-0  mx-5">
-              <div style={{ float: "left" }} className="w-1/2 h-[20px]">
+              <div style={{ float: "left" }} className="w-1/2 h-[50px]">
                 <img
                   src="https://res.cloudinary.com/dirpuqqib/image/upload/v1726769055/logo2_lygob7.png"
                   alt=""

@@ -79,16 +79,17 @@ export async function POST(request: NextRequest) {
 
     const verify = await resend.emails.send({
       from: 'Thank You For Ordering on kyaja ecommerce <info@kyaja.com>',
-      to: email,
+      // to: email,
+      to: "koozacollinz1@gmail.com",
       subject: 'Order Successful',
       react: EmailTemplate({ orderItems }),
     });
-
+    // info.kyaja@gmail.com
     const OwerEmail = await resend.emails.send({
       from: 'You have a new Order <info@kyaja.com>',
-      to: "info.kyaja@gmail.com",
+      to: "koozacollinz1@gmail.com",
       subject: "New Order",
-      react: YelpRecentLoginEmail({ name, email, phone, address, totalOrderAmount }),
+      react: YelpRecentLoginEmail({ name, email, phone, address, totalOrderAmount ,orderItems}),
     });
 
     console.log(verify, OwerEmail);
