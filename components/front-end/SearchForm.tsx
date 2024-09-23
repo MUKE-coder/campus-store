@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Category, Product } from "@prisma/client";
 import { Search } from "lucide-react";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 type SearchFormProps = {
   products: Product[];
@@ -10,6 +11,7 @@ type SearchFormProps = {
 };
 
 export default function SearchForm({ products, categories }: SearchFormProps) {
+  const router= useRouter()
   const [searchTerm, setSearchTerm] = useState('');
   const [productSuggestions, setProductSuggestions] = useState<Product[]>([]);
   const [categorySuggestions, setCategorySuggestions] = useState<Category[]>([]);
@@ -50,7 +52,9 @@ export default function SearchForm({ products, categories }: SearchFormProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Implement your search submission logic here
+    if (searchTerm.trim()) {
+      router.push(`/c/catalog?term=${encodeURIComponent(searchTerm.trim())}`);
+    }
   };
 
   return (

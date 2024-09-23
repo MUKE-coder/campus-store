@@ -4,7 +4,6 @@ export default function DashboardLoading() {
   return (
     <div className=' w-full h-screen flex justify-center items-center'>
      <span className="loader"></span>
-     <span className="text-center text-sm text-black">Processing Check-Out ....</span>
     </div>
   );
 }

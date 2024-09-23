@@ -23,7 +23,7 @@ export default function Product({ product }:{ product: ProductTypes }) {
   <Image 
   placeholder="blur"
   blurDataURL="https://utfs.io/f/cedbb143-0c78-4714-8b70-cac825d533e0-9jz08y.png" 
-   src={product.imageUrl} alt="" className="" width={300} height={300}/>
+   src={product.imageUrl} alt="" className="object-contain" width={300} height={300}/>
 </div>
 
       <div className="flex-col flex gap-1 px-2 pb-0  lg:pb-0 lg:px-4  mt-1 lg:mt-1 ">
