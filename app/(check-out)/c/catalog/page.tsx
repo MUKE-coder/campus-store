@@ -62,7 +62,7 @@ export default async function SearchPage({
             <div className='w-full lg:w-[80%]'>
               {searchTerm && (
                 <h2 className='line-clamp-1 text-xs font-semibold'>
-                  Results for: "{searchTerm}" {categoryData ? '(Category)' : ''}
+                  Results for: {searchTerm} {categoryData ? '(Category)' : ''}
                 </h2>
               )}
               <CatPrdts products={filteredProducts} />
