@@ -11,6 +11,7 @@ import {
     Row,
     Section,
     Text,
+    Tailwind,
   } from "@react-email/components";
   import * as React from "react";
   
@@ -39,6 +40,7 @@ import {
         <Head />
         <Preview>Yelp recent login</Preview>
         <Body style={main}>
+          <Tailwind>
           <Container>
             <Section style={logo}>
               <Img src={`https://res.cloudinary.com/dirpuqqib/image/upload/v1726769055/logo2_lygob7.png`} />
@@ -101,7 +103,23 @@ import {
                     *The total amount from the order is :
                     {totalOrderAmount}
                   </Text>
-                  <div className="mt-2">
+                
+                  <Text style={paragraph}>
+                    Kindly respond To the Client Immediately.
+                  </Text>
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    Thank you
+                  </Text>
+                </Column>
+              </Row>
+              <Row style={{ ...boxInfos, paddingTop: "0" }}>
+                <Column style={containerButton} colSpan={2}>
+                  <Button style={button}>Learn More</Button>
+                </Column>
+              </Row>
+            </Section>
+          
+            <div className="mt-2 w-full ">
                 <table className="w-full border-collapse">
                   <thead className="bg-[#000000] text-white text-left">
                     <tr>
@@ -133,28 +151,6 @@ import {
                   </tfoot>
                 </table>
               </div>
-                  <Text style={paragraph}>
-                    Kindly respond To the Client Immediately.
-                  </Text>
-                  <Text style={{ ...paragraph, marginTop: -5 }}>
-                    Thank you
-                  </Text>
-                </Column>
-              </Row>
-              <Row style={{ ...boxInfos, paddingTop: "0" }}>
-                <Column style={containerButton} colSpan={2}>
-                  <Button style={button}>Learn More</Button>
-                </Column>
-              </Row>
-            </Section>
-  
-            <Section style={containerImageFooter}>
-              <Img
-                style={image}
-                width={620}
-                src={"https://media.istockphoto.com/id/1449490038/photo/online-shopping-and-e-commerce-technology-concept-shopper-using-computer-laptop-to-input.jpg?s=612x612&w=0&k=20&c=t_0z_Vm6_5vmzuwZl6HydbwsYesuHcbF-uRU23KtOvk="}
-              />
-            </Section>
   
             <Text
               style={{
@@ -166,6 +162,8 @@ import {
               © 2025 | Yelp Inc., Kyaja.com
             </Text>
           </Container>
+          </Tailwind>
+        
         </Body>
       </Html>
     );
