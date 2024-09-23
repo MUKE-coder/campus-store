@@ -1,4 +1,3 @@
-import { useSearchParams } from 'next/navigation';
 import { getAllProducts } from '@/actions/products';
 import { getData } from '@/lib/getData';
 import SearchSideBar from '@/components/front-end/SearchSideBar';
