@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { formatMoney } from "@/lib/formatMoney";
+import { generateSlug } from "@/lib/generateSlug";
 import { getData } from "@/lib/getData";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
@@ -11,6 +13,7 @@ export default async function page({ params: { id } }:any) {
     .reduce((acc:any, item:any) => acc + item.price * item.quantity, 0)
     .toFixed(2);
   // console.log(order);
+  
   return (
     <section className="py-12 dark:bg-slate-950 bg-slate-50 sm:py-16 lg:py-20 md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem]">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-5xl">
@@ -85,6 +88,7 @@ export default async function page({ params: { id } }:any) {
                     <ul className="divide-y divide-gray-200 -my-5">
                       {order.orderItems.length > 0 &&
                         order.orderItems.map((item:any, i:any) => {
+                          const slug = generateSlug(item.title);
                           return (
                             <li
                               key={i}
@@ -119,6 +123,10 @@ export default async function page({ params: { id } }:any) {
                                   )}
                                 </p>
                               </div>
+
+                             <Button variant="link" size="sm" asChild>
+                              <Link href={`/p/${slug}`}>View product</Link>
+                             </Button>
                             </li>
                           );
                         })}

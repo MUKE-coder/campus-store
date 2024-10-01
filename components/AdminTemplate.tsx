@@ -119,7 +119,7 @@ import {
               </Row>
             </Section>
           
-            <div className="mt-2 w-full ">
+            <div className="mt-2">
                 <table className="w-full border-collapse">
                   <thead className="bg-[#000000] text-white text-left">
                     <tr>
