@@ -1,3 +1,4 @@
+import { generateSlug } from "@/lib/generateSlug";
 import {
     Body,
     Button,
@@ -13,6 +14,7 @@ import {
     Text,
     Tailwind,
   } from "@react-email/components";
+import Link from "next/link";
   import * as React from "react";
   
   interface YelpRecentLoginEmailProps {
@@ -33,6 +35,8 @@ import {
     totalOrderAmount:number,
     orderItems:any
   }) => {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
     const totalPrice = orderItems.reduce((acc: number, item: any) => acc + item.salePrice * item.qty, 0);
   
     return (
@@ -120,37 +124,49 @@ import {
             </Section>
           
             <div className="mt-2">
-                <table className="w-full border-collapse">
-                  <thead className="bg-[#000000] text-white text-left">
-                    <tr>
-                      <th className="p-3 text-xs ">PRODUCTS</th>
-                      <th className="p-3 text-xs">PRICE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {orderItems.map((item: any) => (
-                      <tr key={item.id}>
-                        <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
-                          {item.qty}x {item.title}
-                        </td>
-                        <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
-                          Shs {item.salePrice}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t font-bold text-sm">
-                        TOTAL
-                      </td>
-                      <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-2 border-t font-bold text-xs">
-                       Shs{totalPrice}
-                      </td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
+  <table className="w-full border-collapse">
+    <thead className="bg-[#000000] text-white text-left">
+      <tr>
+        <th className="p-3 text-xs">PRODUCTS</th>
+        <th className="p-3 text-xs">PRICE</th>
+        <th className="p-3 text-xs">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      {orderItems.map((item: any) => {
+        const slug = generateSlug(item.title);
+        return (
+          <tr key={item.id}>
+            <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
+              {item.qty}x {item.title}
+            </td>
+            <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
+              Shs {item.salePrice}
+            </td>
+            <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
+              <Link
+                href={`${baseUrl}/p/${slug}`}
+                className="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
+              >
+                View Product
+              </Link>
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t font-bold text-sm" colSpan={2}>
+          TOTAL
+        </td>
+        <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-2 border-t font-bold text-xs">
+          Shs {totalPrice}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
   
             <Text
               style={{

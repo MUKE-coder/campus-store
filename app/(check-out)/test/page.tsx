@@ -6,19 +6,20 @@ import { getServerSession } from "next-auth";
 import React from "react";
 
 export default async function page() {
-  const session = await getServerSession(authOptions);
-  const user = session?.user;
-  const role = user?.role;
-  if (role === "USER") {
-    return(
-      <Unauthorized/>
-    )
-  }
+  // const session = await getServerSession(authOptions);
+  // const user = session?.user;
+  // const role = user?.role;
+  // if (role === "USER") {
+  //   return(
+  //     <Unauthorized/>
+  //   )
+  // }
   const orders = await getData("orders");
-  
+  console.log(orders.length)
   if (orders.length === 0 || !orders) {
     return <p>No Orders Yet</p>;
   }
+//   const userOrders = orders;
   return (
     <section className="py-12 bg-white sm:py-16 lg:py-20">
       <div className="px-4 m-auto sm:px-6 lg:px-8 max-w-7xl">

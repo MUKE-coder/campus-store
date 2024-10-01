@@ -89,7 +89,8 @@ export default function OrderCard({ order }:OrderCardProps) {
               ? order.orderItems.map((item, i) => {
                   const slug = generateSlug(item.title);
                   return (
-                    <li key={i} className="relative flex pb-10 sm:pb-0">
+                    <>
+                      <li key={i} className="relative flex pb-10 sm:pb-0">
                       <div className="flex-shrink-0">
                         <img
                           className="object-cover rounded-lg w-28 h-28"
@@ -120,7 +121,7 @@ export default function OrderCard({ order }:OrderCardProps) {
                         <div className="absolute bottom-0 left-0 sm:relative">
                           <div className="flex space-x-5">
                             <Link
-                              href={`/products/${slug}`}
+                              href={`/p/${slug}`}
                               title={item.title}
                               className="p-1 -m-1 text-sm font-medium text-gray-500 transition-all duration-200 rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                             >
@@ -142,28 +143,37 @@ export default function OrderCard({ order }:OrderCardProps) {
                         </div>
                       </div>
                     </li>
+                     <hr className="mt-8 border-gray-200" />
+
+<div className="flex items-center mt-8 space-x-5">
+  {/* <button
+    type="button"
+    className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
+  >
+    View Order
+  </button> */}
+
+  <Link
+    href={`/dashboard/orders/${order.id}/invoice`}
+    className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
+  >
+    View Invoice
+  </Link>
+  <Link
+    href={`/p/${slug}`}
+    className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
+  >
+    View Order
+  </Link>
+</div>
+                    </>
+                  
                   );
                 })
               : ""}
           </ul>
 
-          <hr className="mt-8 border-gray-200" />
-
-          <div className="flex items-center mt-8 space-x-5">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
-            >
-              View Order
-            </button>
-
-            <Link
-              href={`/dashboard/orders/${order.id}/invoice`}
-              className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
-            >
-              View Invoice
-            </Link>
-          </div>
+         
         </div>
       </div>
     </li>
