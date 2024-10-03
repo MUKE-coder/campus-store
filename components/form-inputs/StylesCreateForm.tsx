@@ -11,7 +11,6 @@ import { createOrUpdateStyle } from "@/actions/styles";
 
 export default function NewStyleForm({ updateData = {} }:any) {
   const initialBgImageUrl = updateData?.bgImage ?? "";
-  // console.log(initialBgImageUrl)
   const initialTopBannerImageUrl = updateData?.topBannerImage ?? "";
   const id = updateData?.id ?? "";
   const [bgImageUrl, setBgImageUrl] = useState(initialBgImageUrl);
