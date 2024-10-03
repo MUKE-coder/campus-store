@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link";
 import Image from "next/image";
 import { formatMoney } from "@/lib/formatMoney";
@@ -43,7 +42,7 @@ export default function ProductCard({ product }: { product: ProductTypes }) {
         <div>
           <h2 className="text-sm font-medium text-gray-900 line-clamp-1">{product.title}</h2>
           <div className="flex lg:flex-row flex-col lg:items-center justify-between mt-1 lg:mb-0 mb-2">
-            <p className="font-bold lg:text-lg text-base text-black">
+            <p className="font-bold lg:text-sm text-base text-black">
               UGX {formatMoney(product.salePrice)}
             </p>
             {product.productPrice > product.salePrice && (
