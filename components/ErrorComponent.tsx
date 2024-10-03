@@ -1,6 +1,5 @@
 'use client'
 import logo from "../public/logo.svg";
-
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation";
@@ -8,7 +7,6 @@ import { useRouter } from "next/navigation";
  
 export default function ErrorComponent() {
     const router = useRouter();
-
   const handleRefresh = () => {
     window.location.reload();
   };

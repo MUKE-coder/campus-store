@@ -10,6 +10,19 @@ import { HomeSkeleton, CategorySkeleton, ProductCardsSkeleton } from '@/componen
 import RecentlyViewed from '@/components/front-end/RecentlyViewed';
 import FeaturedProducts from '@/components/front-end/FeauredPrdts';
 import { Category } from '@/types';
+import { getSingleStyle } from '@/actions/styles';
+
+
+type SingleStyle = {
+  id: string;
+  primaryColor: string | null;
+  secondaryColor: string | null;
+  bgImage: string | null;
+  footerColor: string | null;
+  topBannerImage: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+} | null
 
 type Product = {
   id: string;
@@ -19,7 +32,7 @@ type Product = {
   productPrice: number;
   salePrice?: number;
   isActive: boolean;
-  type: string; // Possible values: "flash", "topdeals", "featured"
+  type: string;
   categoryId: string;
   subCategoryId: string;
 };
@@ -88,10 +101,17 @@ async function AllCategoriesSection() {
   );
   return <AllCategories categories={categoriesWithProducts} />;
 }
-export default function Home() {
+export default async function Home() {
+   const styleData:SingleStyle = await getSingleStyle("8278"); 
+   const bgImageUrl = styleData?.bgImage  || "https://utfs.io/f/edeb1895-1108-49c1-a634-ece1d1630774-zgvybo.webp";
+   const bgColor = styleData?.primaryColor;
+  //  console.log(bgImageUrl)
+
   return (
-    <div className="bg-[#10A2AF] min-h-[100vh] pb-5 [family-name:var(--font-geist-sans)]">
-      <div  className="w-full home-bg lg:px-[6rem] md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem] bg-[url('https://utfs.io/f/edeb1895-1108-49c1-a634-ece1d1630774-zgvybo.webp')] ">
+    <div  style={{ backgroundColor: `${bgColor}` }} className="min-h-[100vh] pb-5 [family-name:var(--font-geist-sans)]">
+      <div  className="w-full home-bg lg:px-[6rem] md:pt-[3rem] pt-[2rem] lg:pt-[3.2rem] "
+      style={{ backgroundImage: `url(${bgImageUrl})` }}
+      >
         <Suspense fallback={<HomeSkeleton />}>
           <BannerSection />
           {/* <HomeSkeleton /> */}
