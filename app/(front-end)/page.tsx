@@ -101,6 +101,7 @@ async function AllCategoriesSection() {
   );
   return <AllCategories categories={categoriesWithProducts} />;
 }
+
 export default async function Home() {
    const styleData:SingleStyle = await getSingleStyle("8278"); 
    const bgImageUrl = styleData?.bgImage  || "https://utfs.io/f/edeb1895-1108-49c1-a634-ece1d1630774-zgvybo.webp";

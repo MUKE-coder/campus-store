@@ -7,6 +7,7 @@ import { ColorPicker } from "./ColorPicker";
 import TextInput from "./TextInput";
 import ImageInput from "./ImageInput";
 import SubmitButton from "./SubmitButton";
+import { createOrUpdateStyle } from "@/actions/styles";
 
 export default function NewStyleForm({ updateData = {} }:any) {
   const initialBgImageUrl = updateData?.bgImage ?? "";
@@ -32,6 +33,7 @@ export default function NewStyleForm({ updateData = {} }:any) {
     try {
       // console.log(result);
       // router.push("/dashboard/styles");
+      await createOrUpdateStyle(data)
       setLoading(false);
       toast.success("Styles Adjusted Successfully 😁")
      router.refresh()

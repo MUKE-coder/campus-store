@@ -20,7 +20,6 @@ export async function createOrUpdateStyle(data:any) {
       });
       return updatedStyle;
     } else {
-      // Create new style
       const newStyle = await db.style.create({
         data: {
           primaryColor,
