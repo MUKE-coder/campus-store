@@ -9,6 +9,7 @@ import ImageInput from "./ImageInput";
 import SubmitButton from "./SubmitButton";
 import { createOrUpdateStyle } from "@/actions/styles";
 
+
 export default function NewStyleForm({ updateData = {} }:any) {
   const initialBgImageUrl = updateData?.bgImage ?? "";
   const initialTopBannerImageUrl = updateData?.topBannerImage ?? "";
@@ -22,7 +23,6 @@ export default function NewStyleForm({ updateData = {} }:any) {
   });
 
   const router = useRouter();
-
   async function onSubmit(data:any) {
     setLoading(true);
     data.bgImage = bgImageUrl;
@@ -30,8 +30,6 @@ export default function NewStyleForm({ updateData = {} }:any) {
     data.id = id;
 
     try {
-      // console.log(result);
-      // router.push("/dashboard/styles");
       await createOrUpdateStyle(data)
       setLoading(false);
       toast.success("Styles Adjusted Successfully 😁")

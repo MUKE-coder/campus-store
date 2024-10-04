@@ -12,21 +12,27 @@ import { FancyMultiSelect } from "../form-inputs/MultiSelectPrdt";
 
 export default function BannerForm({ updateData = {} }:any) {
   const initialImageUrl = updateData?.imageUrl ?? "";
-  const previewImageUrl = updateData?.previewImageUrl  ?? "";
+  const previewImageUrl = updateData?.previewImageUrl ?? "";
   const id = updateData?.id ?? "";
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
   const [bannerImageUrl, setBannerImageUrl] = useState(previewImageUrl);
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState<any>([]);
-  const [selectedProducts, setSelectedProducts] = useState(updateData.productIds||[]);
+  const [products, setProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState(updateData.productIds || []);
 
   useEffect(() => {
     async function fetchProducts() {
-      const products = await getAllProducts();
-      setProducts(products);
+      const fetchedProducts = await getAllProducts();
+      setProducts(fetchedProducts);
     }
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if (updateData.productIds) {
+      setSelectedProducts(updateData.productIds.filter(id => id !== null));
+    }
+  }, [updateData]);
 
   const {
     register,
@@ -39,31 +45,29 @@ export default function BannerForm({ updateData = {} }:any) {
       ...updateData,
     },
   });
+
   const router = useRouter();
+
   function redirect() {
     router.push("/dashboard/banners");
-  }  
-  async function onSubmit(data:any) {
-    data.imageUrl = imageUrl;
-    data.bannerImageUrl = previewImageUrl ;
-    data.productIds = selectedProducts.map((product:any) => product.id);
+  }
 
-    console.log(data)
+  async function onSubmit(data) {
+    data.imageUrl = imageUrl;
+    data.previewImageUrl = bannerImageUrl;
+    data.productIds = selectedProducts.filter(id => id !== null);
+
+    console.log(data);
 
     if (id) {
       makePutRequest(setLoading, `api/banners/${id}`, data, "Banner", redirect);
     } else {
-      makePostRequest(
-        setLoading,
-        "api/banners",
-        data,
-        "Banner",
-        reset,
-        redirect
-      );
+      makePostRequest(setLoading, "api/banners", data, "Banner", reset, redirect);
       setImageUrl("");
     }
+    router.refresh();
   }
+
 
   return (
     <form

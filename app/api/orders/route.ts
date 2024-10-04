@@ -1,3 +1,4 @@
+"use server"
 import YelpRecentLoginEmail from "@/components/AdminTemplate";
 import EmailTemplate from "@/components/front-end/EmailTemplate";
 import db from "@/lib/db";
@@ -84,14 +85,16 @@ export async function POST(request: NextRequest) {
       react: EmailTemplate({ orderItems }),
     });
     // info.kyaja@gmail.com
-    const OwerEmail = await resend.emails.send({
+    const OwnerEmail = await resend.emails.send({
       from: 'You have a new Order <info@kyaja.com>',
-      to: "info.kyaja@gmail.com",
+      to: "koozacollinz1@gmail.com",
       subject: "New Order",
       react: YelpRecentLoginEmail({ name, email, phone, address, totalOrderAmount ,orderItems}),
     });
 
-    console.log(verify, OwerEmail);
+    console.log(verify , OwnerEmail);
+
+
     return NextResponse.json(result.newOrder);
     
   } catch (error) {

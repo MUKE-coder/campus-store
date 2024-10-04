@@ -14,7 +14,6 @@ import {
     Text,
     Tailwind,
   } from "@react-email/components";
-import Link from "next/link";
   import * as React from "react";
   
   interface YelpRecentLoginEmailProps {
@@ -47,7 +46,7 @@ import Link from "next/link";
           <Tailwind>
           <Container>
             <Section style={logo}>
-              <Img src={`https://res.cloudinary.com/dirpuqqib/image/upload/v1726769055/logo2_lygob7.png`} />
+              <Img src={`https://res.cloudinary.com/dirpuqqib/image/upload/v1726769055/logo2_lygob7.png`} className="w-[30px] h-[30px]"/>
             </Section>
   
             <Section style={content}>
@@ -144,12 +143,12 @@ import Link from "next/link";
               Shs {item.salePrice}
             </td>
             <td style={{ borderBottom: "1px solid #e1e1e1" }} className="p-3 border-t text-xs">
-              <Link
-                href={`${baseUrl}/p/${slug}`}
+              <a
+                href={`https://www.kyaja.com/p/${slug}`}
                 className="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-gray-900 transition-all duration-200 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 hover:bg-gray-100"
               >
                 View Product
-              </Link>
+              </a>
             </td>
           </tr>
         );
