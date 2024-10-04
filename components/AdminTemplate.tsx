@@ -34,7 +34,6 @@ import {
     totalOrderAmount:number,
     orderItems:any
   }) => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     const totalPrice = orderItems.reduce((acc: number, item: any) => acc + item.salePrice * item.qty, 0);
   
