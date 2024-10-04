@@ -115,18 +115,19 @@ export default async function page({ params: { id } }:any) {
                                 </div>
                               </div>
 
-                              <div className="ml-auto">
+                              <div className="ml-auto flex flex-col">
                                 <p className="text-sm font-bold text-right text-gray-900 dark:text-gray-300">
                                   UGX &nbsp;
                                   {formatMoney(
                                     (item.price * item.quantity).toFixed(2)
                                   )}
                                 </p>
-                              </div>
-
-                             <Button variant="link" size="sm" asChild>
+                                <Button variant="link" size="sm" asChild>
                               <Link href={`/p/${slug}`}>View product</Link>
                              </Button>
+                              </div>
+
+                             
                             </li>
                           );
                         })}

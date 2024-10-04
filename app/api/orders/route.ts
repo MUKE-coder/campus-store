@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     // info.kyaja@gmail.com
     const OwnerEmail = await resend.emails.send({
       from: 'You have a new Order <info@kyaja.com>',
-      to: "koozacollinz1@gmail.com",
+      to: "info.kyaja@gmail.com",
       subject: "New Order",
       react: YelpRecentLoginEmail({ name, email, phone, address, totalOrderAmount ,orderItems}),
     });
