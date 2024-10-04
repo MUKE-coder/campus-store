@@ -115,7 +115,7 @@ export default async function page({ params: { id } }:any) {
                                 </div>
                               </div>
 
-                              <div className="ml-auto flex flex-col">
+                              <div className="ml-auto flex flex-col gap-2">
                                 <p className="text-sm font-bold text-right text-gray-900 dark:text-gray-300">
                                   UGX &nbsp;
                                   {formatMoney(
