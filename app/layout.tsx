@@ -1,6 +1,6 @@
-
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import {DM_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "@/context/Providers";
@@ -9,7 +9,6 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { ReactNode } from "react";
- 
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -71,21 +70,19 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }:RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-        <body className={inter.className}>
-        <NextSSRPlugin
-          routerConfig={extractRouterConfig(ourFileRouter)}
-        />
-          <Providers>
+      <body className={inter.className}>
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+        <Providers>
           <CartProvider>
             <ToastContainer />
             {children}
+            <Analytics />
           </CartProvider>
         </Providers>
       </body>
-     
     </html>
   );
 }
