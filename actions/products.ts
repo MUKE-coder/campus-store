@@ -5,11 +5,6 @@ import { revalidatePath } from "next/cache";
 export async function getAllProducts() {
   try {
     const products = await db.product.findMany({
-      where: {
-        productStock: {
-          gt: 1,
-        },
-      },
       orderBy: {
         createdAt: "desc",
       },
@@ -18,8 +13,9 @@ export async function getAllProducts() {
         category: true,
       },
     });
-
-    return products;
+    
+    const filterPrdts=products.filter((prdt)=>prdt.productStock > 1)
+    return filterPrdts;
   } catch (error) {
     console.log(error);
     return null;
