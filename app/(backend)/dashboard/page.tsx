@@ -76,7 +76,7 @@ export default async function page() {
                       </TableCell>
 
                       <TableCell className="">
-                      <Link href="">Edit Stock</Link>
+                      <Link href={`/dashboard/products/update/${advert.id}`}>Edit Stock</Link>
                       </TableCell>
 
                       <TableCell className="">
