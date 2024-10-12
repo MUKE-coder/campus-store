@@ -16,6 +16,7 @@ import LargeCards from "@/components/back-end/LargeCards";
 import UserDashboard from "@/components/back-end/UserDashboard";
 import ActionColumn from "@/components/DataTable/ActionColumn";
 import { getOutOfStockProducts } from "@/actions/getOutOfstockPrdts";
+import Link from "next/link";
 
 export default async function page() {
   const session = await getServerSession(authOptions);
@@ -48,7 +49,7 @@ export default async function page() {
                 <TableRow>
                   <TableHead>Product Image</TableHead>
                   <TableHead>Product Name</TableHead>
-                  <TableHead className="">Quantity</TableHead>
+                  <TableHead className="">Edit</TableHead>
                   <TableHead className="">price</TableHead>
                 </TableRow>
               </TableHeader>
@@ -75,9 +76,7 @@ export default async function page() {
                       </TableCell>
 
                       <TableCell className="">
-                      <div className="font-medium line-clamp-1">
-                          {advert?.productStock}
-                        </div>
+                      <Link href="">Edit Stock</Link>
                       </TableCell>
 
                       <TableCell className="">
