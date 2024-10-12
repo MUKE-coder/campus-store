@@ -99,12 +99,12 @@ export default async function page({ params: { slug } }: { params: { slug: strin
                       UGX {formatMoney(product.productPrice)}
                     </h3>
                     <p className="bg-[#fef3e9] drop-shadow-sm rounded-md p-1 text-orange-400 text-sm">
-                      -{discount.toFixed(1)}%
+                      -{discount.toFixed(1)}7
                     </p>
                   </div>
                   <div className="flex flex-col lg:gap-5 gap-8">
                     <div className="flex flex-col gap-2">
-                      <p className="text-[13px] text-gray-500">In stock </p>
+                      <p className="text-[15px] text-amber-600">{product.productStock} Items In stock </p>
                       <p className="text-[13px]">
                         + shipping from UGX 1,900 to Central Business District
                       </p>

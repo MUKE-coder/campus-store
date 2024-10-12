@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const { createSlice } = require("@reduxjs/toolkit");
 const initialState =
   (typeof window !== "undefined" && JSON.parse(localStorage.getItem("cart"))) ||
@@ -14,6 +16,7 @@ const cartSlice = createSlice({
         imageUrl,
         slug,
         userId: vendorId,
+        stockQty
       } = action.payload;
       // Check if the item already exists in the cart
       const existingItem = state.find((item) => item.id === id);
@@ -31,6 +34,7 @@ const cartSlice = createSlice({
           slug,
           imageUrl,
           vendorId,
+          stockQty
         };
         state.push(newItem);
         // Update localStorage with the new state
@@ -52,6 +56,11 @@ const cartSlice = createSlice({
       const cartId = action.payload;
       const cartItem = state.find((item) => item.id === cartId);
       if (cartItem) {
+        console.log(cartItem)
+        if(cartItem.qty >= cartItem.stockQty){
+          toast.error("Quantity has exceeded stock")
+          return
+        }
         cartItem.qty += 1;
         // Update localStorage with the new state
         if (typeof window !== "undefined") {

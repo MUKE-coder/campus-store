@@ -30,7 +30,8 @@ export default function CartItems({ cartItems }:any) {
     dispatch(removeFromCart(cartId));
     toast.success("Item removed Successfully");
   }
-  function handleQtyIncrement(cartId:string) {
+  function handleQtyIncrement(cartId:string , stockQty:number) {
+    // if(stockQty)
     dispatch(incrementQty(cartId));
   }
   function handleQtyDecrement(cartId:string) {
@@ -94,7 +95,7 @@ export default function CartItems({ cartItems }:any) {
                           </button>
                           <p className="flex-grow py-2 px-4">{item.qty}</p>
                           <button
-                            onClick={() => handleQtyIncrement(item.id)}
+                            onClick={() => handleQtyIncrement(item.id , item.stockQty)}
                             className="border-l border-gray-400 py-2 px-4"
                           >
                             <Plus className="w-4 h-4" />

@@ -17,6 +17,7 @@ export default function AddToCart({ product }:any) {
       imageUrl: product.imageUrl,
       userId: "666ac69f0e152d2844421dd8",
       slug: product.slug,
+      stockQty:product.productStock
     };
     dispatch(addToCart(prod));
     // addRecentlyViewedProduct(product);
