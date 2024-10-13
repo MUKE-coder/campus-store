@@ -11,6 +11,7 @@ import { MobileNavBar } from "./MobileNavBar";
 import MobileCart from "./front-end/MobileCart";
 import UserAvatar from "./UserAvatar";
 import { Product } from "@prisma/client";
+export const revalidate = 60; 
 
 
 export default function ShopHeader({allCategories , backgroundColor ,session , products  }:{allCategories:any, backgroundColor:string , session:any  , products:Product[]}) {
