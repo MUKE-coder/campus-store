@@ -1,6 +1,5 @@
 "use server";
 import db from "@/lib/db";
-import { revalidatePath } from "next/cache";
 
 export async function getAllProducts() {
   try {
@@ -16,7 +15,6 @@ export async function getAllProducts() {
         category: true,
       },
     });
-    revalidatePath("/")
 
     const filterPrdts=products.filter((prdt)=>prdt.productStock > 1)
     return filterPrdts;
@@ -25,6 +23,7 @@ export async function getAllProducts() {
     return null;
   }
 }
+
 export async function getProducts() {
   try {
     const products = await db.product.findMany({
@@ -36,7 +35,6 @@ export async function getProducts() {
         category: true,
       },
     });
-    revalidatePath("/dashboard/products")
     return products;
   } catch (error) {
     console.log(error);
@@ -113,7 +111,6 @@ export async function createProduct(data:any) {
       },
     });
     // console.log(newProduct);
-    revalidatePath("/dashboard/products");
     return newProduct;
   } catch (error) {
     console.log(error);

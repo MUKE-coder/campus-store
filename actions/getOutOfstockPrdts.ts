@@ -1,6 +1,5 @@
 "use server";
 import db from "@/lib/db";
-import { revalidatePath } from "next/cache";
 
 export async function getOutOfStockProducts() {
   try {
@@ -36,7 +35,6 @@ export async function getAllInActiveProducts() {
         category: true,
       },
     });
-    revalidatePath("/dashboard")
 
     return products;
   } catch (error) {

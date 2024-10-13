@@ -17,6 +17,7 @@ import UserDashboard from "@/components/back-end/UserDashboard";
 import ActionColumn from "@/components/DataTable/ActionColumn";
 import { getAllInActiveProducts, getOutOfStockProducts } from "@/actions/getOutOfstockPrdts";
 import Link from "next/link";
+export const revalidate = 60; 
 
 export default async function page() {
   const session = await getServerSession(authOptions);

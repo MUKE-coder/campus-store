@@ -6,7 +6,8 @@ import { authOptions } from "@/lib/authOptions";
 import DataTable from "@/components/DataTable/DataTable";
 import TableHeader from "@/components/DataTable/TableHeader";
 import {getProducts } from "@/actions/products";
- 
+export const revalidate = 60; 
+
 export default async function page() {
   const session = await getServerSession(authOptions);
   const user = session?.user;
