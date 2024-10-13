@@ -30,10 +30,14 @@ export default function CartItems({ cartItems }:any) {
     dispatch(removeFromCart(cartId));
     toast.success("Item removed Successfully");
   }
-  function handleQtyIncrement(cartId:string , stockQty:number) {
-    // if(stockQty)
-    dispatch(incrementQty(cartId));
+  function handleQtyIncrement(cartId: string, stockQty: number) {
+    if (cartItems.find(item => item.id === cartId).qty < stockQty) {
+      dispatch(incrementQty(cartId));
+    } else {
+      toast.error("Cannot exceed stock quantity");
+    }
   }
+  
   function handleQtyDecrement(cartId:string) {
     dispatch(decrementQty(cartId));
   }
