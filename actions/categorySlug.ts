@@ -1,7 +1,7 @@
 "use server";
 import db from "@/lib/db";
 
-export async function getCategoryBySlug(slug:string) {
+export async function getCategoryBySlug(slug: string) {
   try {
     const category = await db.category.findUnique({
       where: {
@@ -9,7 +9,14 @@ export async function getCategoryBySlug(slug:string) {
       },
       include: {
         subCategories: true,
-        products: true,
+        products: {
+          where: {
+            isActive: true,
+            productStock: {
+              gt: 1,
+            },
+          },
+        },
       },
     });
     return category;
@@ -18,3 +25,5 @@ export async function getCategoryBySlug(slug:string) {
     return null;
   }
 }
+
+

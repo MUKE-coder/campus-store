@@ -25,7 +25,6 @@ export default async function page() {
         linkTitle="Add Product"
         href="/dashboard/products/new"
         data={products}
-        length={products.length}
         model="products"
       />
       <div className="py-8">

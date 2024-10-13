@@ -15,9 +15,29 @@ export async function getAllProducts() {
         category: true,
       },
     });
-
+   
     const filterPrdts=products.filter((prdt)=>prdt.productStock > 1)
     return filterPrdts;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+export async function searchFetch() {
+  try {
+    const products = await db.product.findMany({
+      where:{
+        isActive:true
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        subCategory: true,
+        category: true,
+      },
+    });
+       return products;
   } catch (error) {
     console.log(error);
     return null;

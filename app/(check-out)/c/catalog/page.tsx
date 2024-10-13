@@ -5,7 +5,6 @@ import CatPrdts from '@/components/front-end/CatPrdts';
 import RecentlyViewed from '@/components/front-end/RecentlyViewed';
 import { Category, ProductTypes } from '@/types';
 import { getCategoryBySlug } from '@/actions/categorySlug';
-export const revalidate = 60; 
 
 export default async function SearchPage({
   searchParams,
