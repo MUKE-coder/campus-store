@@ -117,7 +117,7 @@ export default async function page() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {outOfStock?.map((advert:any, i:any) => {
+                {inactiveStock?.map((advert:any, i:any) => {
                   return (
                     <TableRow key={i}>
                       <TableCell>
