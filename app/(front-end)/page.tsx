@@ -11,8 +11,8 @@ import RecentlyViewed from '@/components/front-end/RecentlyViewed';
 import FeaturedProducts from '@/components/front-end/FeauredPrdts';
 import { Category } from '@/types';
 import { getSingleStyle } from '@/actions/styles';
-export const revalidate = 60; 
 
+export const revalidate = 60; 
 
 type SingleStyle = {
   id: string;
