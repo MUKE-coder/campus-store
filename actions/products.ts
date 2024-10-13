@@ -16,7 +16,8 @@ export async function getAllProducts() {
         category: true,
       },
     });
-    
+    revalidatePath("/")
+
     const filterPrdts=products.filter((prdt)=>prdt.productStock > 1)
     return filterPrdts;
   } catch (error) {
@@ -35,6 +36,7 @@ export async function getProducts() {
         category: true,
       },
     });
+    revalidatePath("/dashboard/products")
     return products;
   } catch (error) {
     console.log(error);
