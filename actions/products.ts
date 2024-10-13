@@ -24,6 +24,23 @@ export async function getAllProducts() {
     return null;
   }
 }
+export async function getProducts() {
+  try {
+    const products = await db.product.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        subCategory: true,
+        category: true,
+      },
+    });
+    return products;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
 
 export async function createProduct(data:any) {
   try {

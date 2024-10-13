@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import DataTable from "@/components/DataTable/DataTable";
 import TableHeader from "@/components/DataTable/TableHeader";
-import { getAllProducts } from "@/actions/products";
+import {getProducts } from "@/actions/products";
  
 export default async function page() {
   const session = await getServerSession(authOptions);
@@ -16,11 +16,11 @@ export default async function page() {
       <Unauthorized/>
     )
   }
-  const products = await getAllProducts() || [];
+  const products = await getProducts() || [];
   return (
     <div className="p-8">
       <TableHeader
-        title="Products"
+        title="All Products"
         linkTitle="Add Product"
         href="/dashboard/products/new"
         data={products}
