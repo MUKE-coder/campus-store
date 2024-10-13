@@ -5,6 +5,9 @@ import { revalidatePath } from "next/cache";
 export async function getAllProducts() {
   try {
     const products = await db.product.findMany({
+      where:{
+        isActive:true
+      },
       orderBy: {
         createdAt: "desc",
       },
