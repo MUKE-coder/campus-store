@@ -36,8 +36,7 @@ export async function getAllInActiveProducts() {
       },
     });
     
-    const filterPrdts=products.filter((prdt)=>prdt.productStock > 1)
-    return filterPrdts;
+    return products;
   } catch (error) {
     console.log(error);
     return null;
