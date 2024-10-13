@@ -82,7 +82,7 @@ model Product {
   imageUrl       String?     @default("https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg")
   productImages  String[]    @default(["https://utfs.io/f/aa568418-002c-40a1-b13f-a0fd7eef1353-9w6i5v.svg"])
   description    String?
-  isActive       Boolean
+  isActive       Boolean     @default(true)
   isWholesale    Boolean
   sku            String?
   barcode        String?
