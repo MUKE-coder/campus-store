@@ -20,3 +20,26 @@ export async function getOutOfStockProducts() {
     return null;
   }
 }
+
+export async function getAllInActiveProducts() {
+  try {
+    const products = await db.product.findMany({
+      where:{
+        isActive:false
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        subCategory: true,
+        category: true,
+      },
+    });
+    
+    const filterPrdts=products.filter((prdt)=>prdt.productStock > 1)
+    return filterPrdts;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
