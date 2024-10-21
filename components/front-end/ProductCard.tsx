@@ -50,7 +50,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
         <div>
           <h2 className="text-sm font-medium text-gray-900 line-clamp-1">{product.title}</h2>
           <div className="flex lg:flex-row flex-col lg:items-center justify-between mt-1 lg:mb-0 mb-2">
-            <p className="font-bold lg:text-sm text-base text-black">
+            <p className="font-bold lg:text-base text-base text-black">
               UGX {formatMoney(product.salePrice)}
             </p>
             {product.productPrice > product.salePrice && (
@@ -58,7 +58,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             )}
           </div>
         </div>
-        <div className="flex items-center justify-between mt-1">
+        {/* <div className="flex items-center justify-between mt-1">
           <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
               <Star
@@ -68,7 +68,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             ))}
           </div>
           <p className="text-[9px] text-purple-500 lg:block hidden">(4 verified ratings)</p>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

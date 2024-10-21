@@ -33,7 +33,7 @@ export default function ProductsByCategorySection({
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-        <ScrollBar orientation="horizontal" />
+        <ScrollBar orientation="horizontal" color="red" className='bg-[#0f172a]'/>
       </ScrollArea>
     </div>
   );
