@@ -2,12 +2,13 @@ import { Category } from '@/types';
 import Link from 'next/link';
 import React from 'react'
 type AllCategoriesProps = {
-  categories: Category[];
+  categories: Category[],
+  bgSecondaryColor:string
 };
-export default function AllCategories({ categories }: AllCategoriesProps) {
+export default function AllCategories({ categories  , bgSecondaryColor}: AllCategoriesProps ) {
 
   return (
-    <div style={{backgroundColor:"#10a2af"}} className='flex flex-col gap-6 w-full min-h-[20vh] lg:min-h-[50vh] mt-5'>
+    <div style={{backgroundColor:`${bgSecondaryColor}`}} className='flex flex-col gap-6 w-full min-h-[20vh] lg:min-h-[50vh] mt-5'>
       <div className='text-xl text-center text-[#ffff] font-semibold pt-4'>
       Curated For You | Shop Now
       </div>

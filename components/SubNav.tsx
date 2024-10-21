@@ -14,11 +14,13 @@ type SingleStyle = {
 
 export default async function SubNav() {
   const singleStyle: SingleStyle = await getSingleStyle("66796331098ee8133c96fc94");
+  const bgColor = singleStyle?.secondaryColor || "#633185" ;
+
   // Handle case where singleStyle might be null
   const navImageUrl = singleStyle?.topBannerImage || "/nav.gif";
   return (
     <div
-      style={{ backgroundColor:"#633185" }}
+    style={{ backgroundColor: `${bgColor}` }}
       className="w-full lg:h-[9.1vh] h-[10%] justify-center items-center lg:flex md:flex hidden"
     >
       <img

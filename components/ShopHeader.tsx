@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import {User } from "lucide-react";
 import { usePathname } from "next/navigation";
-import SearchForm from "./front-end/SearchForm";
 import HelpModal from "./front-end/HelpModal";
 import CartCount from "./front-end/CartCount";
 import { MobileNavBar } from "./MobileNavBar";
 import MobileCart from "./front-end/MobileCart";
 import UserAvatar from "./UserAvatar";
 import { Product } from "@prisma/client";
+import PopupSearch from "./front-end/PopupSearch";
 export const revalidate = 60; 
 
 
@@ -37,9 +37,13 @@ export default function ShopHeader({allCategories , backgroundColor ,session , p
         </div>
        
         {/* SEARCH */}
-        <div className="flex-grow lg:block md:block hidden">
+        {/* <div className="flex-grow lg:block md:block hidden">
           <SearchForm products={products} categories={allCategories}/>
-        </div>
+        </div> */}
+          <div className="lg:block flex-grow  md:hidden hidden">
+            <PopupSearch products={products} categories={allCategories} />
+          </div>
+
         <div className="gap-8 lg:flex items-center md:flex  hidden">
           {!user ? (
             <Link
@@ -83,7 +87,9 @@ export default function ShopHeader({allCategories , backgroundColor ,session , p
       <div className="flex items-center justify-between lg:max-w-6xl mx-auto px-4 gap-8">
         {/* SEARCH */}
         <div className="flex-grow lg:block md:block block">
-          <SearchForm products={products} categories={allCategories}/>
+          {/* <SearchForm products={products} categories={allCategories}/> */}
+          <PopupSearch products={products} categories={allCategories} />
+
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const categoriesWithProducts = allCategories.filter((category:any)=>category.pro
             className='relative flex flex-col items-center justify-center rounded-lg transform transition-transform hover:scale-105'
          
           >
-            <img src={category.imageUrl} alt={category.title} className='w-full h-[90%] mb-1 object-cover rounded-xl' />
+            <img src={category.imageUrl} alt={category.title} className='w-full h-[80%] mb-1 object-cover rounded-xl' />
             <div className='text-black font-medium text-sm text-center line-clamp-2 capitalize'>{category.title}</div>
           </Link>
         ))}

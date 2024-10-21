@@ -19,9 +19,9 @@ interface CustomSession {
 }
 // Types for Product, Category, and SubCategory
 export type ProductTypes = {
-  id: string; // Assuming each product has a unique ID
+  id: string;
   barcode: string;
-  imageUrl:string;
+  imageUrl: string;
   categoryId: string;
   description: string;
   subCategoryId: string;
@@ -34,19 +34,18 @@ export type ProductTypes = {
   slug: string;
   tags: string[];
   title: string;
-  type: string; // Adjust this type as needed
-  unit: string; // Adjust this type as needed
+  type: string;
+  unit: string;
   wholesalePrice: number;
   wholesaleQty: number;
   productStock: number;
   qty: number;
-  productImages: string[]; // Array of image URLs
-  createdAt: Date; // Assuming you have createdAt field
-  updatedAt: Date; // Assuming you have updatedAt field
-  category: Category; // Nested type for Category
-  subCategory: SubCategory; // Nested type for SubCategory
+  productImages: string[];
+  createdAt: Date;
+  updatedAt: Date;
+  category?: Category | null; // Make category optional
+  subCategory?: SubCategory | null; // Make subCategory optional
 };
-
 
 export type SubCategory = {
   id: string; // Assuming each subcategory has a unique ID

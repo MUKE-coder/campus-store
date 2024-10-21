@@ -4,19 +4,19 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { ProductTypes } from "@/types";
 
-export default async function TopOffers({products}:ProductTypes | any) {
+export default async function TopOffers({products , bgSecondaryColor}:ProductTypes | any) {
   
   return (
    <div className="flex flex-col gap-6 w-full min-h-[50vh] bg-white mt-5">
 
-    <div style={{backgroundColor:"#10a2af"}} className="flex items-center justify-between  p-4">
+    <div style={{backgroundColor:`${bgSecondaryColor}`}} className="flex items-center justify-between  p-4">
       
-      <h2 className="text-[#ffff] font-bold lg:tracking-normal lg:text-lg text-lg flex items-center gap-1 pt-4">Payweek Deals | Top Offers
+      <h2 className="text-[#ffff] font-bold lg:tracking-normal lg:text-xl text-lg flex items-center gap-1 pt-3">Payweek Deals | Top Offers
 
       </h2>
      
       <div className="lg:block md:block hidden">
-      <Link className="text-[#ffff] font-bold lg:text-sm text-xs flex items-center gap-1" href="/more/topdeals">SEE ALL
+      <Link className="text-[#ffff] font-bold lg:text-lg text-xs flex items-center gap-1" href="/more/topdeals">SEE ALL
       <ChevronRight className="w-5 h-5"/>
       </Link>
      </div>
@@ -28,6 +28,8 @@ export default async function TopOffers({products}:ProductTypes | any) {
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
+
+      
    </div>
   );
 }

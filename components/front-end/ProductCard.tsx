@@ -6,12 +6,20 @@ import { useCart } from "../CartContext";
 import { ProductTypes } from "@/types";
 import { Star } from "lucide-react";
 
-export default function ProductCard({ product }: { product: ProductTypes }) {
+type ProductCardProps = {
+  product: ProductTypes;
+  onClick?: () => void;  
+};
+export default function ProductCard({ product, onClick }: ProductCardProps) {
   const { setProductDetails, addRecentlyViewedProduct } = useCart();
   
   const handleClick = () => {
     setProductDetails(product);
     addRecentlyViewedProduct(product);
+    
+    if (onClick) {
+      onClick();
+    }
   };
 
   const discount = ((product.productPrice - product.salePrice) / product.productPrice) * 100;
