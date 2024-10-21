@@ -4,7 +4,7 @@ import Image from "next/image";
 import { formatMoney } from "@/lib/formatMoney";
 import { useCart } from "../CartContext";
 import { ProductTypes } from "@/types";
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 
 type ProductCardProps = {
   product: ProductTypes;
