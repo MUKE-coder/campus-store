@@ -7,5 +7,6 @@ export async function getData(endpoint:string) {
     return data;
   } catch (error) {
     console.log(error);
+    return []; 
   }
 }
