@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { DM_Sans } from "next/font/google";
 import { ToastContainer } from "react-toastify";
@@ -79,7 +79,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <CartProvider>
             <ToastContainer />
             {children}
-            <Analytics />
+            {/* <Analytics /> */}
           </CartProvider>
         </Providers>
       </body>
