@@ -33,6 +33,7 @@ async function fetchBannerData() {
       getData("banners"),
       getData("categories"),
     ]);
+    console.log(allCategories)
 
     const categoriesWithProducts = (allCategories || []).filter(
       (category) => category?.isActive
@@ -65,6 +66,7 @@ async function fetchProductsAndCategories() {
       // getData("categories"),
     ]);
     const categories = await getData("categories")||[];
+    console.log(categories)
 
     const flashProducts = (products || []).filter((item) => item?.type === "flash");
     const featuredProducts = (products || []).filter((item) => item?.type === "featured");
